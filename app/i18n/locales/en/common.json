@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "title": "My Portfolio",
+    "description": "Software developer specializing in web development"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "role": "Software Developer",
+    "cta": "Get in touch"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "A passionate software developer creating modern and efficient web applications"
+  }
+}
