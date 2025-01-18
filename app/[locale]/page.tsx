@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { Metadata } from "next";
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
-import { LocalProps } from "../components/interfaces/local.props.interface";
-import getTranslations from "../i18n";
+import { LocalProps } from "@/app/components/interfaces/local.props.interface";
+import getTranslations from "@/app/i18n";
+import ThemeToggle from "@/app/components/theme/theme_toggle";
+import LanguageToggle from "@/app/components/language/lang_toggle";
 
 export async function generateMetadata({
   params: { locale },
@@ -40,6 +42,9 @@ export default async function Home({ params: { locale } }: LocalProps) {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
+
+        <ThemeToggle />
+        <LanguageToggle params={{ locale }} />
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a

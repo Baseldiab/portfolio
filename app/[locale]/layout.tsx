@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
+import { ThemeProvider } from "next-themes";
+import { headers } from "next/headers";
+import { redirect } from "next/navigation";
+import i18nConfig from "@/i18nConfig";
 
 export async function generateMetadata({
   params: { locale },
@@ -16,12 +20,29 @@ export async function generateMetadata({
 
 export default function RootLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
+  // Validate that the incoming locale is supported
+  if (!i18nConfig.locales.includes(locale)) {
+    const headersList = headers();
+    const defaultLocale = i18nConfig.defaultLocale;
+    // Get the path without the locale
+    const path = headersList.get("x-invoke-path") || "";
+    const pathWithoutLocale = path.replace(`/${locale}`, "") || "/";
+
+    redirect(`/${defaultLocale}${pathWithoutLocale}`);
+  }
+
   return (
-    <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`antialiased`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
