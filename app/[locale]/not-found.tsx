@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import getTranslations from "../i18n";
+import getTranslations from "@/app/i18n";
 
 export default async function NotFound() {
   const headersList = headers();
