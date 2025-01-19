@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
-import { Languages } from "lucide-react";
 import { useCallback } from "react";
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
+
+// icons
+import AmericaIcon from "@/app/components/icons/americaIcon";
+import EgyptIcon from "@/app/components/icons/egyptIcon";
 
 // const languages = ["en", "ar"];
 
@@ -25,10 +28,15 @@ export default function LanguageToggle({ params: { locale } }: LocalProps) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={cycleLanguage}
-      className="p-2 rounded-full bg-primary/10 text-primary"
+      className=" rounded-full text-primary size-8"
     >
       <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-        <Languages size={20} />
+        {/* <Languages size={20} /> */}
+        {locale === "en" ? (
+          <EgyptIcon className="size-full" />
+        ) : (
+          <AmericaIcon className="size-full" />
+        )}
       </motion.div>
     </motion.button>
   );
