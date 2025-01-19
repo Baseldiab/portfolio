@@ -10,8 +10,8 @@ const HeroSection = () => {
     >
       <motion.h1
         className="text-6xl font-bold text-outline transition-all duration-500 ease-in-out"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, y: 0 }}
+        animate={{ opacity: 1, y: "-50" }}
         transition={{ duration: 1 }}
       >
         {"BaselDiab"}

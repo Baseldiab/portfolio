@@ -18,7 +18,7 @@ export default function BreathAnimation({
     <motion.div
       whileHover={{ scale: 1.2 }}
       whileTap={{ scale: 0.8 }}
-      className={cn("w-full h-full bg-red-500", className)}
+      className={cn("", className)}
     >
       {children}
     </motion.div>
