@@ -24,14 +24,18 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-full bg-primary/10 text-primary"
+      className=" rounded-full  text-primary size-5 sm:size-7"
     >
       <motion.div
         initial={false}
         animate={{ rotate: theme === "dark" ? 180 : 0 }}
         transition={{ type: "spring", stiffness: 200, damping: 10 }}
       >
-        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+        {theme === "dark" ? (
+          <Sun className="!size-full" />
+        ) : (
+          <Moon className="!size-full" />
+        )}
       </motion.div>
     </motion.button>
   );

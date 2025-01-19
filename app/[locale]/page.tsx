@@ -28,6 +28,9 @@ export async function generateMetadata({
 }
 
 export default async function Home({ params: { locale } }: LocalProps) {
+  // Add artificial delay
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   const { t } = await getTranslations(locale as string);
 
   return (

@@ -28,7 +28,7 @@ export default function LanguageToggle({ params: { locale } }: LocalProps) {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={cycleLanguage}
-      className=" rounded-full text-primary size-8"
+      className=" rounded-full text-primary size-5 sm:size-7"
     >
       <motion.div animate={{ rotate: 360 }} transition={{ duration: 0.5 }}>
         {/* <Languages size={20} /> */}

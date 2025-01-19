@@ -34,7 +34,7 @@ export default function MenuNavbar() {
           />
         )}
         <motion.div
-          className="fixed right-0 top-0 h-full w-[300px] bg-theme-background-main dark:bg-theme-background-dark border-l z-50 shadow-xl"
+          className="fixed right-0 top-0 h-full w-[300px] bg-white dark:bg-black border-l z-50 shadow-xl"
           variants={sidebarVariants}
           initial="closed"
           animate={isOpen ? "open" : "closed"}
