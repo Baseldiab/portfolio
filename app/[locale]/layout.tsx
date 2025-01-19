@@ -1,10 +1,19 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
+// next
 import { ThemeProvider } from "next-themes";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+
+// Styles
+import "./globals.css";
+
+// Utils
+import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
+
+// Config
 import i18nConfig from "@/i18nConfig";
+
+// Components
 
 export async function generateMetadata({
   params: { locale },
