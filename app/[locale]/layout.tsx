@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 // Styles
+import CustomCursor from "@/app/components/common/custom-cursor";
 import "./globals.css";
 
 // Utils
@@ -50,6 +51,8 @@ export default function RootLayout({
       <body className={`antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
+
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>
