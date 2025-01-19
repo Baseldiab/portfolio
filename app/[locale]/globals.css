@@ -81,3 +81,26 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.text-outline {
+  -webkit-text-stroke: 2px #4f46e5; /* Color of the outer line */
+  color: transparent; /* Transparent fill */
+}
+
+/* Hover fill animation */
+.text-outline:hover {
+  background: linear-gradient(90deg, #4f46e5, #22d3ee); /* Gradient colors */
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: fill-text 1s forwards;
+}
+
+/* Animation Keyframes */
+@keyframes fill-text {
+  0% {
+    -webkit-text-stroke: 2px #4f46e5;
+  }
+  100% {
+    -webkit-text-stroke: 0;
+  }
+}

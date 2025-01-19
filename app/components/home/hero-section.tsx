@@ -9,12 +9,12 @@ const HeroSection = () => {
       className="w-full flex flex-col items-center justify-center bg-theme-background-main text-theme-text-main dark:bg-theme-background-dark dark:text-theme-text-dark"
     >
       <motion.h1
-        className="text-6xl font-bold"
+        className="text-6xl font-bold text-outline transition-all duration-500 ease-in-out"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        {"  Ahmed's Portfolio"}
+        {"BaselDiab"}
       </motion.h1>
       <motion.p
         className="text-lg mt-4 w-full"
