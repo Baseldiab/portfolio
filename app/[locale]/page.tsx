@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 // Translation
-// import getTranslations from "@/app/i18n";
+import getTranslations from "@/app/i18n";
 
 // Utils
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
@@ -28,7 +28,7 @@ export async function generateMetadata({
 }
 
 export default async function Home({ params: { locale } }: LocalProps) {
-  // const { t } = await getTranslations(locale as string);
+  const { t } = await getTranslations(locale as string);
 
   return (
     <>
@@ -67,7 +67,7 @@ export default async function Home({ params: { locale } }: LocalProps) {
             width={16}
             height={16}
           />
-          Examples
+          {t("fields.app-name")}
         </a>
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"

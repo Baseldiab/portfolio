@@ -13,7 +13,7 @@ const config: Config = {
 		  colors: {
 			theme: {
 				background: {
-					main: '#fff',
+					main: '#ffffffcc',
 					dark: '#000'
 			  },
 				text: {

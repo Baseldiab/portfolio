@@ -48,7 +48,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`flex flex-col gap-10  overflow-hidden `}>
+      <body className={`flex flex-col gap-10  overflow-hidden`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
 

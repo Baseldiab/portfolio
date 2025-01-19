@@ -14,7 +14,7 @@ export default function MenuNavbar() {
   const menuItems = ["home", "about_me", "projects", "contact_me"];
 
   return (
-    <div className="lg:hidden">
+    <div className="">
       {" "}
       {/* Only show on mobile */}
       <motion.nav
@@ -34,7 +34,7 @@ export default function MenuNavbar() {
           />
         )}
         <motion.div
-          className="fixed right-0 top-0 h-full w-[300px] bg-theme-background-main dark:bg-theme-background-dark border-l z-50"
+          className="fixed right-0 top-0 h-full w-[300px] bg-theme-background-main dark:bg-theme-background-dark border-l z-50 shadow-xl"
           variants={sidebarVariants}
           initial="closed"
           animate={isOpen ? "open" : "closed"}
@@ -137,15 +137,17 @@ const backdropVariants = {
       type: "spring",
       stiffness: 20,
       restDelta: 2,
+      delay: 2,
     },
   },
   closed: {
-    opacity: 0,
+    opacity: 1,
     transition: {
-      delay: 0.2,
+      restDelta: 2,
+      delay: 2,
       type: "spring",
-      stiffness: 400,
-      damping: 20,
+      stiffness: 20,
+      //   damping: 20,
     },
   },
 };
@@ -153,7 +155,7 @@ const backdropVariants = {
 const sidebarVariants = {
   open: {
     x: 0,
-    y: 0,
+    y: "0",
     transition: {
       delay: 0.2,
       type: "spring",

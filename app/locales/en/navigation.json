@@ -1,7 +1,8 @@
 {
   "home": "Home",
-  "about_me": "About me",
+  "about_me": "About",
   "projects": "Projects",
+  "others": "Others",
   "contact_me": "Contact me",
   "lets_connect": "Let's connect"
 }

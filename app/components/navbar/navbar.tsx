@@ -3,30 +3,40 @@
 import { useState } from "react";
 import { clsx } from "clsx";
 import Link from "next/link";
+
+// components
 import ThemeToggle from "@/app/components/theme/theme_toggle";
 import LanguageToggle from "@/app/components/language/lang_toggle";
+import MenuNavbar from "@/app/components/navbar/menu-navbar";
+
+// types
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
-import MenuNavbar from "./menu-navbar";
+
+// constants
+import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
+import { useTranslations } from "../hooks/useTranslation";
 
 const Navbar = ({ params: { locale } }: LocalProps) => {
+  const { t } = useTranslations(locale as string);
   const [activeSection, setActiveSection] = useState("home");
 
-  const NavbarArray = ["home", "projects", "contact"];
+  console.log("Current locale:", locale);
+  console.log("Translation test:", t("navigation.home"));
 
   return (
     <nav className=" w-full max-h-fit  py-4 z-50">
       <ul className="flex justify-end gap-8 text-red-500">
-        {NavbarArray.map((section) => (
-          <li key={section}>
+        {navbarMenuArray.map((item) => (
+          <li key={item.id}>
             <Link
-              href={`/#${section}`}
-              onClick={() => setActiveSection(section)}
+              href={item.link}
+              onClick={() => setActiveSection(item.id)}
               className={clsx(
                 "hover:underline text-red-500",
-                activeSection === section && "text-accent"
+                activeSection === item.id && "text-accent"
               )}
             >
-              {section.toUpperCase()}
+              {t(item.text)}
             </Link>
           </li>
         ))}
