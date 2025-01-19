@@ -14,19 +14,40 @@ export default function CustomCursor() {
 
   return (
     <AnimatedCursor
-      innerSize={0}
+      innerSize={8}
       outerSize={8}
       innerScale={1}
-      outerScale={1.7}
-      outerAlpha={0}
+      outerScale={3}
+      outerAlpha={0.3}
+      showSystemCursor={true}
       innerStyle={{
-        cursor: "cursor-pointer",
-        // backgroundColor: "var(--cursor-color)",
+        backgroundColor: "transparent",
+        cursor: "default",
       }}
       outerStyle={{
-        backgroundColor: "var(--cursor-color)",
-        border: "3px solid var(--cursor-color)",
+        backgroundColor: "#ffffff",
+        border: "5px solid #ffffff",
+        mixBlendMode: "difference",
       }}
+      clickables={[
+        "a",
+        'input[type="text"]',
+        'input[type="email"]',
+        'input[type="number"]',
+        "input[type='submit']",
+        "input[type='image']",
+        "label[for]",
+        "select",
+        "textarea",
+        "button",
+        ".link",
+        {
+          target: ".custom",
+          outerSize: 20,
+          outerAlpha: 0.3,
+          outerScale: 5,
+        },
+      ]}
     />
   );
 }
