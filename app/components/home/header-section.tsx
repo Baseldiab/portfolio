@@ -8,15 +8,13 @@ import getTranslations from "@/app/i18n";
 // interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
-// components
-import RotatingEarth from "./earth-model";
+// 
 
 export default async function HeroSection({ params: { locale } }: LocalProps) {
   const { t } = await getTranslations(locale as string);
 
   return (
     <header className="relative min-h-screen w-full overflow-hidden">
-      <RotatingEarth />
 
       <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95 z-[1]" />
 

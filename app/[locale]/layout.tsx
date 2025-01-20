@@ -68,9 +68,7 @@ export default function RootLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body
-        className={`${playfair.variable} flex flex-col gap-10  overflow-hidden`}
-      >
+      <body className={`${playfair.variable} flex flex-col gap-10  `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
 
