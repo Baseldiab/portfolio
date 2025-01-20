@@ -78,7 +78,10 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
             <LanguageToggle params={{ locale }} />
           </BreathAnimation>
 
-          <MenuNavbar className="lg:hidden" />
+          <MenuNavbar
+            locale={locale as string}
+            className={`lg:hidden`}
+          />
         </div>
       </div>
     </nav>

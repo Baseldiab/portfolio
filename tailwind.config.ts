@@ -11,7 +11,8 @@ const config: Config = {
   theme: {
   	extend: {
 		  fontFamily: {
-			  playfair: ['Matter, sans-serif'],
+				playfair: ['Matter, sans-serif'],
+				karla: ['Karla', '"MS Sans Serif"', 'Geneva', 'sans-serif'],
 			},
 		  colors: {
 			theme: {
@@ -21,7 +22,8 @@ const config: Config = {
 			  },
 				text: {
 					main: '#000',
-					dark: '#fff'
+					dark: '#fff',
+					second: "#6c757d"
 				}
 				},	
 			  

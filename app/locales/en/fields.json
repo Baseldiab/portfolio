@@ -3,7 +3,9 @@
   "app-description": "A skilled frontend developer proficient in React.js, Next.js, TypeScript, and modern UI frameworks. Showcasing expertise in state management, responsive design, and innovative web solutions for seamless user experiences.",
   "not-found": "Page not found",
   "not-found-msg": "We couldn't find the page you were looking for. Please check the URL you entered or return to the home page.",
-  "hello_there": "Hello There,",
   "loading_first_text": "Basel Diab",
-  "loading_second_text": "Basel Diab Frontend developer"
+  "loading_second_text": "Basel Diab Frontend developer",
+  "hello_there": "Hello there, my name is",
+  "header": "Basel Diab",
+  "header-gradient": "I build web stuff."
 }

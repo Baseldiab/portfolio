@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 
 // Styles
-import CustomCursor from "@/app/components/common/custom-cursor";
 import "./globals.css";
 
 // Utils
@@ -15,7 +14,9 @@ import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-m
 import i18nConfig from "@/i18nConfig";
 
 // Components
+import CustomCursor from "@/app/components/common/custom-cursor";
 
+// fonts
 import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
@@ -62,7 +63,11 @@ export default function RootLayout({
   }
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+    >
       <body
         className={`${playfair.variable} flex flex-col gap-10  overflow-hidden`}
       >

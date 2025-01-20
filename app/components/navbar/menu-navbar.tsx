@@ -26,15 +26,39 @@ import { Linkedin } from "lucide-react";
 
 interface MenuNavbarProps {
   className?: string;
+  locale: string;
 }
 
-export default function MenuNavbar({ className }: MenuNavbarProps) {
+export default function MenuNavbar({ className, locale }: MenuNavbarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { height } = useDimensions(containerRef);
 
   // state
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+
+  const sidebarVariants = {
+    open: {
+      x: 0,
+      y: 0,
+      transition: {
+        delay: 0.2,
+        type: "spring",
+        stiffness: 400,
+        damping: 100,
+      },
+    },
+    closed: {
+      x: locale === "ar" ? "-100%" : "100%",
+      y: "-100%",
+      transition: {
+        delay: 0.2,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+  };
 
   return (
     <div className={cn("", className)}>
@@ -57,7 +81,10 @@ export default function MenuNavbar({ className }: MenuNavbarProps) {
           />
         )}
         <motion.div
-          className="fixed right-0 top-0 h-full w-[300px] bg-white dark:bg-black border-l z-50 shadow-xl"
+          className={cn(
+            "fixed end-0 top-0 h-full w-[300px] bg-white dark:bg-black border-l z-50 shadow-xl"
+          )}
+          dir={locale === "ar" ? "rtl" : "ltr"}
           variants={sidebarVariants}
           initial="closed"
           animate={isOpen ? "open" : "closed"}
@@ -221,29 +248,6 @@ const backdropVariants = {
       type: "spring",
       stiffness: 20,
       //   damping: 20,
-    },
-  },
-};
-
-const sidebarVariants = {
-  open: {
-    x: 0,
-    y: "0",
-    transition: {
-      delay: 0.2,
-      type: "spring",
-      stiffness: 400,
-      damping: 100,
-    },
-  },
-  closed: {
-    x: "100%",
-    y: "-100%",
-    transition: {
-      delay: 0.2,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
     },
   },
 };
