@@ -3,7 +3,7 @@
 
 import TypingLoader from "@/app/components/loading/typing";
 
-export default function loading() {
+export default async function Loading() {
   return (
     <main className="flex justify-center items-center h-screen bg-theme-background-main dark:bg-theme-background-dark">
       {/* <Image

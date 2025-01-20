@@ -16,16 +16,20 @@ import { motion } from "framer-motion";
 // lib
 import { cn } from "@/lib/utils";
 
-interface MenuNavbarProps{
-  className?: string
+// interfaces
+import { NavbarMenu } from "@/app/components/interfaces/navbar";
+
+// constants
+import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
+
+interface MenuNavbarProps {
+  className?: string;
 }
 
-export default function MenuNavbar({className}: MenuNavbarProps) {
+export default function MenuNavbar({ className }: MenuNavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { height } = useDimensions(containerRef);
-
-  const menuItems = ["home", "about_me", "projects", "contact_me"];
 
   return (
     <div className={cn("", className)}>
@@ -53,7 +57,7 @@ export default function MenuNavbar({className}: MenuNavbarProps) {
           initial="closed"
           animate={isOpen ? "open" : "closed"}
         >
-          <Navigation items={menuItems} />
+          <Navigation items={navbarMenuArray} />
         </motion.div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -96,13 +100,13 @@ const navVariants = {
   },
 };
 
-const Navigation = ({ items }: { items: string[] }) => {
+const Navigation = ({ items }: { items: NavbarMenu[] }) => {
   const { t } = useTranslation("navigation");
 
   return (
     <motion.ul className="pt-20 px-6" variants={navVariants}>
       {items.map((item) => (
-        <MenuItem key={item} item={item} label={t(item)} />
+        <MenuItem key={item.id} item={item} label={t(item.text)} />
       ))}
     </motion.ul>
   );
@@ -125,7 +129,7 @@ const itemVariants = {
   },
 };
 
-const MenuItem = ({ item, label }: { item: string; label: string }) => {
+const MenuItem = ({ item, label }: { item: NavbarMenu; label: string }) => {
   return (
     <motion.li
       style={listItem}
@@ -135,7 +139,7 @@ const MenuItem = ({ item, label }: { item: string; label: string }) => {
       className="mb-4"
     >
       <Link
-        href={`/#${item}`}
+        href={item.link}
         className="text-theme-text-main dark:text-theme-text-dark hover:text-foreground text-lg font-medium"
       >
         {label}
