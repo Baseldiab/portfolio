@@ -17,7 +17,10 @@ import { motion } from "framer-motion";
 
 // constants
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
-import { useTranslations } from "../hooks/useTranslation";
+
+// hooks
+import { useTranslations } from "@/app/components/hooks/useTranslation";
+import { Linkedin } from "lucide-react";
 
 const Navbar = ({ params: { locale } }: LocalProps) => {
   const { t } = useTranslations(locale as string);
@@ -43,6 +46,8 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
             {/* <span className="font-bold">{"iab"}</span> */}
           </motion.div>
         </Link>
+
+        {/* desktop menu */}
         <ul className="flex justify-end items-end gap-8 text-theme-text-main dark:text-theme-text-dark font-bold text-base md:text-xl max-lg:hidden">
           {navbarMenuArray.map((item) => (
             <li key={item.id} className="!p-0 !m-0 ">
@@ -59,7 +64,10 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
               </Link>
             </li>
           ))}
+     
         </ul>
+
+        {/* mobile menu */}
         <div className="flex justify-end items-center gap-2">
           <ThemeToggle />
 

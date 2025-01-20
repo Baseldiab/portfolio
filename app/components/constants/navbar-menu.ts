@@ -22,9 +22,9 @@ export const navbarMenuArray: NavbarMenu[] = [
         id: "others",
         text: "navigation.others"
     },
-    // {
-    //     link: "#contact_me",
-    //     id: "contact",
-    //     text: "navigation.contact_me"
-    // }
+    {
+        link: "#contact_me",
+        id: "contact",
+        text: "navigation.contact_me"
+    }
 ]

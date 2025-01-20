@@ -21,6 +21,7 @@ import { NavbarMenu } from "@/app/components/interfaces/navbar";
 
 // constants
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
+import { Linkedin } from "lucide-react";
 
 interface MenuNavbarProps {
   className?: string;
@@ -44,7 +45,7 @@ export default function MenuNavbar({ className }: MenuNavbarProps) {
       >
         {isOpen && (
           <motion.div
-            className="fixed inset-0 bg-theme-background-dark/50 dark:bg-theme-background-main/50 z-40"
+            className="fixed inset-0 bg-theme-background-dark/50 dark:bg-theme-background-dark/90 z-40"
             variants={backdropVariants}
             initial="closed"
             animate="open"
@@ -108,6 +109,21 @@ const Navigation = ({ items }: { items: NavbarMenu[] }) => {
       {items.map((item) => (
         <MenuItem key={item.id} item={item} label={t(item.text)} />
       ))}
+      <motion.li
+        style={listItem}
+        variants={itemVariants}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="mb-4"
+      >
+        <a
+          href={"https://www.linkedin.com/in/basel-diab-94b526259/"}
+          className="flex justify-center items-center text-white      bg-[#1976D2]/95 hover:bg-[#1976D2] px-3 py-2 gap-1.5 rounded-md font-bold text-lg uppercase"
+        >
+          <Linkedin className="size-5" />
+          {t("navigation.lets_connect")}
+        </a>
+      </motion.li>
     </motion.ul>
   );
 };
