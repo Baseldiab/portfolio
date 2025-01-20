@@ -117,6 +117,10 @@ body {
   @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
 }
 
+.link-hover:hover {
+  @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
+}
+
 *::-webkit-scrollbar {
   @apply h-[10px] w-[10px];
 }

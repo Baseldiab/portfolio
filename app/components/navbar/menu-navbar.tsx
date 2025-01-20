@@ -5,9 +5,10 @@ import Link from "next/link";
 
 // react
 import { useEffect, useRef, useState } from "react";
+import React from "react";
 
-// Translation
-import { useTranslation } from "react-i18next";
+// hooks
+import { useTranslations } from "@/app/components/hooks/useTranslation";
 
 // framer-motion imports
 import type { Variants } from "framer-motion";
@@ -28,9 +29,12 @@ interface MenuNavbarProps {
 }
 
 export default function MenuNavbar({ className }: MenuNavbarProps) {
-  const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { height } = useDimensions(containerRef);
+
+  // state
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   return (
     <div className={cn("", className)}>
@@ -58,7 +62,11 @@ export default function MenuNavbar({ className }: MenuNavbarProps) {
           initial="closed"
           animate={isOpen ? "open" : "closed"}
         >
-          <Navigation items={navbarMenuArray} />
+          <Navigation
+            items={navbarMenuArray}
+            activeSection={activeSection}
+            setActiveSection={setActiveSection}
+          />
         </motion.div>
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -101,13 +109,29 @@ const navVariants = {
   },
 };
 
-const Navigation = ({ items }: { items: NavbarMenu[] }) => {
-  const { t } = useTranslation("navigation");
+const Navigation = ({
+  items,
+  activeSection,
+  setActiveSection,
+}: {
+  items: NavbarMenu[];
+  activeSection: string;
+  setActiveSection: (section: string) => void;
+}) => {
+  // Memoize the navigation items to prevent unnecessary re-renders
+  const memoizedItems = React.useMemo(() => items, [items]);
+  const { t } = useTranslations("navigation");
 
   return (
     <motion.ul className="pt-20 px-6" variants={navVariants}>
-      {items.map((item) => (
-        <MenuItem key={item.id} item={item} label={t(item.text)} />
+      {memoizedItems.map((item) => (
+        <MenuItem
+          key={item.id}
+          activeSection={activeSection}
+          onClick={() => setActiveSection(item.id)}
+          item={item}
+          label={t(item.text)}
+        />
       ))}
       <motion.li
         style={listItem}
@@ -118,7 +142,7 @@ const Navigation = ({ items }: { items: NavbarMenu[] }) => {
       >
         <a
           href={"https://www.linkedin.com/in/basel-diab-94b526259/"}
-          className="flex justify-center items-center text-white      bg-[#1976D2]/95 hover:bg-[#1976D2] px-3 py-2 gap-1.5 rounded-md font-bold text-lg uppercase"
+          className="flex justify-center items-center text-white bg-[#1976D2]/95 hover:bg-[#1976D2] px-3 py-2 gap-1.5 rounded-md font-bold text-lg uppercase"
         >
           <Linkedin className="size-5" />
           {t("navigation.lets_connect")}
@@ -145,18 +169,33 @@ const itemVariants = {
   },
 };
 
-const MenuItem = ({ item, label }: { item: NavbarMenu; label: string }) => {
+const MenuItem = ({
+  item,
+  label,
+  activeSection,
+  onClick,
+}: {
+  item: NavbarMenu;
+  label: string;
+  activeSection: string;
+  onClick: () => void;
+}) => {
   return (
     <motion.li
       style={listItem}
       variants={itemVariants}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="mb-4"
+      className="mb-4 font-bold text-base md:text-xl"
     >
       <Link
         href={item.link}
-        className="text-theme-text-main dark:text-theme-text-dark hover:text-foreground text-lg font-medium"
+        onClick={onClick}
+        className={cn(
+          "hover:underline link-hover  uppercase",
+          activeSection === item.id &&
+            "text-accent text-gradient dark:text-gradient"
+        )}
       >
         {label}
       </Link>

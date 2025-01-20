@@ -16,8 +16,12 @@ export default function BreathAnimation({
 }: BreathAnimationProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.2 }}
-      whileTap={{ scale: 0.8 }}
+      whileHover={{
+        scale: 1.3, // Scale the letter up
+        transition: { duration: 0.3, ease: "easeInOut" },
+      }}
+      // whileTap={{ scale: 0.8 }}
+      transition={{ duration: 0.5 }}
       className={cn("", className)}
     >
       {children}
