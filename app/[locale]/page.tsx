@@ -38,7 +38,7 @@ export default async function Home({ params: { locale } }: LocalProps) {
       <Navbar params={{ locale }} />
 
       <main className="flex flex-col gap-16 items-center sm:items-start my-16 h-full">
-        <HeroSection />
+        <HeroSection params={{ locale }} />
       </main>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">

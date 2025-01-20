@@ -10,6 +10,9 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		  fontFamily: {
+			  playfair: ['Matter, sans-serif'],
+			},
 		  colors: {
 			theme: {
 				background: {
@@ -20,7 +23,7 @@ const config: Config = {
 					main: '#000',
 					dark: '#fff'
 				}
-			},	
+				},	
 			  
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

@@ -16,6 +16,13 @@ import i18nConfig from "@/i18nConfig";
 
 // Components
 
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+});
+
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -56,7 +63,9 @@ export default function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`flex flex-col gap-10  overflow-hidden`}>
+      <body
+        className={`${playfair.variable} flex flex-col gap-10  overflow-hidden`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
 

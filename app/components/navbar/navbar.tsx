@@ -5,8 +5,8 @@ import { clsx } from "clsx";
 import Link from "next/link";
 
 // components
-import ThemeToggle from "@/app/components/theme/theme_toggle";
-import LanguageToggle from "@/app/components/language/lang_toggle";
+import ThemeToggle from "@/app/utils/theme_toggle";
+import LanguageToggle from "@/app/utils/lang_toggle";
 import MenuNavbar from "@/app/components/navbar/menu-navbar";
 
 // types
