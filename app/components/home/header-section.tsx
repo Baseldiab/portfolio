@@ -2,11 +2,20 @@
 
 import { motion } from "framer-motion";
 
+// assets
+import headerBg from "@/public/images/header-static-bg.webp";
+
 const HeroSection = () => {
   return (
-    <section
+    <header
       id="home"
-      className="w-full flex flex-col items-center justify-center bg-theme-background-main text-theme-text-main dark:bg-theme-background-dark dark:text-theme-text-dark"
+      className="w-full flex flex-col items-center justify-center  text-theme-text-main dark:text-theme-text-dark"
+      style={{
+        backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 1) 100%), url(${headerBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <motion.h1
         className="text-6xl font-bold text-outline transition-all duration-500 ease-in-out overflow-hidden"
@@ -33,7 +42,7 @@ const HeroSection = () => {
         <button className="btn">View Projects</button>
         <button className="btn">Download Resume</button>
       </motion.div>
-    </section>
+    </header>
   );
 };
 

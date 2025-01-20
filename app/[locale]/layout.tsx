@@ -21,11 +21,19 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  return generatePageMetadata(
-    locale,
-    "fields.app-name",
-    "fields.app-description"
-  );
+  return {
+    ...(await generatePageMetadata(
+      locale,
+      "fields.app-name",
+      "fields.app-description"
+    )),
+    icons: {
+      icon: "/favicon.ico",
+      // You can also add more sizes/types
+      apple: "/apple-icon.png",
+      shortcut: "/favicon.ico",
+    },
+  };
 }
 
 export default function RootLayout({

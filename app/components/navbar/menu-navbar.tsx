@@ -1,12 +1,26 @@
 "use client";
 
-import type { Variants } from "framer-motion";
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+// next imports
 import Link from "next/link";
+
+// react
+import { useEffect, useRef, useState } from "react";
+
+// Translation
 import { useTranslation } from "react-i18next";
 
-export default function MenuNavbar() {
+// framer-motion imports
+import type { Variants } from "framer-motion";
+import { motion } from "framer-motion";
+
+// lib
+import { cn } from "@/lib/utils";
+
+interface MenuNavbarProps{
+  className?: string
+}
+
+export default function MenuNavbar({className}: MenuNavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const { height } = useDimensions(containerRef);
@@ -14,7 +28,7 @@ export default function MenuNavbar() {
   const menuItems = ["home", "about_me", "projects", "contact_me"];
 
   return (
-    <div className="">
+    <div className={cn("", className)}>
       {" "}
       {/* Only show on mobile */}
       <motion.nav

@@ -104,3 +104,34 @@ body {
     -webkit-text-stroke: 0;
   }
 }
+
+.container {
+  @apply xl:w-[1180px]  sm:w-[85%] w-[90%] !mx-auto;
+}
+
+.default-text {
+  @apply text-sm;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
+}
+
+*::-webkit-scrollbar {
+  @apply h-[10px] w-[10px];
+}
+*::-webkit-scrollbar-track {
+  @apply rounded-[3px] bg-[#dfe9eb];
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply rounded-[3px] bg-gradient-to-b from-[#00E5DA] to-[#1F7BF6];
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#1f71aa];
+}
+
+*::-webkit-scrollbar-thumb:active {
+  @apply bg-[#1f71aa];
+}

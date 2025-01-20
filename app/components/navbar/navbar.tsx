@@ -20,37 +20,42 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
   const { t } = useTranslations(locale as string);
   const [activeSection, setActiveSection] = useState("home");
 
-  console.log("Current locale:", locale);
-  console.log("Translation test:", t("navigation.home"));
-
   return (
-    <nav className=" w-full max-h-fit  py-4 z-50">
-      <ul className="flex justify-end gap-8 text-red-500">
-        {navbarMenuArray.map((item) => (
-          <li key={item.id}>
-            <Link
-              href={item.link}
-              onClick={() => setActiveSection(item.id)}
-              className={clsx(
-                "hover:underline text-red-500",
-                activeSection === item.id && "text-accent"
-              )}
-            >
-              {t(item.text)}
-            </Link>
-          </li>
-        ))}
-
-        <li>
+    <nav className=" w-full max-h-fit  py-4">
+      <div className="flex justify-between items-center container">
+        <Link
+          href="/"
+          className="text-3xl font-extrabold uppercase text-gradient"
+        >
+          <span className="underline underline-offset-1">{"b"}</span>
+          <span className="">{"asel_"}</span>
+          <span className="underline underline-offset-1">{"D"}</span>
+          <span className="">{"iab"}</span>
+        </Link>
+        <ul className="flex justify-end gap-8 text-theme-text-main dark:text-theme-text-dark font-bold text-lg max-lg:hidden">
+          {navbarMenuArray.map((item) => (
+            <li key={item.id}>
+              <Link
+                href={item.link}
+                onClick={() => setActiveSection(item.id)}
+                className={clsx(
+                  "hover:underline text-theme-text-main dark:text-theme-text-dark uppercase",
+                  activeSection === item.id && "text-accent"
+                )}
+              >
+                {t(item.text)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className="flex justify-end items-center gap-2">
           <ThemeToggle />
-        </li>
-        <li>
+
           <LanguageToggle params={{ locale }} />
-        </li>
-        <li>
-          <MenuNavbar />
-        </li>
-      </ul>
+
+          <MenuNavbar className="lg:hidden" />
+        </div>
+      </div>
     </nav>
   );
 };

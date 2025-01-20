@@ -13,7 +13,7 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // Components
 import Navbar from "@/app/components/navbar/navbar";
-import HeroSection from "@/app/components/home/hero-section";
+import HeroSection from "@/app/components/home/header-section";
 
 export async function generateMetadata({
   params: { locale },
