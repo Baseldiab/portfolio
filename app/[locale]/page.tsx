@@ -10,6 +10,9 @@ import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-m
 // Interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
+// layout
+import Navbar from "@/app/components/navbar/navbar";
+
 // Components
 import HeroSection from "@/app/components/home/header-section/header-section";
 
@@ -27,13 +30,18 @@ export async function generateMetadata({
 
 export default async function Home({ params: { locale } }: LocalProps) {
   // Add artificial delay
-  
 
   // const { t } = await getTranslations(locale as string);
 
+  await new Promise((resolve) => setTimeout(resolve, 3500));
+
   return (
     <>
-      <HeroSection params={{ locale }} />
+      <Navbar params={{ locale }} />
+
+      <main className="flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
+        <HeroSection params={{ locale }} />
+      </main>
     </>
   );
 }

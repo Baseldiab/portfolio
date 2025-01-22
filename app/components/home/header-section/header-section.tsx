@@ -29,10 +29,10 @@ export default async function HeroSection({ params: { locale } }: LocalProps) {
           </RevealAnimation>
 
           <RevealAnimation className="h-fit" delay={0.2}>
-            <h1 className="md:text-7xl text-5xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient">
+            <h1 className="md:text-7xl text-5xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
               {t("fields.header")}.
             </h1>
-            <p className="md:text-5xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply">
+            <p className="md:text-5xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply my-3">
               {t("fields.header-gradient")}
             </p>
           </RevealAnimation>

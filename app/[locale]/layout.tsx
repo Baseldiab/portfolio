@@ -15,7 +15,6 @@ import i18nConfig from "@/i18nConfig";
 
 // Components
 import CustomCursor from "@/app/components/common/custom-cursor";
-import Navbar from "../components/navbar/navbar";
 
 // fonts
 import { Playfair_Display } from "next/font/google";
@@ -63,8 +62,6 @@ export default async function RootLayout({
     redirect(`/${defaultLocale}${pathWithoutLocale}`);
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 3500));
-
   return (
     <html
       lang={locale}
@@ -73,11 +70,7 @@ export default async function RootLayout({
     >
       <body className={`${playfair.variable} flex flex-col gap-10  `}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar params={{ locale }} />
-
-          <main className="flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
-            {children}
-          </main>
+          {children}
 
           <CustomCursor />
         </ThemeProvider>
