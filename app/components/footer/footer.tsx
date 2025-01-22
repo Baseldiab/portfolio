@@ -18,7 +18,7 @@ export default function Footer({ params: { locale } }: LocalProps) {
       <div className="container py-4 align-middle text-center relative flex justify-between items-center max-md:flex-col">
         <Logo withRotateAnimation={false} />
 
-        <div className="flex justify-center items-center gap-1 font-karla">
+        <div className="flex justify-center items-center gap-1 flex-wrap font-karla my-3">
           <span className="dark:text-white text-black max-sm:text-sm">
             {t("navigation.footer-text", { yearNow })}
           </span>
