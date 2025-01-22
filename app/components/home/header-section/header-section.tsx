@@ -18,7 +18,7 @@ export default async function HeroSection({ params: { locale } }: LocalProps) {
 
   return (
     <header className="relative min-h-screen w-full overflow-hidden">
-      <div className="h-[600px] w-full min-w-[700px]">
+      <div className="absolute top-0 md:left-1/2 left-0 right-0 bottom-0 z-[1]">
         <ThreeDModel />
       </div>
 

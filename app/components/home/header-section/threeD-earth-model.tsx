@@ -35,7 +35,7 @@ function Scene() {
         color="#ffffff"
       />
       <mesh rotation={[0, -Math.PI / 2, 0]}>
-        <sphereGeometry args={[2.5, 128, 128]} />
+        <sphereGeometry args={[2.5, 64, 64]} />
         <meshStandardMaterial
           map={earthTexture.map}
           bumpMap={earthTexture.bumpMap}
@@ -52,11 +52,11 @@ function Scene() {
 
 export default function ThreeDModel() {
   return (
-    <div className="w-full min-w-[400px] h-[500px] flex items-center justify-center">
+    <div className="w-[95%] mx-auto md:w-[80%] md:min-w-[400px] md:h-[500px] h-[300px] sm:h-[400px] flex items-center justify-center">
       <Canvas
         camera={{
-          position: [0, 0, 10], // Increased distance from 7 to 10
-          fov: 45, // Increased FOV slightly from 40 to 45
+          position: [0, 0, window.innerWidth < 500 ? 12 : 10],
+          fov: 45,
           near: 0.1,
           far: 1000,
         }}
