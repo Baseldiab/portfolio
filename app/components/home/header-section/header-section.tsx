@@ -17,12 +17,10 @@ export default async function HeroSection({ params: { locale } }: LocalProps) {
   const { t } = await getTranslations(locale as string);
 
   return (
-    <header className="relative min-h-screen w-full overflow-hidden">
-      <div className="absolute top-0 md:left-1/2 left-0 right-0 bottom-0 z-[1]">
-        <ThreeDModel />
-      </div>
+    <header className="relative min-h-[320px] w-full overflow-hidden">
+      <ThreeDModel className="absolute top-0 md:start-1/2 end-0 start-0 bottom-0 z-[1] h-fit" />
 
-      <div className="relative z-[2] py-16">
+      <article className="relative z-[2] lg:py-16 md:py-10 py-5">
         <DragConstraints containerClassName="container flex flex-col gap-14 items-start">
           <RevealAnimation className="">
             <h6 className="text-xl font-medium font-karla text-theme-text-second">
@@ -31,15 +29,15 @@ export default async function HeroSection({ params: { locale } }: LocalProps) {
           </RevealAnimation>
 
           <RevealAnimation className="h-fit" delay={0.2}>
-            <h1 className="text-7xl font-bold font-karla uppercase min-h-fit leading-normal text-gradient">
+            <h1 className="md:text-7xl text-5xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient">
               {t("fields.header")}.
             </h1>
-            <p className="text-5xl font-semibold leading-normal font-playfair uppercase">
+            <p className="md:text-5xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply">
               {t("fields.header-gradient")}
             </p>
           </RevealAnimation>
         </DragConstraints>
-      </div>
+      </article>
     </header>
   );
 }

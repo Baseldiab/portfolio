@@ -1,9 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
+import { cn } from "@/lib/utils";
 
 function Scene() {
   const groupRef = useRef<THREE.Group>(null);
@@ -16,7 +17,7 @@ function Scene() {
   });
 
   // Increase rotation speed
-  const rotationSpeed = 0.2;
+  const rotationSpeed = 0.5;
   useFrame(() => {
     if (groupRef.current) {
       // Make rotation continuous
@@ -50,26 +51,46 @@ function Scene() {
   );
 }
 
-export default function ThreeDModel() {
+interface ThreeDModelProps {
+  className?: string;
+}
+export default function ThreeDModel({ className }: ThreeDModelProps) {
+  const [cameraPosition, setCameraPosition] = useState(10);
+
+  useEffect(() => {
+    // Update camera position based on window width after component mounts
+    setCameraPosition(window.innerWidth < 768 ? 12 : 10);
+
+    // Optional: Add resize listener
+    const handleResize = () => {
+      setCameraPosition(window.innerWidth < 768 ? 12 : 10);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="w-[95%] mx-auto md:w-[80%] md:min-w-[400px] md:h-[500px] h-[300px] sm:h-[400px] flex items-center justify-center">
-      <Canvas
-        camera={{
-          position: [0, 0, window.innerWidth < 500 ? 12 : 10],
-          fov: 45,
-          near: 0.1,
-          far: 1000,
-        }}
-        dpr={[1, 2]}
-        performance={{ min: 0.5 }}
-        gl={{
-          antialias: true,
-          alpha: true,
-          preserveDrawingBuffer: true, // Added for better rendering
-        }}
-      >
-        <Scene />
-      </Canvas>
-    </div>
+    <article className={cn(className)}>
+      <div className=" w-[95%] mx-auto md:w-[80%] md:min-w-[400px] h-[300px]  flex items-center justify-center">
+        <Canvas
+          camera={{
+            position: [0, 0, cameraPosition],
+            fov: 45,
+            near: 0.1,
+            far: 1000,
+          }}
+          dpr={[1, 2]}
+          performance={{ min: 0.5 }}
+          gl={{
+            antialias: true,
+            alpha: true,
+            preserveDrawingBuffer: true,
+          }}
+        >
+          <Scene />
+        </Canvas>
+      </div>
+    </article>
   );
 }
