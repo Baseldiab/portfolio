@@ -15,6 +15,7 @@ import Navbar from "@/app/components/navbar/navbar";
 
 // Components
 import HeroSection from "@/app/components/home/header-section/header-section";
+import Footer from "@/app/components/footer/footer";
 
 export async function generateMetadata({
   params: { locale },
@@ -36,12 +37,14 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
   await new Promise((resolve) => setTimeout(resolve, 3500));
 
   return (
-    <>
+    <main className="flex flex-col gap-10 min-h-screen">
       <Navbar params={{ locale }} />
 
-      <main className="flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
+      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
         <HeroSection params={{ locale }} />
       </main>
-    </>
+
+      <Footer params={{ locale }} />
+    </main>
   );
 }

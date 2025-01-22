@@ -12,6 +12,7 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // layout
 import Navbar from "@/app/components/navbar/navbar";
+import Footer from "@/app/components/footer/footer";
 
 // Components
 
@@ -35,13 +36,14 @@ export default async function OthersPage({ params: { locale } }: LocalProps) {
   await new Promise((resolve) => setTimeout(resolve, 3500));
 
   return (
-    <>
-      <Navbar params={{ locale }} />
+    <main className="flex flex-col gap-10 min-h-screen">
+    <Navbar params={{ locale }} />
 
-      <main className="flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
-        {/* <HeroSection params={{ locale }} /> */}
-        Others page
-      </main>
-    </>
+    <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
+    </main>
+
+          <Footer
+              params={{ locale }} />
+  </main>
   );
 }

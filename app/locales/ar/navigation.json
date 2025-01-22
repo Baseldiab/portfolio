@@ -4,5 +4,7 @@
   "projects": "المشاريع",
   "others": "الأخرى",
   "contact_me": "تواصل معي",
-  "lets_connect": "دعنا نتواصل"
+  "lets_connect": "دعنا نتواصل",
+  "footer-text": "كل الحقوق محفوظة © {{yearNow}} من قبل",
+  "footer-name": "باسل دياب"
 }

@@ -68,10 +68,9 @@ export default async function RootLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={`${playfair.variable} flex flex-col gap-10  `}>
+      <body className={`${playfair.variable}  min-h-fit`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
-
           <CustomCursor />
         </ThemeProvider>
       </body>
