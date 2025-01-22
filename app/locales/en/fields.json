@@ -7,5 +7,11 @@
   "loading_second_text": "Basel Diab Frontend developer",
   "hello_there": "Hello there, my name is",
   "header": "Basel Diab",
-  "header-gradient": "I build web stuff."
+  "header-gradient": "I build web stuff.",
+  "contact": {
+    "title": "Reach Me Out",
+    "text": "Want to contact me professionally or as a fellow developer?",
+    "talk_about": "Let's talk about your next project",
+    "looking_for": "I'm currently looking for more employment and freelance opportunities"
+  }
 }
