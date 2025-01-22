@@ -13,7 +13,9 @@ import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model
 
 //
 
-export default async function HeroSection({ params: { locale } }: LocalProps) {
+export default async function HeaderSection({
+  params: { locale },
+}: LocalProps) {
   const { t } = await getTranslations(locale as string);
 
   return (

@@ -6,5 +6,11 @@
   "contact_me": "تواصل معي",
   "lets_connect": "دعنا نتواصل",
   "footer-text": "كل الحقوق محفوظة © {{yearNow}} من قبل",
-  "footer-name": "باسل دياب"
+  "footer-name": "باسل دياب",
+  "linkedin": "لينكدان",
+  "github": "جيتهب",
+  "mail": "البريد",
+  "phone": "الهاتف",
+  "whatsapp": "واتساب",
+  "my_git_link": "رابط جيتهب الخاص بي"
 }

@@ -1,9 +1,6 @@
 // Next
 import { Metadata } from "next";
 
-// Translation
-// import getTranslations from "@/app/i18n";
-
 // Utils
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
 
@@ -14,8 +11,11 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 import Navbar from "@/app/components/navbar/navbar";
 
 // Components
-import HeroSection from "@/app/components/home/header-section/header-section";
 import Footer from "@/app/components/footer/footer";
+
+// components home
+import HeaderSection from "@/app/components/home/header-section/header-section";
+import ContactSection from "@/app/components/home/contact-section/contact-section";
 
 export async function generateMetadata({
   params: { locale },
@@ -41,7 +41,8 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
       <Navbar params={{ locale }} />
 
       <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
-        <HeroSection params={{ locale }} />
+        <HeaderSection params={{ locale }} />
+        <ContactSection params={{ locale }} />
       </main>
 
       <Footer params={{ locale }} />

@@ -28,26 +28,31 @@ export default function Footer({ params: { locale } }: LocalProps) {
       id: "contact-linkedIn",
       href: "https://www.linkedin.com/in/basel-diab-94b526259/",
       icon: <Linkedin className={iconClassName} />,
+      text: t("navigation.linkedin"),
     },
     {
       id: "contact-github",
       href: "https://github.com/Baseldiab",
       icon: <GithubIcon className={iconClassName} />,
+      text: t("navigation.github"),
     },
     {
       id: "contact-mail",
       href: "mailto:baseldiab21@gmail.com",
       icon: <Mail className={iconClassName} />,
+      text: t("navigation.mail"),
     },
     {
       id: "contact-phone",
       href: "tel:+201068769643",
       icon: <Phone className={iconClassName} />,
+      text: t("navigation.phone"),
     },
     {
       id: "contact-whatsapp",
       href: "https://wa.me/201068769643",
       icon: <WhatsAppIcon className={iconClassName} />,
+      text: t("navigation.whatsapp"),
     },
   ];
 
@@ -63,6 +68,7 @@ export default function Footer({ params: { locale } }: LocalProps) {
           <a
             className="text-gradient font-bold max-sm:text-sm"
             href="https://github.com/Baseldiab"
+            title={t("navigation.my_git_link")}
           >
             {t("navigation.footer-name")}
           </a>
@@ -80,7 +86,10 @@ export default function Footer({ params: { locale } }: LocalProps) {
 
 const ContactItem = ({ item }: { item: ContactLink }) => {
   return (
-    <li className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out">
+    <li
+      className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out"
+      title={item.text}
+    >
       {item.icon}
     </li>
   );
