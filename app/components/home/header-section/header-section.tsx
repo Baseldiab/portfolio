@@ -1,22 +1,26 @@
-// assets
-import RevealAnimation from "@/app/components/common/reveal-animation";
-import DragConstraints from "../common/drag-constranints-animation";
-
 // i18n
 import getTranslations from "@/app/i18n";
 
 // interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
-// 
+//  components common
+import RevealAnimation from "@/app/components/common/reveal-animation";
+import DragConstraints from "@/app/components/common/drag-constranints-animation";
+
+// components home
+import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
+
+//
 
 export default async function HeroSection({ params: { locale } }: LocalProps) {
   const { t } = await getTranslations(locale as string);
 
   return (
     <header className="relative min-h-screen w-full overflow-hidden">
-
-      <div className="absolute inset-0 bg-gradient-to-b from-background/80 to-background/95 z-[1]" />
+      <div className="h-[600px] w-full min-w-[700px]">
+        <ThreeDModel />
+      </div>
 
       <div className="relative z-[2] py-16">
         <DragConstraints containerClassName="container flex flex-col gap-14 items-start">
@@ -34,8 +38,6 @@ export default async function HeroSection({ params: { locale } }: LocalProps) {
               {t("fields.header-gradient")}
             </p>
           </RevealAnimation>
-
-          {/* <RevealAnimation delay={0.4}></RevealAnimation> */}
         </DragConstraints>
       </div>
     </header>
