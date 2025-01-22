@@ -14,7 +14,6 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 import Navbar from "@/app/components/navbar/navbar";
 
 // Components
-import HeroSection from "@/app/components/home/header-section/header-section";
 
 export async function generateMetadata({
   params: { locale },
@@ -28,7 +27,7 @@ export async function generateMetadata({
   );
 }
 
-export default async function HomePage({ params: { locale } }: LocalProps) {
+export default async function OthersPage({ params: { locale } }: LocalProps) {
   // Add artificial delay
 
   // const { t } = await getTranslations(locale as string);
@@ -40,7 +39,8 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
       <Navbar params={{ locale }} />
 
       <main className="flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
-        <HeroSection params={{ locale }} />
+        {/* <HeroSection params={{ locale }} /> */}
+        Others page
       </main>
     </>
   );
