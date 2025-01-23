@@ -40,14 +40,14 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
     <>
       <Navbar params={{ locale }} />
 
-      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start sm:my-4 h-full ">
+      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start sm:my-4 h-full">
         <HeaderSection params={{ locale }} className="main-section" />
         <ContactSection params={{ locale }} />
       </main>
 
       <Footer params={{ locale }} />
 
-      <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
+      <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:fill-[#1F7BF6]/5" />
     </>
   );
 }

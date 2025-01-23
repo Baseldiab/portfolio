@@ -51,7 +51,9 @@ export default async function ContactSection({
       <MarkeeButton childClassName="">{"About"}</MarkeeButton>
 
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2 overflow-hidden">
+        <div className="overflow-hidden max-w-[99vw]">
         <MarqeeTitle title={t("fields.contact.title")} />
+        </div>
 
         <div className="md:my-10 my-4">
           <SectionText

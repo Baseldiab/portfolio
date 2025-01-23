@@ -34,12 +34,12 @@ export default async function OthersPage({ params: { locale } }: LocalProps) {
   // const { t } = await getTranslations(locale as string);
 
   return (
-    <main className="flex flex-col gap-10 min-h-screen">
+    <>
       <Navbar params={{ locale }} />
 
       <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full"></main>
 
       <Footer params={{ locale }} />
-    </main>
+    </>
   );
 }
