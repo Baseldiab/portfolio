@@ -22,8 +22,8 @@ export default function MarkeeButton({
   return (
     <StyledWrapper>
       <Component className={cn("btn-23", className)}>
-        <span className={cn("text", childClassName)}>{children}</span>
-        <span aria-hidden className={cn("marqueeBtn", childClassName)}>
+        <span className={cn("text-marquee", childClassName)}>{children}</span>
+        <span aria-hidden className={cn("marquee-btn", childClassName)}>
           {children}
         </span>
       </Component>
@@ -32,6 +32,7 @@ export default function MarkeeButton({
 }
 
 const StyledWrapper = styled.div`
+  /* From Uiverse.io by doniaskima */
   .btn-23,
   .btn-23 *,
   .btn-23 :after,
@@ -47,6 +48,7 @@ const StyledWrapper = styled.div`
     -webkit-appearance: button;
     background-color: #000;
     background-image: none;
+    color: #fff;
     cursor: pointer;
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
       Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
@@ -93,31 +95,31 @@ const StyledWrapper = styled.div`
     transition: opacity 0.2s ease;
   }
 
-  .btn-23 .marqueeBtn {
+  .btn-23 .marquee-btn {
     --spacing: 5em;
     --start: 0em;
     --end: 5em;
-    -webkit-animation: marquee 1s linear infinite;
-    animation: marquee 1s linear infinite;
+    -webkit-animation: marquee-btn 1s linear infinite;
+    animation: marquee-btn 1s linear infinite;
     -webkit-animation-play-state: paused;
     animation-play-state: paused;
     opacity: 0;
     position: relative;
-    text-shadow: #000 var(--spacing) 0, currentColor calc(var(--spacing) * -1) 0,
-      currentColor calc(var(--spacing) * -2) 0;
+    text-shadow: #fff var(--spacing) 0, #fff calc(var(--spacing) * -1) 0,
+      #fff calc(var(--spacing) * -2) 0;
   }
 
-  .btn-23:hover .marqueeBtn {
+  .btn-23:hover .marquee-btn {
     -webkit-animation-play-state: running;
     animation-play-state: running;
     opacity: 1;
   }
 
-  .btn-23:hover .text {
+  .btn-23:hover .text-marquee {
     opacity: 0;
   }
 
-  @-webkit-keyframes marqueeBtn {
+  @-webkit-keyframes marquee-btn {
     0% {
       transform: translateX(var(--start));
     }
@@ -127,7 +129,7 @@ const StyledWrapper = styled.div`
     }
   }
 
-  @keyframes marqueeBtn {
+  @keyframes marquee-btn {
     0% {
       transform: translateX(var(--start));
     }

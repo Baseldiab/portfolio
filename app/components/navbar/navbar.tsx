@@ -22,6 +22,7 @@ import BreathAnimation from "@/app/components/common/breath-animation";
 
 const Navbar = ({ params: { locale } }: LocalProps) => {
   const { t } = useTranslations(locale as string);
+
   const [activeSection, setActiveSection] = useState("home");
 
   return (

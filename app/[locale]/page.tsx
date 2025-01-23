@@ -17,6 +17,9 @@ import Footer from "@/app/components/footer/footer";
 import HeaderSection from "@/app/components/home/header-section/header-section";
 import ContactSection from "@/app/components/home/contact-section/contact-section";
 
+// assets
+import WavesImage from "@/app/components/icons/wavesImage";
+
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -30,22 +33,24 @@ export async function generateMetadata({
 }
 
 export default async function HomePage({ params: { locale } }: LocalProps) {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   // Add artificial delay
 
   // const { t } = await getTranslations(locale as string);
 
-  await new Promise((resolve) => setTimeout(resolve, 3500));
 
   return (
     <main className="flex flex-col gap-10 min-h-screen">
       <Navbar params={{ locale }} />
 
-      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
+      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start sm:my-4 h-full ">
         <HeaderSection params={{ locale }} className="main-section" />
         <ContactSection params={{ locale }} />
       </main>
 
       <Footer params={{ locale }} />
+
+      <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
     </main>
   );
 }

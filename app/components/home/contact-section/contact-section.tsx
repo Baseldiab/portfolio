@@ -1,6 +1,5 @@
 // lib
 import { cn } from "@/lib/utils";
-import Marquee from "react-fast-marquee";
 
 // i18n
 import getTranslations from "@/app/i18n";
@@ -15,12 +14,11 @@ import GithubIcon from "@/app/components/icons/githubIcon";
 
 // components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
-import SectionTitle from "@/app/components/common/section-title";
 import SectionText from "@/app/components/common/section-text";
 import MarkeeButton from "@/app/components/common/markee-button";
 
 // components home
-import RotateName from "@/app/components/home/contact-section/rotateName";
+import MarqeeTitle from "@/app/components/home/contact-section/marqee-title";
 
 export default async function ContactSection({
   params: { locale },
@@ -52,14 +50,8 @@ export default async function ContactSection({
     <section id="contact_me" className={cn("", className)}>
       <MarkeeButton childClassName="">{"About"}</MarkeeButton>
 
-      <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2">
-        <Marquee speed={80} gradient={false} autoFill className="h-60">
-          <RotateName className="mx-3" />
-          <SectionTitle
-            className="mx-2 text-[6.4vw]"
-            title={t("fields.contact.title")}
-          />
-        </Marquee>
+      <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2 overflow-hidden">
+        {/* <MarqeeTitle title={t("fields.contact.title")} /> */}
 
         <div className="md:my-10 my-4">
           <SectionText

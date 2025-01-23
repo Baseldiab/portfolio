@@ -33,17 +33,15 @@ export default async function OthersPage({ params: { locale } }: LocalProps) {
 
   // const { t } = await getTranslations(locale as string);
 
-  await new Promise((resolve) => setTimeout(resolve, 3500));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return (
     <main className="flex flex-col gap-10 min-h-screen">
-    <Navbar params={{ locale }} />
+      <Navbar params={{ locale }} />
 
-    <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full">
+      <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start lg:my-16 md:my-8 sm:my-4 h-full"></main>
+
+      <Footer params={{ locale }} />
     </main>
-
-          <Footer
-              params={{ locale }} />
-  </main>
   );
 }

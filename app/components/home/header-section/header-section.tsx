@@ -12,8 +12,7 @@ import DragConstraints from "@/app/components/common/drag-constranints-animation
 import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
 import { cn } from "@/lib/utils";
 
-// assets
-import WavesImage from "@/app/components/icons/wavesImage";
+
 
 //
 
@@ -50,7 +49,7 @@ export default async function HeaderSection({
         </DragConstraints>
       </article>
 
-      <WavesImage className="z-0 absolute left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
+    
     </header>
   );
 }
