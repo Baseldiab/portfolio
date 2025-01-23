@@ -13,7 +13,7 @@ const config: Config = {
 		  fontFamily: {
 				playfair: ['Matter, sans-serif'],
 				karla: ['Karla', '"MS Sans Serif"', 'Geneva', 'sans-serif'],
-			},
+		  },
 		  colors: {
 			theme: {
 				background: {

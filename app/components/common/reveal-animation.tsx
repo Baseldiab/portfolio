@@ -28,6 +28,7 @@ export default function RevealAnimation({
           delay: delay,
           ease: [0.25, 0.1, 0.25, 1], // Custom easing curve
         }}
+        className={"w-full"}
       >
         {children}
       </motion.div>

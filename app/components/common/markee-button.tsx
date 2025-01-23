@@ -23,7 +23,7 @@ export default function MarkeeButton({
     <StyledWrapper>
       <Component className={cn("btn-23", className)}>
         <span className={cn("text", childClassName)}>{children}</span>
-        <span aria-hidden className={cn("marquee", childClassName)}>
+        <span aria-hidden className={cn("marqueeBtn", childClassName)}>
           {children}
         </span>
       </Component>
@@ -93,7 +93,7 @@ const StyledWrapper = styled.div`
     transition: opacity 0.2s ease;
   }
 
-  .btn-23 .marquee {
+  .btn-23 .marqueeBtn {
     --spacing: 5em;
     --start: 0em;
     --end: 5em;
@@ -107,7 +107,7 @@ const StyledWrapper = styled.div`
       currentColor calc(var(--spacing) * -2) 0;
   }
 
-  .btn-23:hover .marquee {
+  .btn-23:hover .marqueeBtn {
     -webkit-animation-play-state: running;
     animation-play-state: running;
     opacity: 1;
@@ -117,7 +117,7 @@ const StyledWrapper = styled.div`
     opacity: 0;
   }
 
-  @-webkit-keyframes marquee {
+  @-webkit-keyframes marqueeBtn {
     0% {
       transform: translateX(var(--start));
     }
@@ -127,7 +127,7 @@ const StyledWrapper = styled.div`
     }
   }
 
-  @keyframes marquee {
+  @keyframes marqueeBtn {
     0% {
       transform: translateX(var(--start));
     }

@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 // hooks
 
-const RotateName = () => {
+const RotateName = ({ className }: { className?: string }) => {
   const mainArray = [
     ..."Basel".split(""),
     "",
@@ -17,8 +17,8 @@ const RotateName = () => {
 
   return (
     <>
-      <StyledRotateWrapper>
-        <button className="button">
+      <StyledRotateWrapper className={className}>
+        <button className="button text-gradient">
           <p className="button__text">
             {mainArray.map((item, index) => (
               <span

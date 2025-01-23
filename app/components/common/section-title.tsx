@@ -13,8 +13,8 @@ export default function SectionTitle({ title, className }: SectionTitleProps) {
           "text-theme-text-main dark:text-theme-text-dark text-4xl font-bold text-center flex justify-center gap-1 items-center",
           className
         )}
-          >
-              <span className="text-gradient">#</span>
+      >
+        {/* <span className="text-gradient">#</span> */}
         {title}
       </h2>
     </>

@@ -50,7 +50,7 @@ export default async function HeaderSection({
         </DragConstraints>
       </article>
 
-      <WavesImage className="absolute left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
+      <WavesImage className="z-0 absolute left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
     </header>
   );
 }
