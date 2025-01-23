@@ -33,8 +33,6 @@ export default async function OthersPage({ params: { locale } }: LocalProps) {
 
   // const { t } = await getTranslations(locale as string);
 
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
   return (
     <main className="flex flex-col gap-10 min-h-screen">
       <Navbar params={{ locale }} />

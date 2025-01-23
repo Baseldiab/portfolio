@@ -33,12 +33,6 @@ export async function generateMetadata({
 }
 
 export default async function HomePage({ params: { locale } }: LocalProps) {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  // Add artificial delay
-
-  // const { t } = await getTranslations(locale as string);
-
-
   return (
     <main className="flex flex-col gap-10 min-h-screen">
       <Navbar params={{ locale }} />

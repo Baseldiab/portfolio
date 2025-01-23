@@ -13,19 +13,19 @@ export default function MarqeeTitle({ title }: { title: string }) {
   return (
     <div className="relative h-60 overflow-hidden" ref={containerRef}>
       <motion.div
-        className="flex whitespace-nowrap"
+        className="flex gap-2 overflow-hidden whitespace-nowrap max-w-[100vw]"
         animate={{
           x: ["0%", "-50%"],
         }}
         transition={{
-          duration: 10,
+          duration: 5,
           ease: "linear",
           repeat: Infinity,
           repeatType: "loop",
         }}
       >
         {/* Duplicate content to create seamless loop */}
-        <div className="flex min-w-full">
+        <div className="flex   items-center">
           <RotateName className="mx-3" />
           <SectionTitle className="mx-2 text-[6.4vw]" title={title} />
         </div>
