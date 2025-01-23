@@ -13,6 +13,10 @@
   font-family: "Karla", Arial, sans-serif;
 }
 
+body {
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -124,12 +128,16 @@
   @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
 }
 
+.border-gradient {
+  @apply relative after:absolute after:-bottom-1 after:left-0 after:w-full after:h-1 after:bg-gradient-to-r after:from-[#00E5DA] after:to-[#1F7BF6];
+}
+
 .link-hover:hover {
   @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
 }
 
-.radial-
-
+/* ========================================================== */
+/* scrollbar */
 *::-webkit-scrollbar {
   @apply h-[10px] w-[10px];
 }
@@ -138,7 +146,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply rounded-[3px] bg-gradient-to-b from-[#00E5DA] to-[#1F7BF6];
+  @apply rounded-[3px] bg-gradient-to-b to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6];
 }
 
 *::-webkit-scrollbar-thumb:hover {
@@ -148,6 +156,8 @@
 *::-webkit-scrollbar-thumb:active {
   @apply bg-[#1f71aa];
 }
+
+/* ========================================================== */
 
 /* Radial Out Button Animation */
 .btn-radial-out {
@@ -163,7 +173,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #1F7BF6, #00E5DA);
+  background: linear-gradient(90deg, #1f7bf6, #00e5da);
   transform: scale(0);
   transition: transform 0.3s ease-out;
   border-radius: inherit;

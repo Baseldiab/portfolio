@@ -11,7 +11,8 @@
   "contact": {
     "title": "Reach Me Out",
     "text": "Want to contact me professionally or as a fellow developer?",
-    "talk_about": "Let's talk about your next project",
+    "talk_about": "Let's talk about your",
+    "next_project": "Next project",
     "looking_for": "I'm currently looking for more employment and freelance opportunities"
   }
 }
