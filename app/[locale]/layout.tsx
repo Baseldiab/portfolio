@@ -3,6 +3,7 @@ import { ThemeProvider } from "next-themes";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 // Styles
 import "./globals.css";
@@ -23,6 +24,11 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
 });
+
+const InitialLoader = dynamic(
+  () => import("@/app/components/loading/loading-animation"),
+  { ssr: false }
+);
 
 export async function generateMetadata({
   params: { locale },
@@ -55,7 +61,6 @@ export default async function RootLayout({
   if (!i18nConfig.locales.includes(locale)) {
     const headersList = headers();
     const defaultLocale = i18nConfig.defaultLocale;
-    // Get the path without the locale
     const path = headersList.get("x-invoke-path") || "";
     const pathWithoutLocale = path.replace(`/${locale}`, "") || "/";
 
@@ -68,9 +73,16 @@ export default async function RootLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={`${playfair.variable}  min-h-fit`}>
+      <body className={`${playfair.variable} min-h-fit`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <InitialLoader />
+          <main
+            className="flex flex-col gap-10 min-h-screen"
+            id="main-content"
+            style={{ opacity: 0, visibility: "hidden" }}
+          >
+            {children}
+          </main>
           <CustomCursor />
         </ThemeProvider>
       </body>

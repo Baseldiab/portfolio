@@ -1,32 +1,70 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TypingLoader from "@/app/components/loading/typing";
+import TypingLoader from "./typing";
 
-export default function Loading() {
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
+export default function InitialLoader() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [opacity, setOpacity] = useState(1);
 
   useEffect(() => {
-    // Check if this is the first load
-    const hasLoaded = sessionStorage.getItem('hasLoadedBefore');
-    if (hasLoaded) {
-      setIsFirstLoad(false);
-    } else {
-      sessionStorage.setItem('hasLoadedBefore', 'true');
-      // Force the loading state to stay for 2 seconds
-      setTimeout(() => {
-        setIsFirstLoad(false);
-      }, 2000);
+    // Hide main content initially with smooth transition setup
+    const mainContent = document.getElementById("main-content");
+    if (mainContent) {
+      mainContent.style.opacity = "0";
+      mainContent.style.transition = "opacity 1s ease-in-out";
+      mainContent.style.visibility = "hidden"; // Hide initially
     }
+
+    document.body.style.overflow = "hidden";
+
+    // Minimum loading time
+    const timer = setTimeout(() => {
+      // Start fade out of loader
+      setOpacity(0);
+
+      // Show main content after loader starts fading
+      setTimeout(() => {
+        if (mainContent) {
+          mainContent.style.visibility = "visible"; // Make visible before fade
+          // Small delay before starting fade in
+          setTimeout(() => {
+            mainContent.style.opacity = "1";
+          }, 50);
+        }
+
+        // Additional delay before removing loader completely
+        setTimeout(() => {
+          setIsLoading(false);
+          document.body.style.overflow = "";
+        }, 1000);
+      }, 500);
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+      document.body.style.overflow = "";
+      if (mainContent) {
+        mainContent.style.opacity = "1";
+        mainContent.style.visibility = "visible";
+      }
+    };
   }, []);
 
-  if (!isFirstLoad) {
-    return null;
-  }
+  if (!isLoading) return null;
 
   return (
-    <main className="flex justify-center items-center h-screen bg-theme-background-main dark:bg-theme-background-dark">
-      <TypingLoader />
-    </main>
+    <div
+      style={{
+        backdropFilter: "blur(5px)",
+        opacity: opacity,
+        transition: "opacity 1s ease-in-out",
+      }}
+      className="fixed inset-0 z-[9999] flex justify-center items-center bg-theme-background-main/90 dark:bg-theme-background-dark/90"
+    >
+      <div className="transform scale-110">
+        <TypingLoader />
+      </div>
+    </div>
   );
 }

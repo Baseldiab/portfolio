@@ -33,8 +33,11 @@ export async function generateMetadata({
 }
 
 export default async function HomePage({ params: { locale } }: LocalProps) {
+  // Simulate initial loading time
+  await new Promise((resolve) => setTimeout(resolve, 2500));
+
   return (
-    <main className="flex flex-col gap-10 min-h-screen">
+    <>
       <Navbar params={{ locale }} />
 
       <main className="flex-1 flex-grow flex flex-col gap-16 items-center sm:items-start sm:my-4 h-full ">
@@ -45,6 +48,6 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
       <Footer params={{ locale }} />
 
       <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:hidden" />
-    </main>
+    </>
   );
 }
