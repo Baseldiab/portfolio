@@ -122,6 +122,10 @@ body {
   @apply xl:w-[90%] max-w-[1300px]  sm:w-[85%] w-[90%] !mx-auto;
 }
 
+.main-section {
+  @apply border-gray-200 border-b dark:border-gray-800;
+}
+
 .default-text {
   @apply text-sm;
 }

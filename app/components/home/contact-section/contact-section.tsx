@@ -14,10 +14,15 @@ import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionTitle from "@/app/components/common/section-title";
 import SectionText from "@/app/components/common/section-text";
 import MarkeeButton from "@/app/components/common/markee-button";
+import RotateName from "@/app/components/home/contact-section/rotateName";
+import { cn } from "@/lib/utils";
 
 export default async function ContactSection({
   params: { locale },
-}: LocalProps) {
+  className,
+}: LocalProps & {
+  className?: string;
+}) {
   const { t } = await getTranslations(locale as string);
 
   const iconClassName =
@@ -39,8 +44,10 @@ export default async function ContactSection({
   ];
 
   return (
-    <section id="contact_me" className="container">
+    <section id="contact_me" className={cn("container", className)}>
       <MarkeeButton childClassName="">{"About"}</MarkeeButton>
+
+      <RotateName />
 
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2">
         <SectionTitle title={t("fields.contact.title")} />
