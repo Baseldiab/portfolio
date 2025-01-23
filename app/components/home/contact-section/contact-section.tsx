@@ -47,12 +47,15 @@ export default async function ContactSection({
   ];
 
   return (
-    <section id="contact_me" className={cn("", className)}>
+    <section
+      id="contact_me"
+      className={cn("w-screen !overflow-hidden", className)}
+    >
       <MarkeeButton childClassName="">{"About"}</MarkeeButton>
 
-      <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2 overflow-hidden">
-        <div className="overflow-hidden max-w-[99vw]">
-        <MarqeeTitle title={t("fields.contact.title")} />
+      <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2 overflow-hidden max-w-full">
+        <div className="overflow-hidden  mx-auto">
+          <MarqeeTitle title={t("fields.contact.title")} />
         </div>
 
         <div className="md:my-10 my-4">

@@ -1,12 +1,19 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import styled from "styled-components";
 
-// interfaces
+interface RotateNameProps {
+  className?: string;
+  btnClassName?: string;
+  btnCircleClassName?: string;
+}
 
-// hooks
-
-const RotateName = ({ className }: { className?: string }) => {
+const RotateName = ({
+  className,
+  btnClassName,
+  btnCircleClassName,
+}: RotateNameProps) => {
   const mainArray = [
     ..."Basel".split(""),
     "",
@@ -18,7 +25,7 @@ const RotateName = ({ className }: { className?: string }) => {
   return (
     <>
       <StyledRotateWrapper className={className}>
-        <button className="button text-gradient">
+        <button className={cn("button text-gradient", btnClassName)}>
           <p className="button__text">
             {mainArray.map((item, index) => (
               <span
@@ -29,7 +36,7 @@ const RotateName = ({ className }: { className?: string }) => {
               </span>
             ))}
           </p>
-          <div className="button__circle">
+          <div className={cn("button__circle", btnCircleClassName)}>
             <svg
               viewBox="0 0 14 15"
               fill="none"
@@ -108,13 +115,20 @@ const StyledRotateWrapper = styled.div`
     transform: translate(-150%, 150%);
   }
 
-  .button:hover {
-    background: #000;
+   .button:hover {
+    background: #000 !important;
     transform: scale(1.05);
+  }
+  .dark .button:hover {
+    background: #fff !important;
   }
 
   .button:hover .button__icon {
     color: #000;
+  }
+
+  .dark .button:hover .button__icon {
+    color: #fff;
   }
 
   .button:hover .button__icon:first-child {
