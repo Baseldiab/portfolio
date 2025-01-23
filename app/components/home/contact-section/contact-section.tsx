@@ -13,6 +13,7 @@ import GithubIcon from "@/app/components/icons/githubIcon";
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionTitle from "@/app/components/common/section-title";
 import SectionText from "@/app/components/common/section-text";
+import MarkeeButton from "@/app/components/common/markee-button";
 
 export default async function ContactSection({
   params: { locale },
@@ -39,6 +40,8 @@ export default async function ContactSection({
 
   return (
     <section id="contact_me" className="container">
+      <MarkeeButton childClassName="">{"About"}</MarkeeButton>
+
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2">
         <SectionTitle title={t("fields.contact.title")} />
 
