@@ -16,7 +16,8 @@ import WhatsAppIcon from "@/app/components/icons/whatsAppIcon";
 // components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionText from "@/app/components/common/section-text";
-import MarkeeButton from "@/app/components/common/markee-button";
+// import MarkeeButton from "@/app/components/common/markee-button";
+import MarqueeButton from "@/app/components/common/marquee-text";
 
 // components home
 import MarqeeTitle from "@/app/components/home/contact-section/marqee-title";
@@ -83,12 +84,13 @@ export default async function ContactSection({
           className="text-start py-5"
         />
 
-        <MarkeeButton
+        {/* <MarkeeButton
           className="w-full border-y border-x-0 border-slate-800 dark:border-white/50 py-10 !text-start !rounded-none"
           childClassName="w-full"
         >
           {"About"}
-        </MarkeeButton>
+        </MarkeeButton> */}
+        <MarqueeButton text="About" link="https://www.google.com" />
 
         <div className="md:my-10 my-4">
           <SectionText
