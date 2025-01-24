@@ -73,7 +73,9 @@ export default async function RootLayout({
       dir={locale === "ar" ? "rtl" : "ltr"}
       suppressHydrationWarning
     >
-      <body className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}>
+      <body
+        className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}
+      >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <InitialLoader />
           <main

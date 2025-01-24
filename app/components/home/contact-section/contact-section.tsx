@@ -9,8 +9,9 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 import { ContactLink } from "@/app/components/interfaces/contact-links";
 
 // icons
-import { Linkedin } from "lucide-react";
+import { Linkedin, Mail, Phone } from "lucide-react";
 import GithubIcon from "@/app/components/icons/githubIcon";
+import WhatsAppIcon from "@/app/components/icons/whatsAppIcon";
 
 // components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
@@ -44,19 +45,50 @@ export default async function ContactSection({
       icon: <GithubIcon className={iconClassName} />,
       text: t("navigation.github"),
     },
+    {
+      id: "contact-mail",
+      href: "mailto:baseldiab21@gmail.com",
+      icon: <Mail className={iconClassName} />,
+      text: t("navigation.mail"),
+    },
+    {
+      id: "contact-phone",
+      href: "tel:+201068769643",
+      icon: <Phone className={iconClassName} />,
+      text: t("navigation.phone"),
+    },
+    {
+      id: "contact-whatsapp",
+      href: "https://wa.me/201068769643",
+      icon: <WhatsAppIcon className={iconClassName} />,
+      text: t("navigation.whatsapp"),
+    },
   ];
 
   return (
     <section
       id="contact_me"
       className={cn("w-screen !overflow-hidden", className)}
+      style={{
+        width: "calc(100vw - 10px)",
+      }}
     >
-      <MarkeeButton childClassName="">{"About"}</MarkeeButton>
-
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center py-2 overflow-hidden max-w-full">
-        <div className="overflow-hidden  mx-auto">
+        <div className="overflow-hidden  mx-auto lg:py-10 sm:py-8 py-5">
           <MarqeeTitle title={t("fields.contact.title")} />
         </div>
+
+        <SectionText
+          text={t("fields.contact.looking_for")}
+          className="text-start py-5"
+        />
+
+        <MarkeeButton
+          className="w-full border-y border-x-0 border-slate-800 dark:border-white/50 py-10 !text-start !rounded-none"
+          childClassName="w-full"
+        >
+          {"About"}
+        </MarkeeButton>
 
         <div className="md:my-10 my-4">
           <SectionText
