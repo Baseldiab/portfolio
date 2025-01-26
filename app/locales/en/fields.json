@@ -7,7 +7,8 @@
   "loading_second_text": "Basel Diab Frontend developer",
   "hello_there": "Hello there, my name is",
   "header": "Basel Diab",
-  "header-gradient": "I build web stuff.",
+  "header-gradient": "Frontend developer.",
+  "header-details": "  I am a frontend developer based in Egypt, with main passion towards creativity and exploring. I have experience in building projects using React and Next.js.",
   "contact": {
     "title": "Reach Me Out",
     "text": "Want to contact me professionally or as a fellow developer?",
@@ -15,5 +16,9 @@
     "next_project": "Next project",
     "looking_for": "I'm currently looking for more employment and freelance opportunities",
     "social_links": "Social media and contact Links"
+  },
+  "button": {
+    "contact": "Contact",
+    "resume": "Resume"
   }
 }

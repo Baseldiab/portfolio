@@ -11,8 +11,7 @@ import DragConstraints from "@/app/components/common/drag-constranints-animation
 // components home
 import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
 import { cn } from "@/lib/utils";
-
-
+import MainButton from "../../common/main-button";
 
 //
 
@@ -38,18 +37,28 @@ export default async function HeaderSection({
             </h6>
           </RevealAnimation>
 
-          <RevealAnimation className="h-fit" delay={0.2}>
+          <RevealAnimation className="h-fit my-2" delay={0.2}>
             <h1 className="md:text-7xl text-5xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
               {t("fields.header")}.
             </h1>
-            <p className="md:text-5xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply my-3">
+            <p className="lg:text-5xl md:text-4xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply my-3">
               {t("fields.header-gradient")}
             </p>
           </RevealAnimation>
+
+          <RevealAnimation className="max-w-[500px]">
+            <h6 className="text-xl font-medium font-karla text-theme-text-second">
+              {t("fields.header-details")}
+            </h6>
+          </RevealAnimation>
+
+          <div className="flex justify-start items-center md:mt-7 mt-4">
+            <RevealAnimation className="">
+              <MainButton>{t("fields.button.contact")}</MainButton>
+            </RevealAnimation>
+          </div>
         </DragConstraints>
       </article>
-
-    
     </header>
   );
 }
