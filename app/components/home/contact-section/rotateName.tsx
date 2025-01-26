@@ -19,7 +19,8 @@ const RotateName = ({
     "",
     ..."Diab".split(""),
     "",
-    ..."fronend".split(""),
+    ..."frontend".split(""),
+    "",
   ];
 
   return (
@@ -115,7 +116,7 @@ const StyledRotateWrapper = styled.div`
     transform: translate(-150%, 150%);
   }
 
-   .button:hover {
+  .button:hover {
     background: #000 !important;
     transform: scale(1.05);
   }

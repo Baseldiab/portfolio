@@ -8,53 +8,14 @@ import { useTranslations } from "@/app/components/hooks/useTranslation";
 
 // components
 import Logo from "@/app/components/common/logo";
+import { ContactLinks } from "@/app/components/common/contact-links";
 
 // Types
 import { ContactLink } from "@/app/components/interfaces/contact-links";
 
-// icons
-import { Linkedin, Mail, Phone } from "lucide-react";
-import GithubIcon from "@/app/components/icons/githubIcon";
-import WhatsAppIcon from "@/app/components/icons/whatsAppIcon";
-
 export default function Footer({ params: { locale } }: LocalProps) {
   const { t } = useTranslations(locale as string);
   const yearNow = new Date().getFullYear();
-
-  const iconClassName = "size-4 lg:size-5 group-hover:text-white ";
-
-  const contactLinks: ContactLink[] = [
-    {
-      id: "contact-linkedIn",
-      href: "https://www.linkedin.com/in/basel-diab-94b526259/",
-      icon: <Linkedin className={iconClassName} />,
-      text: t("navigation.linkedin"),
-    },
-    {
-      id: "contact-github",
-      href: "https://github.com/Baseldiab",
-      icon: <GithubIcon className={iconClassName} />,
-      text: t("navigation.github"),
-    },
-    {
-      id: "contact-mail",
-      href: "mailto:baseldiab21@gmail.com",
-      icon: <Mail className={iconClassName} />,
-      text: t("navigation.mail"),
-    },
-    {
-      id: "contact-phone",
-      href: "tel:+201068769643",
-      icon: <Phone className={iconClassName} />,
-      text: t("navigation.phone"),
-    },
-    {
-      id: "contact-whatsapp",
-      href: "https://wa.me/201068769643",
-      icon: <WhatsAppIcon className={iconClassName} />,
-      text: t("navigation.whatsapp"),
-    },
-  ];
 
   return (
     <footer className={`bg-slate-200 shadow-xl dark:bg-white/5  z-30`}>
@@ -75,7 +36,7 @@ export default function Footer({ params: { locale } }: LocalProps) {
         </div>
 
         <ul className="flex justify-center items-center gap-2">
-          {contactLinks.map((item: ContactLink) => (
+          {ContactLinks(locale).map((item: ContactLink) => (
             <ContactItem key={item.id} item={item} />
           ))}
         </ul>
