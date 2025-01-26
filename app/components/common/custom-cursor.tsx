@@ -41,6 +41,7 @@ export default function CustomCursor() {
         "textarea",
         "button",
         ".link",
+        ".contact_marquee_link",
         {
           target: ".custom",
           outerSize: 20,

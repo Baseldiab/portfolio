@@ -1,5 +1,3 @@
-"use client";
-
 // ui imports
 import { Button } from "@/app/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -23,7 +21,7 @@ export default function MarqueeText({
     <div>
       <Component
         className={cn(
-          "relative appearance-none bg-black text-white cursor-pointer font-sans text-base font-black leading-normal uppercase rounded-full border-2 border-solid overflow-hidden py-3 px-12",
+          "relative appearance-none bg-black text-white cursor-pointer font-sans text-base font-black leading-normal uppercase rounded-full border-2 border-solid overflow-hidden py-3 px-12 !min-w-fit",
           "focus:outline-none disabled:cursor-default",
           "group hover:!bg-transparent",
           className

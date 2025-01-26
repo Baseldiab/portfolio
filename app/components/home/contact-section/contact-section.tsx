@@ -16,11 +16,10 @@ import WhatsAppIcon from "@/app/components/icons/whatsAppIcon";
 // components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionText from "@/app/components/common/section-text";
-import MarkeeButton from "@/app/components/common/markee-button";
-import MarqueeText from "@/app/components/common/marquee-text";
 
 // components home
 import MarqeeTitle from "@/app/components/home/contact-section/marqee-title";
+import MarqueeItemLink from "./marquee-item-link";
 
 export default async function ContactSection({
   params: { locale },
@@ -79,19 +78,7 @@ export default async function ContactSection({
           <MarqeeTitle title={t("fields.contact.title")} />
         </div>
 
-        <SectionText
-          text={t("fields.contact.looking_for")}
-          className="text-start py-5"
-        />
-
-        {/* <MarkeeButton
-          className="w-full border-y border-x-0 border-slate-800 dark:border-white/50 py-10 !text-start !rounded-none"
-          childClassName="w-full"
-        >
-          {"About"}
-        </MarkeeButton> */}
-        <MarkeeButton>About</MarkeeButton>
-        <MarqueeText>About</MarqueeText>
+        <MarqueeItemLink href="#" title="About tailwind" />
 
         <div className="md:my-10 my-4">
           <SectionText

@@ -18,12 +18,17 @@ const config: Config = {
 			theme: {
 				background: {
 					main: '#ffffffcc',
-					dark: '#000'
+					dark: '#000',
+					second: "#1F7BF6"
 			  },
 				text: {
 					main: '#000',
 					dark: '#fff',
 					second: "#6c757d"
+				},
+				border: {
+					main: '#9ca3af94',
+					dark: '#ffffff38',
 				}
 				},	
 			  
