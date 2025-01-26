@@ -13,31 +13,34 @@ interface MarqueeItemLinkProps {
   href: string;
   title: string;
   className?: string;
+  locale: string;
 }
 const MarqueeItemLink = memo(
-  ({ href, title, className }: MarqueeItemLinkProps) => {
+  ({ href, title, className, locale }: MarqueeItemLinkProps) => {
     return (
       <>
         <div
+          dir="ltr"
           className={cn(
             "contact_marquee_link",
-            "!py-5 border-y border-theme-border-main dark:border-theme-border-dark group min-h-20 flex justify-center items-center",
-            "relative hover:dark:bg-white/10 hover:bg-black    overflow-hidden", // for hover change color
+            "!py-5 border-y border-theme-border-main dark:border-theme-border-dark/10 group min-h-20 flex justify-center items-center",
+            "relative hover:dark:bg-[#1f2937] hover:bg-black    overflow-hidden", // for hover change color
             className
           )}
         >
           {/* Top part of the hover effect */}
-          <div className="absolute inset-0 bg-white dark:bg-theme-background-dark transform scale-y-50 origin-bottom group-hover:scale-y-0 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-white dark:bg-[#1f2937]/10 transform scale-y-50 origin-bottom group-hover:scale-y-0 transition-transform duration-500" />
 
           {/* Bottom part of the hover effect */}
-          <div className="absolute inset-0 bg-white dark:bg-theme-background-dark transform scale-y-50 origin-top group-hover:scale-y-0 transition-transform duration-500" />
+          <div className="absolute inset-0 bg-white dark:bg-[#1f2937]/10 transform scale-y-50 origin-top group-hover:scale-y-0 transition-transform duration-500" />
 
           {/* the marquee happend on hover the parent div only shown on hover */}
           <Marquee
             speed={100}
-            className="!p-0 !m-0 !hidden group-hover:!flex duration-150"
+            className="!p-0 !m-0 !hidden group-hover:!flex duration-150 h-full"
             gradient={false}
             autoFill
+            direction={locale === "ar" ? "left" : "right"}
           >
             <MarqueeText href={href} title={title} />
           </Marquee>
@@ -47,8 +50,8 @@ const MarqueeItemLink = memo(
             href={href}
             title={title}
             className={cn(
-              "group-hover:!hidden !justify-between !text-start ps-8",
-              "xl:px-[5%] max-px-[calc(100vw-1300px)/2] sm:px-[7.5%] px-[5%] mx-0"
+              "group-hover:!hidden !justify-between !text-start",
+              "container"
             )}
           />
         </div>
@@ -77,6 +80,7 @@ const MarqueeText = ({
       className={cn(
         " !mx-3 flex justify-center items-center gap-2 lg:text-3xl md:xl sm:text-lg text-base text-theme-text-main dark:text-theme-text-dark",
         "relative z-10 h-full w-full group-hover:text-white",
+        "leading-normal",
         className
       )}
     >

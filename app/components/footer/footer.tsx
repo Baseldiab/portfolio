@@ -36,8 +36,8 @@ export default function Footer({ params: { locale } }: LocalProps) {
         </div>
 
         <ul className="flex justify-center items-center gap-2">
-          {ContactLinks(locale).map((item: ContactLink) => (
-            <ContactItem key={item.id} item={item} />
+          {ContactLinks.map((item: ContactLink) => (
+            <ContactItem locale={locale as string} key={item.id} item={item} />
           ))}
         </ul>
       </div>
@@ -45,11 +45,18 @@ export default function Footer({ params: { locale } }: LocalProps) {
   );
 }
 
-const ContactItem = ({ item }: { item: ContactLink }) => {
+const ContactItem = ({
+  item,
+  locale,
+}: {
+  item: ContactLink;
+  locale: string;
+}) => {
+  const { t } = useTranslations(locale as string);
   return (
     <li
       className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out"
-      title={item.text}
+      title={t(`navigation.${item.text.toLowerCase()}`)}
     >
       {item.icon}
     </li>
