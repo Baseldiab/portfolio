@@ -19,7 +19,7 @@ const config: Config = {
 				background: {
 					main: '#ffffffcc',
 					dark: '#000',
-					second: "#1F7BF6"
+					second: "rgb(31 123 246 / 0.05)"
 			  },
 				text: {
 					main: '#000',

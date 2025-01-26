@@ -22,15 +22,15 @@ const MarqueeItemLink = memo(
           className={cn(
             "contact_marquee_link",
             "!py-5 border-y border-theme-border-main dark:border-theme-border-dark group min-h-20 flex justify-center items-center",
-            "relative dark:bg-theme-bg-dark bg-theme-bg-main   overflow-hidden", // for hover change color
+            "relative dark:bg-theme-background-second bg-black   overflow-hidden", // for hover change color
             className
           )}
         >
           {/* Top part of the hover effect */}
-          <div className="absolute inset-0 dark:!bg-white/5 bg-transparent transform scale-y-50 origin-bottom group-hover:scale-y-0 transition-transform duration-500" />
+          <div className="absolute inset-0 dark:bg-theme-background-second bg-white transform scale-y-50 origin-bottom group-hover:scale-y-0 transition-transform duration-500" />
 
           {/* Bottom part of the hover effect */}
-          <div className="absolute inset-0 dark:!bg-white/5 bg-transparent transform scale-y-50 origin-top group-hover:scale-y-0 transition-transform duration-500" />
+          <div className="absolute inset-0 dark:bg-theme-background-second bg-white transform scale-y-50 origin-top group-hover:scale-y-0 transition-transform duration-500" />
 
           {/* the marquee happend on hover the parent div only shown on hover */}
           <Marquee

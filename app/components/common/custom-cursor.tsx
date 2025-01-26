@@ -30,6 +30,7 @@ export default function CustomCursor() {
         mixBlendMode: "difference",
       }}
       clickables={[
+        ".contact_marquee_link",
         "a",
         'input[type="text"]',
         'input[type="email"]',
@@ -41,7 +42,6 @@ export default function CustomCursor() {
         "textarea",
         "button",
         ".link",
-        ".contact_marquee_link",
         {
           target: ".custom",
           outerSize: 20,
