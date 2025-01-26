@@ -32,7 +32,9 @@ const config: Config = {
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
-  			},
+			  },
+				
+				
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
@@ -68,6 +70,16 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+
+		  animation: {
+			marquee: 'marquee 1s linear infinite',
+		  },
+		  keyframes: {
+			marquee: {
+				'0%': { transform: 'translateX(0)' },
+				'100%': { transform: 'translateX(-5em)' }
+			  }
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

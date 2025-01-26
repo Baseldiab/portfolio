@@ -1,80 +1,56 @@
-import React from "react";
+"use client";
 
-interface MarqueeButtonProps {
-  text: string; // The text to display inside the button
-  link: string; // The link the button points to
+// ui imports
+import { Button } from "@/app/components/ui/button";
+import { cn } from "@/lib/utils";
+
+interface MarqueeTextProps {
+  className?: string;
+  childClassName?: string;
+  animatedClassName?: string;
+  children: React.ReactNode;
+  as?: React.ElementType;
 }
 
-const MarqueeButton: React.FC<MarqueeButtonProps> = ({ text, link }) => {
+export default function MarqueeText({
+  className,
+  childClassName,
+  animatedClassName,
+  children,
+  as: Component = Button,
+}: MarqueeTextProps) {
   return (
-    <div style={styles.marqueeButton} className="w-full group">
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={styles.link}
-        className="w-full"
+    <div>
+      <Component
+        className={cn(
+          "relative appearance-none bg-black text-white cursor-pointer font-sans text-base font-black leading-normal uppercase rounded-full border-2 border-solid overflow-hidden py-3 px-12",
+          "focus:outline-none disabled:cursor-default",
+          "group hover:!bg-transparent",
+          className
+        )}
       >
-        <div style={styles.textContainer}>
-          <span
-            style={styles.marqueeText}
-            className="group-hover:-translate-x-full"
-          >
-            {text}
-          </span>
-          <span
-            style={styles.marqueeText}
-            className="group-hover:-translate-x-full"
-          >
-            {text}
-          </span>
-          <span
-            style={styles.marqueeText}
-            className="group-hover:-translate-x-full"
-          >
-            {text}
-          </span>
-        </div>
-      </a>
+        <span
+          className={cn(
+            "absolute inset-0 grid place-items-center transition-opacity duration-200 group-hover:opacity-0 ",
+            childClassName
+          )}
+        >
+          {children}
+        </span>
+        <span
+          aria-hidden
+          className={cn(
+            "absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-200",
+            "group-hover:opacity-100 group-hover:animate-marquee group-hover:!bg-transparent",
+            "before:content-[attr(data-text)] before:absolute before:translate-x-[5em]",
+            "after:content-[attr(data-text)] after:absolute after:translate-x-[-5em]",
+            animatedClassName
+          )}
+          data-text={typeof children === "string" ? children : undefined}
+        >
+          {children}
+        </span>
+      </Component>
     </div>
   );
-};
-
-export default MarqueeButton;
-
-const styles: { [key: string]: React.CSSProperties } = {
-  marqueeButton: {
-    position: "relative",
-    display: "inline-block",
-    overflow: "hidden",
-    padding: "2px",
-    borderRadius: "30px",
-    background:
-      "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
-    cursor: "pointer",
-    transition: "transform 0.2s ease-in-out",
-  },
-  link: {
-    display: "block",
-    position: "relative",
-    textDecoration: "none",
-    color: "#fff",
-    fontSize: "16px",
-    fontWeight: "bold",
-    background: "#000",
-    padding: "10px 30px",
-    borderRadius: "30px",
-    overflow: "hidden",
-    textAlign: "center",
-  },
-  textContainer: {
-    display: "flex",
-    whiteSpace: "nowrap",
-    transition: "all 0.5s ease",
-  },
-  marqueeText: {
-    display: "inline-block",
-    padding: "0 20px",
-    transition: "transform 1s linear",
-  },
-};
+}
