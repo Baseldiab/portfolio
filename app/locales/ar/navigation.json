@@ -1,9 +1,9 @@
 {
   "home": "الرئيسية",
-  "about_me": "عني",
+  "about": "عني",
   "projects": "المشاريع",
   "others": "الأخرى",
-  "contact_me": "تواصل معي",
+  "contact": "تواصل معي",
   "lets_connect": "دعنا نتواصل",
   "footer-text": "كل الحقوق محفوظة © {{yearNow}} من قبل",
   "footer-name": "باسل دياب",

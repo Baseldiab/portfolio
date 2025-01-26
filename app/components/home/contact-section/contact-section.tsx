@@ -29,7 +29,7 @@ export default async function ContactSection({
 
   return (
     <section
-      id="contact_me"
+      id="contact"
       className={cn("w-screen !overflow-hidden", className)}
       style={{
         width: "calc(100vw - 10px)",
