@@ -22,8 +22,9 @@ import { NavbarMenu } from "@/app/components/interfaces/navbar";
 
 // constants
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
-import { Linkedin } from "lucide-react";
-import LinkedinButton from "./linkedin-button";
+
+// Components navbar
+import LinkedinButton from "@/app/components/navbar/linkedin-button";
 
 interface MenuNavbarProps {
   className?: string;
