@@ -15,8 +15,8 @@ export default function Typing() {
       wrapper="span"
       cursor={true}
       repeat={Infinity}
-      className="!text-black dark:!text-white text-3xl font-bold font-playfair"
-      style={{ fontSize: "2em", display: "inline-block" }}
+      className="!text-black dark:!text-white  font-bold font-playfair md:text-4xl sm:text-2xl text-lg"
+      style={{ display: "inline-block" }}
     />
   );
 }

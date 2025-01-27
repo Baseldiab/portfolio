@@ -22,7 +22,10 @@ const MarqueeTitle = memo(
           btnClassName="!bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] hover:!bg-black dark:hover:!bg-white"
           btnCircleClassName="!text-[#1F7BF6]"
         />
-        <SectionTitle className="mx-3 text-[4.4vw]" title={title} />
+        <SectionTitle
+          className="mx-3 text-[4.4vw] max-sm:text-xl"
+          title={title}
+        />
       </Marquee>
     );
   },
