@@ -9,6 +9,9 @@
   "header": "Basel Diab",
   "header-gradient": "Frontend developer.",
   "header-details": "  I am a frontend developer based in Egypt, with main passion towards creativity and exploring. I have experience in building projects using React and Next.js.",
+  "projects": {
+    "title": "Latest Featured Projects"
+  },
   "contact": {
     "title": "Reach Me Out",
     "text": "Want to contact me professionally or as a fellow developer?",
