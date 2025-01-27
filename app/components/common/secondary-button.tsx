@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 // lib imports imports
@@ -28,7 +29,7 @@ export default function SecondaryButton({
         "cursor-pointer font-semibold overflow-hidden relative z-100 border border-theme-border-main dark:border-theme-border-dark group",
         "rounded-3xl",
         "w-32 p-2 h-12",
-        "text-center flex justify-center items-center",
+        "text-center flex justify-center items-center bg-white dark:bg-transparent",
         className
       )}
     >

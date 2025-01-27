@@ -27,11 +27,11 @@ export default async function HeaderSection({
 
   return (
     <header
-      className={cn("relative min-h-[320px] w-full overflow-hidden", className)}
+      className={cn("relative min-h-[500px] w-full overflow-hidden", className)}
     >
-      <ThreeDModel className="absolute top-0 md:start-1/2 end-0 start-0 bottom-0 z-[1] h-fit" />
+      <ThreeDModel className="absolute  md:start-1/2 end-0 start-0 top-1/2 -translate-y-1/2 z-[1] h-fit" />
 
-      <article className="relative z-[2] lg:py-16 md:py-10 py-5">
+      <article className="relative z-[2] lg:py-20 md:py-12 py-8">
         <DragConstraints containerClassName="container flex flex-col gap-14 items-start">
           <RevealAnimation className="">
             <h6 className="text-xl font-medium font-karla text-theme-text-second">
@@ -43,7 +43,7 @@ export default async function HeaderSection({
             <h1 className="md:text-7xl text-5xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
               {t("fields.header")}.
             </h1>
-            <p className="lg:text-5xl md:text-4xl text-2xl font-semibold leading-normal font-playfair uppercase mix-blend-multiply my-3">
+            <p className="lg:text-5xl md:text-4xl text-2xl font-semibold leading-normal font-playfair uppercase my-3 mix-blend-lighten dark:mix-blend-darken">
               {t("fields.header-gradient")}
             </p>
           </RevealAnimation>

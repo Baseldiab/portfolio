@@ -40,7 +40,7 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
     <>
       <Navbar params={{ locale }} />
 
-      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full">
+      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-10 gap-6 mt-10">
         <HeaderSection params={{ locale }} className="main-section" />
         <ContactSection params={{ locale }} />
       </main>

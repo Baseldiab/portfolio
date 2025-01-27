@@ -79,7 +79,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <InitialLoader />
           <main
-            className=" gap-10 min-h-screen"
+            className="min-h-screen flex flex-col w-full"
             id="main-content"
             style={{ opacity: 0, visibility: "hidden" }}
           >
