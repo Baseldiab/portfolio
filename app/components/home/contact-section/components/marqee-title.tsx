@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 
 //
 import SectionTitle from "@/app/components/common/section-title";
-import RotateName from "@/app/components/home/contact-section/rotateName";
+import RotateName from "@/app/components/home/contact-section/components/rotateName";
 
 const MarqueeTitle = memo(
   ({ title, locale }: { title: string; locale: string }) => {
