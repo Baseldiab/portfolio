@@ -16,6 +16,7 @@ import SecondaryButton from "@/app/components/common/secondary-button";
 
 // components home
 import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
+import { resumeLink } from "@/app/components/constants/resume-link";
 
 export default async function HeaderSection({
   params: { locale },
@@ -58,12 +59,7 @@ export default async function HeaderSection({
             <div className="flex justify-start items-center gap-4 max-sm:flex-wrap ">
               <MainButton>{t("fields.button.contact")}</MainButton>
 
-              <SecondaryButton
-                href={
-                  "https://drive.google.com/file/d/1rqwpZzMkFGe_cN4zXSfn7HU7LPdrQB7n/view"
-                }
-                as={Link}
-              >
+              <SecondaryButton href={resumeLink} as={Link}>
                 {t("fields.button.resume")}
               </SecondaryButton>
             </div>

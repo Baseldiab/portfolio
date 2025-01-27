@@ -8,7 +8,7 @@ import { useTranslations } from "@/app/components/hooks/useTranslation";
 
 // components
 import Logo from "@/app/components/common/logo";
-import { ContactLinks } from "@/app/components/common/contact-links";
+import { ContactLinks } from "@/app/components/constants/contact-links";
 
 // Types
 import { ContactLink } from "@/app/components/interfaces/contact-links";

@@ -17,7 +17,7 @@ import MarqeeTitle from "@/app/components/home/contact-section/components/marqee
 import MarqueeItemLink from "./components/marquee-item-link";
 
 // common
-import { ContactLinks } from "@/app/components/common/contact-links";
+import { ContactLinks } from "@/app/components/constants/contact-links";
 
 export default async function ContactSection({
   params: { locale },
