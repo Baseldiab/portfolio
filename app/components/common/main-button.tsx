@@ -12,8 +12,10 @@ export default function MainButton({
       {/* bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent; */}
       <button
         className={cn(
-          "overflow-hidden  w-32 p-2 h-12 text-gradient text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
+          "overflow-hidden text-gradient text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
           "bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6]",
+          "w-32 p-2 h-12",
+          "font-bold text-base",
           className
         )}
       >

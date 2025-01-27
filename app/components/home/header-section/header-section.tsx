@@ -1,3 +1,7 @@
+import Link from "next/link";
+// lib
+import { cn } from "@/lib/utils";
+
 // i18n
 import getTranslations from "@/app/i18n";
 
@@ -7,13 +11,11 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 //  components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import DragConstraints from "@/app/components/common/drag-constranints-animation";
+import MainButton from "@/app/components/common/main-button";
+import SecondaryButton from "@/app/components/common/secondary-button";
 
 // components home
 import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
-import { cn } from "@/lib/utils";
-import MainButton from "../../common/main-button";
-
-//
 
 export default async function HeaderSection({
   params: { locale },
@@ -46,17 +48,26 @@ export default async function HeaderSection({
             </p>
           </RevealAnimation>
 
-          <RevealAnimation className="max-w-[500px]">
+          <RevealAnimation className="max-w-[500px]" delay={0.3}>
             <h6 className="text-xl font-medium font-karla text-theme-text-second">
               {t("fields.header-details")}
             </h6>
           </RevealAnimation>
 
-          <div className="flex justify-start items-center md:mt-7 mt-4">
-            <RevealAnimation className="">
+          <RevealAnimation delay={0.4} className="md:mt-7 mt-4">
+            <div className="flex justify-start items-center gap-4 max-sm:flex-wrap ">
               <MainButton>{t("fields.button.contact")}</MainButton>
-            </RevealAnimation>
-          </div>
+
+              <SecondaryButton
+                href={
+                  "https://drive.google.com/file/d/1rqwpZzMkFGe_cN4zXSfn7HU7LPdrQB7n/view"
+                }
+                as={Link}
+              >
+                {t("fields.button.resume")}
+              </SecondaryButton>
+            </div>
+          </RevealAnimation>
         </DragConstraints>
       </article>
     </header>
