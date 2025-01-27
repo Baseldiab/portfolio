@@ -15,7 +15,6 @@ const config: Config = {
 				karla: ['Karla', '"MS Sans Serif"', 'Geneva', 'sans-serif'],
 		  },
 		  colors: {
-			// to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6]
 			theme: {
 				gradient: {
 					mainTo: '#00E5DA',
