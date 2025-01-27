@@ -23,6 +23,7 @@ import { NavbarMenu } from "@/app/components/interfaces/navbar";
 // constants
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
 import { Linkedin } from "lucide-react";
+import LinkedinButton from "./linkedin-button";
 
 interface MenuNavbarProps {
   className?: string;
@@ -167,13 +168,17 @@ const Navigation = ({
         whileTap={{ scale: 0.95 }}
         className="mb-4"
       >
-        <a
+        {/* <a
           href={"https://www.linkedin.com/in/basel-diab-94b526259/"}
           className="flex justify-center items-center text-white bg-[#1976D2]/95 hover:bg-[#1976D2] px-3 py-2 gap-1.5 rounded-md font-bold text-lg uppercase"
         >
           <Linkedin className="size-5" />
           {t("navigation.lets_connect")}
-        </a>
+        </a> */}
+        <LinkedinButton
+          text={t("fields.app-name")}
+          href="https://www.linkedin.com/in/basel-diab-94b526259/"
+        />
       </motion.li>
     </motion.ul>
   );
