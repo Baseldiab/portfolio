@@ -31,7 +31,10 @@ export default async function ProjectsSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <SectionTitle title={t("fields.projects.title")} />
+      <SectionTitle
+        className="md:mb-10 mb-3"
+        title={t("fields.projects.title")}
+      />
 
       <ShownCards />
     </section>

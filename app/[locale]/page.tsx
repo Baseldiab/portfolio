@@ -43,7 +43,10 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
 
       <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-10 gap-6 mt-10">
         <HeaderSection params={{ locale }} className="main-section" />
-        <ProjectsSection params={{ locale }} />
+        <ProjectsSection
+          params={{ locale }}
+          className="main-section pb-6 md:pt-2 md:pb-12 " //py-7 because there is gap with 10
+        />
         <ContactSection params={{ locale }} />
       </main>
 
