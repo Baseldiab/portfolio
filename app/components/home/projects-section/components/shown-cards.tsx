@@ -1,5 +1,6 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
+import getTranslations from "@/app/i18n";
 import Link from "next/link";
 
 // lib
@@ -18,23 +19,26 @@ import { Project } from "@/app/components/interfaces/project";
 import BreathAnimation from "@/app/components/common/breath-animation";
 import ImageHover from "@/app/components/common/image-hover";
 import ComeFromSidesAnimation from "@/app/components/common/come-from-right-animation";
+import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
-export default function ShownCards() {
+export default async function ShownCards({ params: { locale } }: LocalProps) {
+  const { t } = await getTranslations(locale as string);
+
   return (
-    <article dir="ltr" className={cn("flex flex-col gap-4 my-3", "w-full")}>
+    <article dir="ltr" className={cn("flex flex-col gap-4 mt-4", "w-full")}>
       <div className="container flex md:even:flex-row-reverse max-md:flex-col max-md:even:flex-col-reverse md:justify-start md:even:justify-end justify-center items-start max-h-[350px]  md:gap-10 gap-5">
-        <ComeFromSidesAnimation className=" md:basis-1/2" direction="left">
+        <ComeFromSidesAnimation className=" md:max-w-[50%]" direction="left">
           <ImageHover
             src={HomeProjects[0].image}
             alt={HomeProjects[0].title}
             width={1000}
             height={1000}
-            className=" !max-h-[350px] overflow-hidden !flex-1"
+            className=" !max-h-[350px] overflow-hidden !flex-1 w-full"
           />
         </ComeFromSidesAnimation>
-        <ComeFromSidesAnimation className="flex flex-col items-start md:basis-1/2">
+        <ComeFromSidesAnimation className="flex flex-col items-start md:max-w-[50%] md:basis-1/2">
           <ProjectHeader index={0} project={HomeProjects[0]} />
-          <ProjectContent project={HomeProjects[0]} />
+          <ProjectContent t={t as any} project={HomeProjects[0]} />
         </ComeFromSidesAnimation>
       </div>
     </article>
@@ -64,16 +68,18 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
 
 interface ProjectContentProps {
   project: Project;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: any;
 }
-const ProjectContent = ({ project }: ProjectContentProps) => {
+const ProjectContent = ({ project, t }: ProjectContentProps) => {
   return (
-    <div className="flex justify-between items-start w-full">
-      <h4 className="text-5xl font-karla  font-semibold text-white"></h4>
-      <BreathAnimation>
-        <Link href={project.href as string} target="_blank">
-          <ExternalLink className="size-8 text-theme-text-main dark:text-theme-text-dark" />
-        </Link>
-      </BreathAnimation>
+    <div className="flex flex-col justify-between items-start w-full my-4">
+      <h4 className="md:text-3xl sm:text-2xl text-xl font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark my-2">
+        {project.title}
+      </h4>
+      <p className="text-xl font-medium font-karla text-theme-text-second">
+        {t("fields.header-details")}
+      </p>
     </div>
   );
 };

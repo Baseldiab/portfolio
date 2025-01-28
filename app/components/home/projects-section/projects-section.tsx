@@ -36,7 +36,7 @@ export default async function ProjectsSection({
         title={t("fields.projects.title")}
       />
 
-      <ShownCards />
+      <ShownCards params={{ locale }} />
     </section>
   );
 }

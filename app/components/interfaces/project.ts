@@ -3,5 +3,6 @@ export interface Project {
   href?: string;
   image: string;
   title: string;
-  description?: string;
+  description?: {ar: string, en: string};
+  tech: string[];
 }
