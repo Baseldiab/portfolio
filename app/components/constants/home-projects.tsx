@@ -1,32 +1,39 @@
 // assets
-import itqanApplication from "@/app/assets/images/itqan-application.png";
-import professionals from "@/app/assets/images/professionals.png";
-import ecommerceTechno from "@/app/assets/images/ecommerce-techno.png";
-import movieTime from "@/app/assets/images/movie-time.png";
+import itqanApplication from "@/public/images/itqan.webp";
+import professionals from "@/public/images/car-proffesionals.webp";
+import ecommerceTechno from "@/public/images/e-commerce-techno.webp";
+import movieTime from "@/public/images/movie-time.webp";
 
-export const HomeProjects = [
+// interfaces
+import { Project } from "@/app/components/interfaces/project";
+
+export const HomeProjects: Project[] = [
   {
     id: "itqan-application",
     href: "https://www.itqankfu.com/",
-    image: itqanApplication,
-    text: "Itqan Application",
+    image: itqanApplication.src,
+    title: "Itqan Application",
+    description: "Itqan Application",
   },
   {
     id: "professionals",
     href: "https://github.com/Baseldiab",
-    image: professionals,
-    text: "Professionals",
+    image: professionals.src,
+    title: "Professionals",
+    description: "Professionals",
   },
   {
     id: "ecommerce-techno",
     href: "https://e-commerce-techno-eight.vercel.app/",
-    image: ecommerceTechno,
-    text: "E-commerce Techno",
+    image: ecommerceTechno.src,
+    title: "E-commerce Techno",
+    description: "E-commerce Techno",
   },
   {
     id: "movie-time",
     href: "https://movie-time-woad.vercel.app/",
-    image: movieTime,
-    text: "Movie Time",
+    image: movieTime.src,
+    title: "Movie Time",
+    description: "Movie Time",
   },
 ];
