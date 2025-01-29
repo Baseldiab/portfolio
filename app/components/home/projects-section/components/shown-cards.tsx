@@ -27,15 +27,15 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
   return (
     <article
       // dir="ltr"
-      className={cn("flex flex-col md:gap-8 gap-6 mt-4", "w-full")}
+      className={cn("flex flex-col lg:gap-10 md:gap-12 gap-6 mt-4", "w-full")}
     >
       {HomeProjects.map((item, index) => (
         <div
           key={`home-project-${item.id}`}
-          className="container flex md:even:flex-row-reverse max-md:flex-col max-md:even:flex-col-reverse justify-center items-start max-h-[350px]  md:gap-10 gap-5"
+          className="container flex md:even:flex-row-reverse max-md:flex-col justify-center items-start lg:max-h-[350px]  md:gap-10 gap-5 max-md:border border-theme-border-main p-4 rounded-xl"
         >
           <ComeFromSidesAnimation
-            className="md:max-w-[50%]"
+            className="md:max-w-[50%] max-md:mx-auto"
             direction={
               locale === "ar"
                 ? index % 2 === 0
@@ -51,7 +51,7 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
               alt={item.title}
               width={1000}
               height={1000}
-              className="!max-h-[350px] overflow-hidden !flex-1 w-full"
+              className="lg:!max-h-[calc(350px-2rem)] overflow-hidden !flex-1 w-full "
             />
           </ComeFromSidesAnimation>
           <ComeFromSidesAnimation
@@ -114,7 +114,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
         {project.tech.map((item) => (
           <Badge
             key={`project-${item}-${project.id}`}
-            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase md:text-sm font-normal"
+            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase lg:text-sm text-xs font-normal"
           >
             {item}
           </Badge>
