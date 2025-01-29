@@ -29,16 +29,42 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
 
   const pathname = usePathname();
   const router = useRouter();
-  const [activeSection, setActiveSection] = useState("home");
+
+  // Initialize state from localStorage if available, but use useEffect to avoid hydration mismatch
+  const [activeSection, setActiveSection] = useState(() => {
+    // Default to 'home' during SSR
+    if (typeof window === "undefined") return "home";
+
+    // Use stored value if available
+    const stored = localStorage.getItem("activeSection");
+    return stored || "home";
+  });
+
+  // Update active section from localStorage after mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedSection = localStorage.getItem("activeSection");
+      if (savedSection) {
+        setActiveSection(savedSection);
+      }
+    }
+  }, []);
+
+  // Update localStorage when activeSection changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("activeSection", activeSection);
+    }
+  }, [activeSection]);
 
   useEffect(() => {
-    // For regular pages (not hash routes)
     if (!pathname.includes("#")) {
       const currentSection = navbarMenuArray.find(
         (item) => pathname === item.link || pathname.endsWith(item.id)
       );
       if (currentSection) {
         setActiveSection(currentSection.id);
+        localStorage.setItem("activeSection", currentSection.id);
       }
     }
   }, [pathname]);
@@ -53,8 +79,9 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
             element: document.querySelector(item.link),
           }));
 
-        const scrollPosition = window.scrollY + 100; // Adding offset for better detection
+        const scrollPosition = window.scrollY + 100;
 
+        let foundActiveSection = false;
         for (const section of sections) {
           if (section.element) {
             const element = section.element as HTMLElement;
@@ -65,13 +92,14 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
               scrollPosition < offsetTop + offsetHeight
             ) {
               setActiveSection(section.id);
+              foundActiveSection = true;
               break;
             }
           }
         }
 
-        // Check if we're at the top of the page
-        if (scrollPosition < 100) {
+        // Only set to home if we haven't found another active section
+        if (!foundActiveSection && scrollPosition < 100) {
           setActiveSection("home");
         }
       }
@@ -147,17 +175,17 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
         {/* desktop menu */}
         <ul className="flex justify-end items-end gap-8 text-theme-text-main dark:text-theme-text-dark font-bold text-base md:text-xl max-lg:hidden">
           {navbarMenuArray.map((item) => (
-            <li key={item.id} className="!p-0 !m-0 ">
+            <li key={item.id} className="!p-0 !m-0">
               <BreathAnimation>
                 <Link
                   href={item.link}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={cn(
-                    "hover:underline link-hover  uppercase",
-                    (activeSection === item.id ||
-                      pathname === `${locale}/${item.id}`) &&
-                      "text-accent text-gradient dark:text-gradient"
-                  )}
+                  className={cn("hover:underline link-hover uppercase", {
+                    "text-accent text-gradient dark:text-gradient":
+                      activeSection === item.id,
+                    "text-theme-text-main dark:text-theme-text-dark":
+                      activeSection !== item.id,
+                  })}
                 >
                   {t(item.text)}
                 </Link>
@@ -184,3 +212,5 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
 };
 
 export default Navbar;
+
+

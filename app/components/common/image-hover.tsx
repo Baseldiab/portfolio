@@ -36,24 +36,24 @@ export default function ImageHover({
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ scale: 1.02 }}
       initial={{ scale: 1 }}
-      transition={{ duration: 4 }}
+      transition={{ duration: 0.4 }}
     >
       <motion.div
+        initial={{ y: "0%" }}
         animate={{
           y: isHovered ? "-55%" : "0%",
           filter: isHovered ? "brightness(1)" : "brightness(0.8)",
         }}
-        initial={{ y: "0%", filter: "brightness(0.7)" }}
         transition={{
           y: {
             type: "spring",
             stiffness: 25,
             damping: 10,
             mass: 2,
-            delay: 0.5,
+            delay: 0.2,
           },
           filter: {
-            duration: 1.5,
+            duration: 0.3,
             ease: "easeOut",
           },
         }}
@@ -64,7 +64,7 @@ export default function ImageHover({
           width={width}
           height={height}
           loading="lazy"
-          className={cn(imageClassName)}
+          className={cn("w-full h-auto", imageClassName)}
         />
       </motion.div>
     </motion.figure>
