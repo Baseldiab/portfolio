@@ -37,9 +37,9 @@ export default function InitialLoader() {
         setTimeout(() => {
           setIsLoading(false);
           document.body.style.overflow = "";
-        }, 1000);
+        }, 700);
       }, 500);
-    }, 3000);
+    }, 2200);
 
     return () => {
       clearTimeout(timer);
