@@ -42,22 +42,23 @@ export default async function ContactSection({
             title={t("fields.contact.title")}
           />
         </div>
+      </RevealAnimation>
 
+      <RevealAnimation>
         <SectionText
           text={t("fields.contact.social_links")}
           className="text-start container w-full my-6"
         />
-
-        <div>
-          {ContactLinks.map((item: ContactLink) => (
-            <MarqueeItemLink
-              key={item.id}
-              href={item.href}
-              title={t(`navigation.${item.text.toLowerCase()}`)}
-              locale={locale as string}
-            />
-          ))}
-        </div>
+      </RevealAnimation>
+      <RevealAnimation delay={0.3}>
+        {ContactLinks.map((item: ContactLink) => (
+          <MarqueeItemLink
+            key={item.id}
+            href={item.href}
+            title={t(`navigation.${item.text.toLowerCase()}`)}
+            locale={locale as string}
+          />
+        ))}
       </RevealAnimation>
     </section>
   );
