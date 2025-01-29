@@ -32,11 +32,14 @@ export default async function ProjectsSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <SectionTitle className="mb-2" title={t("fields.projects.title")} />
+      <SectionTitle
+        className="mb-2 max-sm:text-2xl"
+        title={t("fields.projects.title")}
+      />
 
       <SectionDescription
         text={t("fields.projects.description")}
-        className="md:pb-10 pb-5 text-center md:max-w-[70%] lg:max-w-[50%] mx-auto"
+        className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
       />
 
       <ShownCards params={{ locale }} />

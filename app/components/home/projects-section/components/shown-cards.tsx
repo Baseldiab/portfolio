@@ -27,12 +27,12 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
   return (
     <article
       // dir="ltr"
-      className={cn("flex flex-col lg:gap-10 md:gap-12 gap-6 mt-4", "w-full")}
+      className={cn("flex flex-col lg:gap-14 md:gap-12 gap-6 mt-4", "w-full")}
     >
       {HomeProjects.map((item, index) => (
         <div
           key={`home-project-${item.id}`}
-          className="container flex md:even:flex-row-reverse max-md:flex-col justify-center items-start lg:max-h-[350px]  md:gap-10 gap-5 max-md:border border-theme-border-main p-4 rounded-xl"
+          className="container flex md:even:flex-row-reverse max-md:flex-col justify-center items-start lg:max-h-[350px] md:gap-10 gap-5 max-md:border border-theme-border-main p-4 rounded-xl"
         >
           <ComeFromSidesAnimation
             className="md:max-w-[50%] max-md:mx-auto"
@@ -51,7 +51,7 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
               alt={item.title}
               width={1000}
               height={1000}
-              className="lg:!max-h-[calc(350px-2rem)] overflow-hidden !flex-1 w-full "
+              className="!max-h-[calc(350px-2rem)] overflow-hidden !flex-1 w-full "
             />
           </ComeFromSidesAnimation>
           <ComeFromSidesAnimation
