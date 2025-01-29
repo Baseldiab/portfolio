@@ -81,7 +81,7 @@ export default async function RootLayout({
   const hasVisited = cookieStore.has("currentSessionVisited");
 
   if (!hasVisited) {
-    await new Promise((resolve) => setTimeout(resolve, 2500));
+    await new Promise((resolve) => setTimeout(resolve, 2000));
   }
 
   return (
@@ -102,6 +102,7 @@ export default async function RootLayout({
           >
             <>
               <Navbar params={{ locale }} />
+              
               {children}
 
               <Footer params={{ locale }} />
