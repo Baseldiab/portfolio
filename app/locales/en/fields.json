@@ -13,6 +13,10 @@
     "title": "Latest Featured Projects",
     "description": "Some of these projects were built entirely by me, while others were created as part of a team, where I contributed to key aspects of development."
   },
+  "tech": {
+    "title": "Techs I Practice",
+    "description": "I currently use these technologies and always strive to learn more and improve my skills."
+  },
   "contact": {
     "title": "Reach Me Out",
     "text": "Want to contact me professionally or as a fellow developer?",
