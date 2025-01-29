@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { cookies } from "next/headers";
 
 // Styles
 import "./globals.css";
@@ -19,6 +20,15 @@ import CustomCursor from "@/app/components/common/custom-cursor";
 
 // fonts
 import { Playfair_Display } from "next/font/google";
+
+// layout
+import Navbar from "@/app/components/navbar/navbar";
+
+// assets
+import WavesImage from "@/app/components/icons/wavesImage";
+
+// Components
+import Footer from "@/app/components/footer/footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -67,6 +77,13 @@ export default async function RootLayout({
     redirect(`/${defaultLocale}${pathWithoutLocale}`);
   }
 
+  const cookieStore = await cookies();
+  const hasVisited = cookieStore.has("currentSessionVisited");
+
+  if (!hasVisited) {
+    await new Promise((resolve) => setTimeout(resolve, 2500));
+  }
+
   return (
     <html
       lang={locale}
@@ -83,7 +100,14 @@ export default async function RootLayout({
             id="main-content"
             style={{ opacity: 0, visibility: "hidden" }}
           >
-            {children}
+            <>
+              <Navbar params={{ locale }} />
+              {children}
+
+              <Footer params={{ locale }} />
+
+              <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:fill-[#1F7BF6]/5" />
+            </>
           </main>
           <CustomCursor />
         </ThemeProvider>

@@ -1,39 +1,45 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { clsx } from "clsx";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
-// components
+// utils
 import ThemeToggle from "@/app/utils/theme_toggle";
 import LanguageToggle from "@/app/utils/lang_toggle";
+
+// components
 import MenuNavbar from "@/app/components/navbar/menu-navbar";
 import Logo from "@/app/components/common/logo";
+import BreathAnimation from "@/app/components/common/breath-animation";
 
 // types
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
+import { NavbarMenu } from "@/app/components/interfaces/navbar";
 
 // constants
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
 
 // hooks
 import { useTranslations } from "@/app/components/hooks/useTranslation";
-import BreathAnimation from "@/app/components/common/breath-animation";
-import { NavbarMenu } from "../interfaces/navbar";
+import { cn } from "@/lib/utils";
 
 const Navbar = ({ params: { locale } }: LocalProps) => {
   const { t } = useTranslations(locale as string);
+
   const pathname = usePathname();
   const router = useRouter();
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
-    const currentSection = navbarMenuArray.find((item) =>
-      pathname.includes(item.link)
-    );
-    if (currentSection) {
-      setActiveSection(currentSection.id);
+    // For regular pages (not hash routes)
+    if (!pathname.includes("#")) {
+      const currentSection = navbarMenuArray.find(
+        (item) => pathname === item.link || pathname.endsWith(item.id)
+      );
+      if (currentSection) {
+        setActiveSection(currentSection.id);
+      }
     }
   }, [pathname]);
 
@@ -146,9 +152,10 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
                 <Link
                   href={item.link}
                   onClick={(e) => handleNavClick(e, item)}
-                  className={clsx(
+                  className={cn(
                     "hover:underline link-hover  uppercase",
-                    activeSection === item.id &&
+                    (activeSection === item.id ||
+                      pathname === `${locale}/${item.id}`) &&
                       "text-accent text-gradient dark:text-gradient"
                   )}
                 >
