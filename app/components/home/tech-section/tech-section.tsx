@@ -9,6 +9,7 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components common
 import SectionTitle from "@/app/components/common/section-title";
+import RevealAnimation from "@/app/components/common/reveal-animation";
 
 // components tech
 
@@ -32,6 +33,7 @@ export default async function TechSection({
         width: "calc(100vw - 10px)",
       }}
     >
+              <RevealAnimation>
       <SectionTitle
         className="mb-2 max-sm:text-2xl"
         title={t("fields.tech.title")}
@@ -41,6 +43,8 @@ export default async function TechSection({
         text={t("fields.tech.description")}
         className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
       />
+
+      </RevealAnimation>
     </section>
   );
 }
