@@ -10,14 +10,14 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 // components common
 import SectionTitle from "@/app/components/common/section-title";
 
-// components projects
-import ShownCards from "@/app/components/home/projects-section/components/shown-cards";
+// components tech
+
 import SectionDescription from "@/app/components/common/section-description";
 
-export default async function ProjectsSection({
+export default async function TechSection({
   params: { locale },
   className,
-  id
+  id,
 }: LocalProps & {
   className?: string;
   id: string;
@@ -41,8 +41,6 @@ export default async function ProjectsSection({
         text={t("fields.projects.description")}
         className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
       />
-
-      <ShownCards params={{ locale }} />
     </section>
   );
 }

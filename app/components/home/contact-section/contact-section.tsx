@@ -22,14 +22,16 @@ import { ContactLinks } from "@/app/components/constants/contact-links";
 export default async function ContactSection({
   params: { locale },
   className,
+  id,
 }: LocalProps & {
   className?: string;
+  id: string;
 }) {
   const { t } = await getTranslations(locale as string);
 
   return (
     <section
-      id="contact"
+      id={id}
       className={cn("w-screen !overflow-hidden", className)}
       style={{
         width: "calc(100vw - 10px)",

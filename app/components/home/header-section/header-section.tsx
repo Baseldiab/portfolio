@@ -14,14 +14,16 @@ import Text from "./text";
 export default async function HeaderSection({
   params: { locale },
   className,
+  id,
 }: LocalProps & {
   className?: string;
+  id: string;
 }) {
   const { t } = await getTranslations(locale as string);
 
   return (
     <header
-      id="about"
+      id={id}
       className={cn(
         "relative md:min-h-[500px] w-full overflow-hidden",
         className
