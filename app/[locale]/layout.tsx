@@ -1,10 +1,9 @@
 // next
 import { ThemeProvider } from "next-themes";
-import { headers } from "next/headers";
+import { headers, cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
-import { cookies } from "next/headers";
 
 // Styles
 import "./globals.css";
@@ -29,6 +28,7 @@ import WavesImage from "@/app/components/icons/wavesImage";
 
 // Components
 import Footer from "@/app/components/footer/footer";
+import { setCookie } from "../actions";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -77,11 +77,11 @@ export default async function RootLayout({
     redirect(`/${defaultLocale}${pathWithoutLocale}`);
   }
 
-  const cookieStore = await cookies();
-  const hasVisited = cookieStore.has("currentSessionVisited");
+  const cookieStore = cookies();
+  const isFirstVisit = !cookieStore.has("hasVisited");
 
-  if (!hasVisited) {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  if (isFirstVisit) {
+    setCookie();
   }
 
   return (
@@ -94,15 +94,15 @@ export default async function RootLayout({
         className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <InitialLoader />
+          {isFirstVisit && <InitialLoader />}
           <main
             className="min-h-screen flex flex-col w-full"
             id="main-content"
-            style={{ opacity: 0, visibility: "hidden" }}
+            style={isFirstVisit ? { opacity: 0, visibility: "hidden" } : {}}
+            // style={isFirstVisit ? { display: "none" } : {}}
           >
             <>
               <Navbar params={{ locale }} />
-              
               {children}
 
               <Footer params={{ locale }} />
