@@ -10,7 +10,8 @@
   "header-gradient": "Frontend developer.",
   "header-details": "  I am a frontend developer based in Egypt, with main passion towards creativity and exploring. I have experience in building projects using React and Next.js.",
   "projects": {
-    "title": "Latest Featured Projects"
+    "title": "Latest Featured Projects",
+    "description": "Some of these projects were built entirely by me, while others were created as part of a team, where I contributed to key aspects of development."
   },
   "contact": {
     "title": "Reach Me Out",

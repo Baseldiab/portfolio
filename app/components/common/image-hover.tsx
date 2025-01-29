@@ -29,7 +29,7 @@ export default function ImageHover({
   return (
     <motion.figure
       className={cn(
-        "relative w-full max-w-xs overflow-hidden rounded-lg border border-gray-200",
+        "relative w-full max-w-xs overflow-hidden rounded-lg border border-theme-border-main dark:border-theme-border-dark",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}

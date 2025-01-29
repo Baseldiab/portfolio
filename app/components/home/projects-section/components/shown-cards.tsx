@@ -18,32 +18,59 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 // components common
 import BreathAnimation from "@/app/components/common/breath-animation";
 import ImageHover from "@/app/components/common/image-hover";
-import ComeFromSidesAnimation from "@/app/components/common/come-from-right-animation";
+import ComeFromSidesAnimation from "@/app/components/common/come-from-sides-animation";
 
 // components ui
 import { Badge } from "@/app/components/ui/badge";
 
 export default async function ShownCards({ params: { locale } }: LocalProps) {
   return (
-    <article dir="ltr" className={cn("flex flex-col gap-4 mt-4", "w-full")}>
-      <div className="container flex md:even:flex-row-reverse max-md:flex-col max-md:even:flex-col-reverse md:justify-start md:even:justify-end justify-center items-start max-h-[350px]  md:gap-10 gap-5">
-        <ComeFromSidesAnimation className=" md:max-w-[50%]" direction="left">
-          <ImageHover
-            src={HomeProjects[0].image}
-            alt={HomeProjects[0].title}
-            width={1000}
-            height={1000}
-            className=" !max-h-[350px] overflow-hidden !flex-1 w-full"
-          />
-        </ComeFromSidesAnimation>
-        <ComeFromSidesAnimation className="flex flex-col items-start md:max-w-[50%] md:basis-1/2">
-          <ProjectHeader index={0} project={HomeProjects[0]} />
-          <ProjectContent
-            locale={locale as "ar" | "en"}
-            project={HomeProjects[0]}
-          />
-        </ComeFromSidesAnimation>
-      </div>
+    <article
+      // dir="ltr"
+      className={cn("flex flex-col md:gap-8 gap-6 mt-4", "w-full")}
+    >
+      {HomeProjects.map((item, index) => (
+        <div
+          key={`home-project-${item.id}`}
+          className="container flex md:even:flex-row-reverse max-md:flex-col max-md:even:flex-col-reverse justify-center items-start max-h-[350px]  md:gap-10 gap-5"
+        >
+          <ComeFromSidesAnimation
+            className="md:max-w-[50%]"
+            direction={
+              locale === "ar"
+                ? index % 2 === 0
+                  ? "right"
+                  : "left"
+                : index % 2 === 0
+                ? "left"
+                : "right"
+            }
+          >
+            <ImageHover
+              src={item.image}
+              alt={item.title}
+              width={1000}
+              height={1000}
+              className="!max-h-[350px] overflow-hidden !flex-1 w-full"
+            />
+          </ComeFromSidesAnimation>
+          <ComeFromSidesAnimation
+            className="flex flex-col items-start md:max-w-[50%] md:basis-1/2"
+            direction={
+              locale === "ar"
+                ? index % 2 === 0
+                  ? "left"
+                  : "right"
+                : index % 2 === 0
+                ? "right"
+                : "left"
+            }
+          >
+            <ProjectHeader index={index} project={item} />
+            <ProjectContent locale={locale as "ar" | "en"} project={item} />
+          </ComeFromSidesAnimation>
+        </div>
+      ))}
     </article>
   );
 }
@@ -87,7 +114,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
         {project.tech.map((item) => (
           <Badge
             key={`project-${item}-${project.id}`}
-            className="min-w-fit dark:bg-theme-background-secondDark dark:text-white"
+            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase md:text-sm font-normal"
           >
             {item}
           </Badge>

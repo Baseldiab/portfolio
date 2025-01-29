@@ -26,9 +26,9 @@ export const HomeProjects: Project[] = [
       "Typescript",
       "Zod",
       "React Hook Form",
-      "react-helmet",
+      "react helmet",
       "Axios",
-      "framer-motion",
+      "framer motion",
     ],
   },
   {

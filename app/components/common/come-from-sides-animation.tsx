@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-interface ComeFromRightAnimationProps {
+interface ComeFromSidesAnimationProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
@@ -16,7 +16,7 @@ export default function ComeFromSidesAnimation({
   className = "",
   delay = 0.4,
   direction = "right",
-}: ComeFromRightAnimationProps) {
+}: ComeFromSidesAnimationProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
