@@ -8,12 +8,12 @@ export const navbarMenuArray: NavbarMenu[] = [
         text: "navigation.home"
     },
     {
-        link: "#about",
+        link: "/#about",
         id: "about",
         text: "navigation.about"
     },
     {
-        link: "#projects",
+        link: "/#projects",
         id: "projects",
         text: "navigation.projects"
     },
@@ -23,7 +23,7 @@ export const navbarMenuArray: NavbarMenu[] = [
         text: "navigation.others"
     },
     {
-        link: "#contact",
+        link: "/#contact",
         id: "contact",
         text: "navigation.contact"
     }

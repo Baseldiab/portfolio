@@ -28,6 +28,7 @@ export default async function HeaderSection({
 
   return (
     <header
+      id="about"
       className={cn("relative min-h-[500px] w-full overflow-hidden", className)}
     >
       <ThreeDModel className="absolute  md:start-1/2 end-0 start-0 top-1/2 -translate-y-1/2 z-[1] h-fit" />

@@ -47,7 +47,7 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
           params={{ locale }}
           className="main-section pb-6 md:pt-2 md:pb-12 " //py-7 because there is gap with 10
         />
-        <ContactSection params={{ locale }} />
+        <ContactSection params={{ locale }} className="pb-6 md:pt-2 md:pb-12" />
       </main>
 
       <Footer params={{ locale }} />

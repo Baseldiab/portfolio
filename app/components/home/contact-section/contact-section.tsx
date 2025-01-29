@@ -36,10 +36,7 @@ export default async function ContactSection({
       }}
     >
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center overflow-hidden max-w-full">
-        <div
-          dir="ltr"
-          className="overflow-hidden  mx-auto lg:pt-10 sm:pt-8 pt-5 min-h-fit"
-        >
+        <div dir="ltr" className="overflow-hidden  mx-auto  min-h-fit">
           <MarqeeTitle
             locale={locale as string}
             title={t("fields.contact.title")}
