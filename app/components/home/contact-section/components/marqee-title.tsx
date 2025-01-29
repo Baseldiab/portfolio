@@ -19,7 +19,7 @@ const MarqueeTitle = memo(
       >
         <RotateName
           className={`mx-2 ${locale === "ar" ? "rotate-180" : ""}`}
-          btnClassName="!bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] hover:!bg-black dark:hover:!bg-white"
+          btnClassName="!bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] hover:!bg-black dark:hover:!bg-white min-h-fit"
           btnCircleClassName="!text-[#1F7BF6]"
         />
         <SectionTitle

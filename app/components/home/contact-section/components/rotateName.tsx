@@ -14,14 +14,7 @@ const RotateName = ({
   btnClassName,
   btnCircleClassName,
 }: RotateNameProps) => {
-  const mainArray = [
-    ..."Basel".split(""),
-    "",
-    ..."Diab".split(""),
-    "",
-    ..."frontend".split(""),
-    "",
-  ];
+  const mainArray = [..."Diab frontend Basel ".split("")];
 
   return (
     <>
@@ -32,6 +25,7 @@ const RotateName = ({
               <span
                 key={index}
                 style={{ "--index": index } as React.CSSProperties}
+                className="!text-sm"
               >
                 {item}
               </span>
@@ -118,7 +112,7 @@ const StyledRotateWrapper = styled.div`
 
   .button:hover {
     background: #000 !important;
-    transform: scale(1.05);
+    // transform: scale(1.05);
   }
   .dark .button:hover {
     background: #fff !important;

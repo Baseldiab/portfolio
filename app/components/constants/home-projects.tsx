@@ -15,7 +15,7 @@ export const HomeProjects: Project[] = [
     title: "Itqan Application",
     description: {
       ar: "مكتبة إتقان - منصة تعليمية متكاملة تقدم خدمات الكتب الإلكترونية والدورات التدريبية والمواد التعليمية المتخصصة للطلاب والمهنيين في جامعة الملك فيصل",
-      en: "Itqan Application",
+      en: "Itqan Application - A comprehensive educational platform offering e-books, training courses, and specialized educational materials for students and professionals at King Saud University.",
     },
     tech: [
       "React",

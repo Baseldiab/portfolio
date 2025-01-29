@@ -41,7 +41,7 @@ export default function ImageHover({
       <motion.div
         animate={{
           y: isHovered ? "-55%" : "0%",
-          filter: isHovered ? "brightness(1)" : "brightness(0.7)",
+          filter: isHovered ? "brightness(1)" : "brightness(0.8)",
         }}
         initial={{ y: "0%", filter: "brightness(0.7)" }}
         transition={{

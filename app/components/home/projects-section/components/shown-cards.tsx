@@ -13,12 +13,15 @@ import { ExternalLink } from "lucide-react";
 
 // interfaces
 import { Project } from "@/app/components/interfaces/project";
+import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components common
 import BreathAnimation from "@/app/components/common/breath-animation";
 import ImageHover from "@/app/components/common/image-hover";
 import ComeFromSidesAnimation from "@/app/components/common/come-from-right-animation";
-import { LocalProps } from "@/app/components/interfaces/local.props.interface";
+
+// components ui
+import { Badge } from "@/app/components/ui/badge";
 
 export default async function ShownCards({ params: { locale } }: LocalProps) {
   return (
@@ -53,7 +56,7 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
   return (
     <div className="flex justify-between items-start w-full">
       <div className="flex items-center p-3 justify-center size-fit bg-gradient-to-r from-theme-gradient-mainFrom to-theme-gradient-mainTo">
-        <h5 className="text-5xl font-karla  font-semibold text-white">
+        <h5 className="text-4xl font-karla  font-semibold text-white">
           0{index + 1}
         </h5>
       </div>
@@ -72,13 +75,24 @@ interface ProjectContentProps {
 }
 const ProjectContent = ({ project, locale }: ProjectContentProps) => {
   return (
-    <div className="flex flex-col justify-between items-start w-full my-4">
-      <h4 className="md:text-3xl sm:text-2xl text-xl font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark my-2">
+    <div className="flex flex-col justify-between items-start w-full my-4 gap-4">
+      <h4 className="md:text-2xl sm:text-xl text-base font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark">
         {project.title}
       </h4>
-      <p className="text-xl font-medium font-karla text-theme-text-second">
+      <p className="md:text-lg sm:text-base text-sm font-medium font-karla text-theme-text-second">
         {project.description[locale]}
       </p>
+
+      <div className="flex justify-start items-center flex-wrap gap-2">
+        {project.tech.map((item) => (
+          <Badge
+            key={`project-${item}-${project.id}`}
+            className="min-w-fit dark:bg-theme-background-secondDark dark:text-white"
+          >
+            {item}
+          </Badge>
+        ))}
+      </div>
     </div>
   );
 };
