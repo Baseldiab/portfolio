@@ -47,7 +47,7 @@ export default function Text({
 
   React.useEffect(() => {
     if (isFirstLoading) {
-      setDelay(1);
+      setDelay(2.);
     } else {
       setDelay(0);
     }
