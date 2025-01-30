@@ -10,43 +10,47 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-		  fontFamily: {
-				playfair: ['Matter, sans-serif'],
-				karla: ['Karla', '"MS Sans Serif"', 'Geneva', 'sans-serif'],
-		  },
-		  colors: {
-			theme: {
-				gradient: {
-					mainTo: '#00E5DA',
-					mainFrom: '#1F7BF6',
-					darkTo: '#00E5DA',
-					darkFrom: '#1F7BF6',
-				},
-				background: {
-					main: '#ffffffcc',
-					dark: '#000',
-					second: "rgb(31 123 246 / 0.05)",
-					secondDark: "#1f2937"
-			  },
-				text: {
-					main: '#000',
-					dark: '#fff',
-					second: "#6c757d"
-				},
-				border: {
-					main: '#9ca3af94',
-					dark: '#ffffff38',
-				}
-				},	
-			  
+  		fontFamily: {
+  			playfair: [
+  				'Matter, sans-serif'
+  			],
+  			karla: [
+  				'Karla',
+  				'MS Sans Serif"',
+  				'Geneva',
+  				'sans-serif'
+  			]
+  		},
+  		colors: {
+  			theme: {
+  				gradient: {
+  					mainTo: '#00E5DA',
+  					mainFrom: '#1F7BF6',
+  					darkTo: '#00E5DA',
+  					darkFrom: '#1F7BF6'
+  				},
+  				background: {
+  					main: '#ffffffcc',
+  					dark: '#000',
+  					second: 'rgb(31 123 246 / 0.05)',
+  					secondDark: '#1f2937'
+  				},
+  				text: {
+  					main: '#000',
+  					dark: '#fff',
+  					second: '#6c757d'
+  				},
+  				border: {
+  					main: '#9ca3af94',
+  					dark: '#ffffff38'
+  				}
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
-			  },
-				
-				
+  			},
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'
@@ -82,16 +86,37 @@ const config: Config = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
-
-		  animation: {
-			marquee: 'marquee 1s linear infinite',
-		  },
-		  keyframes: {
-			marquee: {
-				'0%': { transform: 'translateX(0)' },
-				'100%': { transform: 'translateX(-5em)' }
-			  }
-		  },
+  		animation: {
+  			marquee: 'marquee 1s linear infinite',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		},
+  		keyframes: {
+  			marquee: {
+  				'0%': {
+  					transform: 'translateX(0)'
+  				},
+  				'100%': {
+  					transform: 'translateX(-5em)'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
