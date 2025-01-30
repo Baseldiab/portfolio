@@ -39,7 +39,7 @@ export default function ImageHover({
       transition={{ duration: 0.4 }}
     >
       <motion.div
-        initial={{ y: "0%" }}
+        style={{ y: "0%" }}
         animate={{
           y: isHovered ? "-55%" : "0%",
           filter: isHovered ? "brightness(1)" : "brightness(0.8)",
@@ -50,11 +50,12 @@ export default function ImageHover({
             stiffness: 25,
             damping: 10,
             mass: 2,
-            delay: 0.2,
+            delay: 0.3,
           },
           filter: {
-            duration: 0.3,
+            duration: 0.2,
             ease: "easeOut",
+            delay: 0,
           },
         }}
       >
