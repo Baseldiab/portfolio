@@ -1,4 +1,5 @@
 // assets
+import Portfolio from "@/public/images/portfolio.webp";
 import itqanApplication from "@/public/images/itqan.webp";
 import professionals from "@/public/images/car-proffesionals.webp";
 import ecommerceTechno from "@/public/images/e-commerce-techno.webp";
@@ -8,6 +9,28 @@ import movieTime from "@/public/images/movie-time.webp";
 import { Project } from "@/app/components/interfaces/project";
 
 export const HomeProjects: Project[] = [
+  {
+    id: "portfolio",
+    href: "https://basel-diab.vercel.app/",
+    image: Portfolio.src,
+    title: "Portfolio",
+    description: {
+      ar: "موقع محفظة أعمال تفاعلي ومتجاوب لعرض مهاراتي ومشاريعي وخبراتي كمطور واجهات أمامية",
+      en: "A responsive and interactive portfolio website to showcase my skills, projects, and experience as a frontend developer.",
+    },
+    tech: [
+      "Next",
+      "tailwind",
+      "Shadcn UI",
+      "React Query",
+      "Typescript",
+      "framer motion",
+      "react i18next",
+      "three",
+      "react animated cursor",
+      "next themes",
+    ],
+  },
   {
     id: "itqan-application",
     href: "https://www.itqankfu.com/",

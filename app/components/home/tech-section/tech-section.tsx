@@ -46,11 +46,11 @@ export default async function TechSection({
       <RevealAnimation>
         <SectionTitle
           className="mb-2 max-sm:text-2xl"
-          title={t("fields.tech.title")}
+          title={t("fields.skills.title")}
         />
 
         <SectionDescription
-          text={t("fields.tech.description")}
+          text={t("fields.skills.description")}
           className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
       </RevealAnimation>
@@ -58,7 +58,7 @@ export default async function TechSection({
       <RevealAnimation>
         <article className="container grid xl:grid-cols-8 lg:grid-cols-6 justify-center items-center md:grid-cols-5 sm:grid-cols-4 grid-cols-3 lg:gap-11 sm:gap-6 gap-3">
           {TechItems.map((item) => (
-            <TechItem key={`tech-item-${item.id}`} item={item} />
+            <TechItem key={`skill-item-${item.id}`} item={item} />
           ))}
         </article>
       </RevealAnimation>
