@@ -8,6 +8,7 @@ interface Description {
 }
 export interface ExperienceItem {
   id: string;
+    job: string;
   company: string;
   office: string;
   location: string;

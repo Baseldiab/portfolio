@@ -6,24 +6,23 @@ import getTranslations from "@/app/i18n";
 
 // interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
-import { TechItem as TechItemType } from "@/app/components/interfaces/tech";
+import { ExperienceItem as ExperienceItemType } from "@/app/components/interfaces/experience";
 
 // components common
 import SectionTitle from "@/app/components/common/section-title";
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionDescription from "@/app/components/common/section-description";
-import BreathAnimation from "@/app/components/common/breath-animation";
 
 // constants
-import { TechItems } from "@/app/components/constants/tech-practice";
+import { experienceArray } from "@/app/components/constants/experience";
 
 // ui imports
 import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/app/components/ui/tooltip";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/app/components/ui/accordion";
 
 export default async function ExperienceSection({
   params: { locale },
@@ -55,34 +54,49 @@ export default async function ExperienceSection({
         />
       </RevealAnimation>
 
-      <RevealAnimation>
-        <article className="container grid xl:grid-cols-8 lg:grid-cols-6 justify-center items-center md:grid-cols-5 sm:grid-cols-4 grid-cols-3 lg:gap-11 sm:gap-6 gap-3">
-          {TechItems.map((item) => (
-            <TechItem key={`skill-item-${item.id}`} item={item} />
-          ))}
+      <RevealAnimation className="container">
+        <article className=" flex flex-col justify-center items-center sm:gap-6 gap-3  md:max-w-[80%] sm:max-w-[80%] max-w-[90%] mx-auto">
+          {/* {TechItems.map((item) => (
+          ))} */}
+          <ExperienceItem
+            key={`experience-item-${experienceArray[0].id}`}
+            item={experienceArray[0]}
+          />
         </article>
       </RevealAnimation>
     </section>
   );
 }
 
-interface TechItemProps {
-  item: TechItemType;
+interface ExperienceItemProps {
+  item: ExperienceItemType;
 }
 
-const TechItem = ({ item }: TechItemProps) => {
+const ExperienceItem = ({ item }: ExperienceItemProps) => {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger asChild>
-          <button>
-            <BreathAnimation scale={1.05}>{item.icon}</BreathAnimation>
-          </button>
-        </TooltipTrigger>
-        <TooltipContent>
-          <p>{item.text}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Accordion
+      type="single"
+      collapsible
+      className="w-full border p-2 rounded-2xl"
+    >
+      <AccordionItem value="item-1 ">
+        <AccordionTrigger className="flex items-start gap-3">
+          <h6 className="font-bold flex-col flex text-2xl">
+            {item.company}
+            <span className="text-muted-foreground text-sm">{item.job}</span>
+          </h6>
+          <span className="text-muted-foreground">
+            {item.time}-{item.office}
+          </span>
+        </AccordionTrigger>
+        <AccordionContent>
+          <ul className="list-desc">
+            {item.description.map((desc) => (
+              <li key={desc.id}>{desc.text}</li>
+            ))}
+          </ul>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 };
