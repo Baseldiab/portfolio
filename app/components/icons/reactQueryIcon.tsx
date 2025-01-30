@@ -11,7 +11,6 @@ export default function ReactQueryIcon(props: React.SVGProps<SVGSVGElement>) {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       {...props}
     >
-      <title>emblem-light</title>
       <desc>Created with Sketch.</desc>
       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g>

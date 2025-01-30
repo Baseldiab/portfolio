@@ -1,6 +1,7 @@
 // icons
 import HtmlIcon from "@/app/components/icons/htmlIcon";
 import CssIcon from "@/app/components/icons/cssIcon";
+import SassIcon from "@/app/components/icons/sassIcon";
 import JsIcon from "@/app/components/icons/jsIcon";
 import ReactIcon from "@/app/components/icons/reactIcon";
 import NextIcon from "@/app/components/icons/nextIon";
@@ -13,11 +14,15 @@ import ShadcnUiIcon from "@/app/components/icons/shadcnIcon";
 import ReduxIcon from "@/app/components/icons/reduxIcon";
 import ZustandIcon from "@/app/components/icons/zustandIcon";
 import ReactQueryIcon from "@/app/components/icons/reactQueryIcon";
-import ViteIcon from "@/app/components/icons/viteIcon";
+import AxiosIcon from "@/app/components/icons/axiosIcon";
+// import ViteIcon from "@/app/components/icons/viteIcon";
 
-const iconClassName = "size-4 lg:size-5 ";
+// types
+import { TechItem } from "@/app/components/interfaces/tech";
 
-export const ContactLinks = [
+const iconClassName = "!size-full !min-w-full ";
+
+export const TechItems: TechItem[] = [
   {
     id: "react",
     icon: <ReactIcon className={iconClassName} />,
@@ -37,6 +42,11 @@ export const ContactLinks = [
     id: "js",
     icon: <JsIcon className={iconClassName} />,
     text: "Javascript",
+  },
+  {
+    id: "sass",
+    icon: <SassIcon className={iconClassName} />,
+    text: "SASS",
   },
   {
     id: "css",
@@ -89,8 +99,13 @@ export const ContactLinks = [
     text: "React Query",
   },
   {
-    id: "vite",
-    icon: <ViteIcon className={iconClassName} />,
-    text: "Vite",
+    id: "axios",
+    icon: <AxiosIcon className={iconClassName} />,
+    text: "axios",
   },
+  // {
+  //   id: "vite",
+  //   icon: <ViteIcon className={iconClassName} />,
+  //   text: "Vite",
+  // },
 ];

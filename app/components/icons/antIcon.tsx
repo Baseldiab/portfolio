@@ -11,9 +11,7 @@ export default function AntIcon(props: React.SVGProps<SVGSVGElement>) {
       xmlnsXlink="http://www.w3.org/1999/xlink"
       {...props}
     >
-      {/* Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch */}
-      <title>Group 28 Copy 5</title>
-      <desc>Created with Sketch.</desc>
+    
       <defs>
         <linearGradient
           x1="62.1023273%"

@@ -10,7 +10,7 @@ export default function ZustandIcon(props: React.SVGProps<SVGSVGElement>) {
       height="171"
       {...props}
     >
-      <title>zustand</title>
+      
       <defs>
         <image
           width="294"

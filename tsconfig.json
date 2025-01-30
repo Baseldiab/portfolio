@@ -32,7 +32,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/components/icons/axiosIcon.tsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -31,7 +31,7 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
   await new Promise((resolve) => setTimeout(resolve, 2500));
   return (
     <>
-      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-10 gap-6 mt-10">
+      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-12 gap-6 mt-10">
         <HeaderSection
           id={"about"}
           params={{ locale }}
@@ -41,13 +41,13 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
         <ProjectsSection
           id={"projects"}
           params={{ locale }}
-          className="main-section pb-6 md:pt-2 md:pb-12 " //py-7 because there is gap with 10
+          className="main-section pb-7 md:pt-3 md:pb-12 " //py-7 because there is gap with 10
         />
 
         <TechSection
           id={"tech"}
           params={{ locale }}
-          className="md:pt-2 main-section"
+          className="main-section pb-7 md:pt-3 md:pb-12 "
         />
 
         <ContactSection

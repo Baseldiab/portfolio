@@ -2,25 +2,30 @@ import React from "react";
 
 export default function ShadcnUiIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      version="1.2"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 474 106"
-      width="474"
-      height="106"
-      {...props}
-    >
-      <title>shadcn ui</title>
-      <defs>
-        <image
-          width="474"
-          height="106"
-          id="img1"
-          href="data:image/png;base64,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"
-        />
-      </defs>
-      <style></style>
-      <use id="Background" href="#img1" x="0" y="0" />
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" {...props}>
+      <rect width="256" height="256" fill="none"></rect>
+      <line
+        x1="208"
+        y1="128"
+        x2="128"
+        y2="208"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
+      ></line>
+      <line
+        x1="192"
+        y1="40"
+        x2="40"
+        y2="192"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
+      ></line>
     </svg>
   );
 }
