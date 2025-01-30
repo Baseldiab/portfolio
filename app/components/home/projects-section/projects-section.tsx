@@ -41,7 +41,7 @@ export default async function ProjectsSection({
 
         <SectionDescription
           text={t("fields.projects.description")}
-          className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
+          className="md:pb-10 pb-5 text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
       </RevealAnimation>
 

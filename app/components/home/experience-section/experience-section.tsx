@@ -50,7 +50,7 @@ export default async function ExperienceSection({
 
         <SectionDescription
           text={t("fields.experience.description")}
-          className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
+          className="md:pb-7 pb-5 text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
       </RevealAnimation>
 
@@ -59,10 +59,14 @@ export default async function ExperienceSection({
           type="multiple"
           // defaultValue={experienceArray[0].id}
           // collapsible
-          className="mx-auto max-w-[980px] w-full  border border-theme-border-main rounded-xl sm:my-9 my-3 z-20 "
+          className="mx-auto max-w-[980px] w-full  border border-theme-border-main rounded-xl z-20 "
         >
           {experienceArray.map((item) => (
-            <ExperienceItem key={`experience-item-${item.id}`} item={item} />
+            <ExperienceItem
+              key={`experience-item-${item.id}`}
+              item={item}
+              locale={locale as "ar" | "en"}
+            />
           ))}
         </Accordion>
       </RevealAnimation>
@@ -72,31 +76,32 @@ export default async function ExperienceSection({
 
 interface ExperienceItemProps {
   item: ExperienceItemType;
+  locale: "ar" | "en";
 }
 
-const ExperienceItem = ({ item }: ExperienceItemProps) => {
+const ExperienceItem = ({ item, locale }: ExperienceItemProps) => {
   return (
-    <AccordionItem value={item.id} className="border-b p-4">
+    <AccordionItem value={item.id} className="border-b last:border-b-0 p-4">
       <AccordionTrigger className="flex items-start gap-3">
-        <h6 className="font-bold flex-col  flex sm:text-2xl text-xl text-theme-text-main dark:text-theme-text-dark">
+        <h6 className="font-bold flex-col  flex sm:text-2xl text-xl text-theme-text-main dark:text-theme-text-dark items-start">
           <span className="uppercase">{item.company}</span>
           <span className="text-muted-foreground text-sm capitalize">
-            {item.job}, {item.office}
+            {item.job[locale]}, {item.office[locale]}
           </span>
         </h6>
         <h6 className="text-muted-foreground flex flex-col sm:items-end items-start">
-          <span className="text-sm">{item.time}</span>
-          <span className="text-sm font-semibold">{item.location}</span>
+          <span className="text-sm">{item.time[locale]}</span>
+          <span className="text-sm font-semibold">{item.location[locale]}</span>
         </h6>
       </AccordionTrigger>
       <AccordionContent>
-        <ul className="list-disc pl-6 space-y-1 marker:text-theme-text-main dark:marker:text-theme-text-dark">
+        <ul className="list-disc ps-6 space-y-1 marker:text-theme-text-main dark:marker:text-theme-text-dark">
           {item.description.map((desc) => (
             <li
               key={`experience-description-${desc.id}`}
               className="text-theme-text-second lg:text-lg sm:text-base"
             >
-              {desc.text}
+              {desc.text[locale]}
             </li>
           ))}
         </ul>

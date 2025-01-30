@@ -1,17 +1,22 @@
 
 
+interface Localization {
+  ar: string;
+  en: string
+}
 
 interface Description {
   id: string;
-    text: string;
+    text: Localization;
     highlights: string[];
 }
+
 export interface ExperienceItem {
   id: string;
-    job: string;
+      job: Localization
   company: string;
-  office: string;
-  location: string;
-  time: string;
+  office: Localization;
+  location: Localization;
+  time: Localization;
   description: Description[];
 }

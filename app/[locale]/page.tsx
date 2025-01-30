@@ -31,7 +31,7 @@ export async function generateMetadata({
 export default async function HomePage({ params: { locale } }: LocalProps) {
   return (
     <>
-      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-14 gap-12 mt-10">
+      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full xl:gap-14 md:gap-13 gap-12 mt-10">
         <HeaderSection
           id={"about"}
           params={{ locale }}
@@ -41,19 +41,19 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
         <ProjectsSection
           id={"projects"}
           params={{ locale }}
-          className="main-section pb-7 md:pt-3 md:pb-12 " //py-7 because there is gap with 10
+          className="main-section pb-7 md:pt-3 md:pb-14" //py-7 because there is gap with 10
         />
 
         <ExperienceSection
           id={"experience"}
           params={{ locale }}
-          className="main-section pb-7 md:pt-3 md:pb-12 "
+          className="main-section pb-7 md:pt-3 md:pb-14"
         />
 
         <TechSection
           id={"tech"}
           params={{ locale }}
-          className="main-section pb-7 md:pt-3 md:pb-12 "
+          className="main-section pb-7 md:pt-3 md:pb-14"
         />
 
         <ContactSection
