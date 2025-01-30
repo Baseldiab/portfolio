@@ -71,7 +71,6 @@ interface TechItemProps {
 }
 
 const TechItem = ({ item }: TechItemProps) => {
-  console.log(item);
   return (
     <TooltipProvider>
       <Tooltip>

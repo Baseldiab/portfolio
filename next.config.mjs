@@ -15,6 +15,12 @@ const nextConfig = {
       }]
     });
 
+    // Disable CSS minification
+    config.optimization = {
+      ...config.optimization,
+      minimize: false
+    };
+
     return config;
   }
 };

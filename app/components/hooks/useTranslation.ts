@@ -13,6 +13,7 @@ export function useTranslations(locale: string) {
       const { t: translator } = await getClientTranslations(locale);
       setT(() => translator);
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error('Translation initialization error:', error);
     } finally {
       setIsLoading(false);
