@@ -162,55 +162,6 @@ project-root/
 └── tsconfig.json                    <span style="color: #888"># TypeScript configuration</span>
 </pre>
 
-project-root/
-├── app/ <span style="color: #888"># Application source</span>
-│ ├── [locale]/ <span style="color: #888"># Localized routes</span>
-│ │ ├── page.tsx <span style="color: #888"># Main page component</span>
-│ │ ├── layout.tsx <span style="color: #888"># Root layout</span>
-│ │ └── globals.css <span style="color: #888"># Global styles</span>
-│ │
-│ ├── components/ <span style="color: #888"># React Components</span>
-│ │ ├── common/ <span style="color: #888"># Shared components</span>
-│ │ │ ├── logo.tsx
-│ │ │ ├── main-button.tsx
-│ │ │ └── custom-cursor.tsx
-│ │ │
-│ │ ├── home/ <span style="color: #888"># Home page sections</span>
-│ │ │ ├── header-section/
-│ │ │ ├── projects-section/
-│ │ │ ├── tech-section/
-│ │ │ └── contact-section/
-│ │ │
-│ │ ├── navbar/ <span style="color: #888"># Navigation components</span>
-│ │ │ └── navbar.tsx
-│ │ │
-│ │ └── footer/ <span style="color: #888"># Footer components</span>
-│ │ └── footer.tsx
-│ │
-│ ├── locales/ <span style="color: #888"># Translation files</span>
-│ │ ├── ar/ <span style="color: #888"># Arabic translations</span>
-│ │ │ ├── fields.json
-│ │ │ └── navigation.json
-│ │ └── en/ <span style="color: #888"># English translations</span>
-│ │ ├── fields.json
-│ │ └── navigation.json
-│ │
-│ ├── providers/ <span style="color: #888"># Context Providers</span>
-│ │ └── query-provider.tsx
-│ │
-│ └── utils/ <span style="color: #888"># Utility functions</span>
-│ └── generate-metadata.ts
-│
-├── public/ <span style="color: #888"># Static assets</span>
-│ └── images/ <span style="color: #888"># Image assets</span>
-│
-├── components.json <span style="color: #888"># ShadCN UI config</span>
-├── package.json <span style="color: #888"># Project dependencies</span>
-├── tailwind.config.ts <span style="color: #888"># Tailwind configuration</span>
-└── tsconfig.json <span style="color: #888"># TypeScript configuration</span>
-
-</pre>
-
 ## 🚀 Getting Started
 
 1. Clone the repository
