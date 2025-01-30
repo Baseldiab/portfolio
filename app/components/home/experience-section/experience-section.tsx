@@ -46,11 +46,11 @@ export default async function ExperienceSection({
       <RevealAnimation>
         <SectionTitle
           className="mb-2 max-sm:text-2xl"
-          title={t("fields.skills.title")}
+          title={t("fields.experience.title")}
         />
 
         <SectionDescription
-          text={t("fields.skills.description")}
+          text={t("fields.experience.description")}
           className="md:pb-10 pb-5 text-center lg:max-w-[50%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
       </RevealAnimation>

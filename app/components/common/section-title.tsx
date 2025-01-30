@@ -10,7 +10,7 @@ export default function SectionTitle({ title, className }: SectionTitleProps) {
     <>
       <h2
         className={cn(
-          "text-theme-text-main dark:text-theme-text-dark text-4xl font-bold text-center flex justify-center gap-1 items-center",
+          "text-theme-text-main dark:text-theme-text-dark text-4xl font-bold text-center flex justify-center gap-1 items-center uppercase",
           className
         )}
       >
