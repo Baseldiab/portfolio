@@ -31,7 +31,7 @@ export async function generateMetadata({
 export default async function HomePage({ params: { locale } }: LocalProps) {
   return (
     <>
-      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-12 gap-6 mt-10">
+      <main className="flex-1 flex-grow flex flex-col items-center sm:items-start h-full md:gap-14 gap-12 mt-10">
         <HeaderSection
           id={"about"}
           params={{ locale }}

@@ -33,7 +33,7 @@ export default async function ProjectsSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <RevealAnimation>
+      <RevealAnimation className="container">
         <SectionTitle
           className="mb-2 max-sm:text-2xl"
           title={t("fields.projects.title")}

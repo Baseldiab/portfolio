@@ -25,7 +25,7 @@ export default async function HeaderSection({
     <header
       id={id}
       className={cn(
-        "relative md:min-h-[500px] w-full overflow-hidden",
+        "relative md:min-h-[500px] w-full overflow-hidden pt-5",
         className
       )}
     >

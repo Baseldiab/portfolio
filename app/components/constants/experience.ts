@@ -4,10 +4,10 @@ import { ExperienceItem  } from "@/app/components/interfaces/experience";
 export const experienceArray: ExperienceItem[] = [
     {
         id: "1-asus",
-        job: "fronend developer",
+        job: "frontend developer",
         company: "ASUS ALHLWL",
-        office: "onsite",
-        location: "Mansoura, Egypt",
+        office: "remote",
+        location: "Riyadh, Saudi Arabia",
         time: "JUN 2024 - Present",
         description: [
             {
@@ -39,7 +39,7 @@ export const experienceArray: ExperienceItem[] = [
     },
     {
         id: "2-icon",
-        job: "fronend developer",
+        job: "frontend developer",
         company: "icon technology solution",
         office: "onsite",
         location: "Mansoura, Egypt",

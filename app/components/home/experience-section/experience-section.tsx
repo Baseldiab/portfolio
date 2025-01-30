@@ -42,7 +42,7 @@ export default async function ExperienceSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <RevealAnimation>
+      <RevealAnimation className="container">
         <SectionTitle
           className="mb-2 max-sm:text-2xl"
           title={t("fields.experience.title")}
@@ -55,14 +55,16 @@ export default async function ExperienceSection({
       </RevealAnimation>
 
       <RevealAnimation className="container">
-        <article className=" flex flex-col justify-center items-center sm:gap-6 gap-3  md:max-w-[80%] sm:max-w-[80%] max-w-[90%] mx-auto">
-          {/* {TechItems.map((item) => (
-          ))} */}
-          <ExperienceItem
-            key={`experience-item-${experienceArray[0].id}`}
-            item={experienceArray[0]}
-          />
-        </article>
+        <Accordion
+          type="multiple"
+          // defaultValue={experienceArray[0].id}
+          // collapsible
+          className="mx-auto max-w-[980px] w-full  border border-theme-border-main rounded-xl sm:my-9 my-3 z-20 "
+        >
+          {experienceArray.map((item) => (
+            <ExperienceItem key={`experience-item-${item.id}`} item={item} />
+          ))}
+        </Accordion>
       </RevealAnimation>
     </section>
   );
@@ -74,29 +76,31 @@ interface ExperienceItemProps {
 
 const ExperienceItem = ({ item }: ExperienceItemProps) => {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="w-full border p-2 rounded-2xl"
-    >
-      <AccordionItem value="item-1 ">
-        <AccordionTrigger className="flex items-start gap-3">
-          <h6 className="font-bold flex-col flex text-2xl">
-            {item.company}
-            <span className="text-muted-foreground text-sm">{item.job}</span>
-          </h6>
-          <span className="text-muted-foreground">
-            {item.time}-{item.office}
+    <AccordionItem value={item.id} className="border-b p-4">
+      <AccordionTrigger className="flex items-start gap-3">
+        <h6 className="font-bold flex-col  flex sm:text-2xl text-xl text-theme-text-main dark:text-theme-text-dark">
+          <span className="uppercase">{item.company}</span>
+          <span className="text-muted-foreground text-sm capitalize">
+            {item.job}, {item.office}
           </span>
-        </AccordionTrigger>
-        <AccordionContent>
-          <ul className="list-desc">
-            {item.description.map((desc) => (
-              <li key={desc.id}>{desc.text}</li>
-            ))}
-          </ul>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+        </h6>
+        <h6 className="text-muted-foreground flex flex-col sm:items-end items-start">
+          <span className="text-sm">{item.time}</span>
+          <span className="text-sm font-semibold">{item.location}</span>
+        </h6>
+      </AccordionTrigger>
+      <AccordionContent>
+        <ul className="list-disc pl-6 space-y-1 marker:text-theme-text-main dark:marker:text-theme-text-dark">
+          {item.description.map((desc) => (
+            <li
+              key={`experience-description-${desc.id}`}
+              className="text-theme-text-second lg:text-lg sm:text-base"
+            >
+              {desc.text}
+            </li>
+          ))}
+        </ul>
+      </AccordionContent>
+    </AccordionItem>
   );
 };
