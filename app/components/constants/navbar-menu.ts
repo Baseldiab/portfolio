@@ -17,11 +17,11 @@ export const navbarMenuArray: NavbarMenu[] = [
         id: "projects",
         text: "navigation.projects"
     },
-    // {
-    //     link: "/others",
-    //     id: "others",
-    //     text: "navigation.others"
-    // },
+        {
+            link: "/#experience",
+            id: "experience",
+            text: "navigation.experience"
+        },
     {
         link: "/#contact",
         id: "contact",

@@ -17,6 +17,10 @@
     "title": "Skills",
     "description": "I specialize in frontend development using modern technologies like HTML, CSS, JavaScript, and React. I also have experience with version control tools like Git and GitHub."
   },
+  "experience": {
+    "title": "I'm honored to work with",
+    "description": "Throughout my career, I've collaborated on diverse projects as both a professional developer and freelancer, continuously expanding my expertise in frontend development."
+  },
   "contact": {
     "title": "Reach Me Out",
     "text": "Want to contact me professionally or as a fellow developer?",

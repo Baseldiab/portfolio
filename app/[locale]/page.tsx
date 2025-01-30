@@ -12,6 +12,7 @@ import HeaderSection from "@/app/components/home/header-section/header-section";
 import ContactSection from "@/app/components/home/contact-section/contact-section";
 import ProjectsSection from "@/app/components/home/projects-section/projects-section";
 import TechSection from "@/app/components/home/tech-section/tech-section";
+import ExperienceSection from "@/app/components/home/experience-section/experience-section";
 
 // Add these imports
 
@@ -41,6 +42,12 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
           id={"projects"}
           params={{ locale }}
           className="main-section pb-7 md:pt-3 md:pb-12 " //py-7 because there is gap with 10
+        />
+
+        <ExperienceSection
+          id={"experience"}
+          params={{ locale }}
+          className="main-section pb-7 md:pt-3 md:pb-12 "
         />
 
         <TechSection
