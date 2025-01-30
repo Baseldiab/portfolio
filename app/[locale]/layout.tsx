@@ -1,6 +1,6 @@
 // next
 import { ThemeProvider } from "next-themes";
-import { headers, cookies } from "next/headers";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -28,7 +28,6 @@ import WavesImage from "@/app/components/icons/wavesImage";
 
 // Components
 import Footer from "@/app/components/footer/footer";
-import { setCookie } from "../actions";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -77,12 +76,7 @@ export default async function RootLayout({
     redirect(`/${defaultLocale}${pathWithoutLocale}`);
   }
 
-  const cookieStore = cookies();
-  const isFirstVisit = !cookieStore.has("hasVisited");
-
-  if (isFirstVisit) {
-    setCookie();
-  }
+  await new Promise((resolve) => setTimeout(resolve, 2500));
 
   return (
     <html
@@ -94,20 +88,17 @@ export default async function RootLayout({
         className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {isFirstVisit && <InitialLoader />}
+          <InitialLoader />
           <main
             className="min-h-screen flex flex-col w-full"
             id="main-content"
-            style={isFirstVisit ? { opacity: 0, visibility: "hidden" } : {}}
-            // style={isFirstVisit ? { display: "none" } : {}}
+            style={{ opacity: 0, visibility: "hidden" }}
           >
             <>
               <Navbar params={{ locale }} />
               {children}
-
               <Footer params={{ locale }} />
-
-              <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0  fill-slate-100 dark:fill-[#1F7BF6]/5" />
+              <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
             </>
           </main>
           <CustomCursor />

@@ -1,9 +1,11 @@
-'use server'
-import { cookies } from 'next/headers'
+'use client'
 
-export async function setCookie() {
-    const cookieStore = await cookies();
-    cookieStore.set("hasVisited", "true", {
-        maxAge: 60 * 60 * 24 * 30, // 30 days
-      });
+export async function checkFirstVisit() {
+    const hasVisited = sessionStorage.getItem("hasVisited") === "true";
+    
+    if (!hasVisited) {
+        sessionStorage.setItem("hasVisited", "true");
+    }
+    
+    return !hasVisited;
 }

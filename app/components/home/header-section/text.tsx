@@ -1,7 +1,3 @@
-"use client";
-
-import React from "react";
-
 //  components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
 import DragConstraints from "@/app/components/common/drag-constranints-animation";
@@ -32,13 +28,13 @@ export default function Text({
   return (
     <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
       <DragConstraints containerClassName="container flex flex-col gap-14 items-start">
-        <RevealAnimation className="">
+        <RevealAnimation>
           <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second">
             {firstText}
           </h6>
         </RevealAnimation>
 
-        <RevealAnimation className="h-fit my-2" >
+        <RevealAnimation className="h-fit my-2">
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
           </h1>
@@ -47,11 +43,11 @@ export default function Text({
           </p>
         </RevealAnimation>
 
-        <RevealAnimation className="max-w-[500px]" >
+        <RevealAnimation className="max-w-[500px]">
           <SectionDescription text={description} />
         </RevealAnimation>
 
-        <RevealAnimation  className="md:mt-7 mt-4">
+        <RevealAnimation className="md:mt-7 mt-4">
           <div className="flex justify-start items-center gap-4 max-sm:flex-wrap ">
             <MainButton>{contact}</MainButton>
 
