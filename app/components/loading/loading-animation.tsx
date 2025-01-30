@@ -1,13 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TypingLoader from "./typing";
+
+// React query
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+
+// Components loading
+import TypingLoader from "@/app/components/loading/typing";
 
 export default function InitialLoader() {
+  const queryClient = useQueryClient();
+
   const [isLoading, setIsLoading] = useState(true);
   const [opacity, setOpacity] = useState(1);
 
+  const {} = useQuery({
+    queryKey: ["isFirstLoading"],
+  });
+
   useEffect(() => {
+    queryClient.setQueryData(["isFirstLoading"], true);
+
     // Hide main content initially with smooth transition setup
     const mainContent = document.getElementById("main-content");
     if (mainContent) {
@@ -49,7 +62,7 @@ export default function InitialLoader() {
         mainContent.style.visibility = "visible";
       }
     };
-  }, []);
+  }, [queryClient]);
 
   if (!isLoading) return null;
 
