@@ -52,7 +52,7 @@ export default async function ContactSection({
           className="text-start container w-full my-6"
         />
       </RevealAnimation>
-      <RevealAnimation delay={0.3}>
+      <RevealAnimation>
         {ContactLinks.map((item: ContactLink) => (
           <MarqueeItemLink
             key={item.id}
