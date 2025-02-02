@@ -9,7 +9,7 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components home
 import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
-import Text from "./text";
+import Text from "@/app/components/home/header-section/text";
 
 export default async function HeaderSection({
   params: { locale },

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 //  components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
-import DragConstraints from "@/app/components/common/drag-constranints-animation";
+// import DragConstraints from "@/app/components/common/drag-constranints-animation";
 import MainButton from "@/app/components/common/main-button";
 import SecondaryButton from "@/app/components/common/secondary-button";
 import SectionDescription from "@/app/components/common/section-description";
@@ -55,7 +55,7 @@ export default function Text({
 
   return (
     <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
-      <DragConstraints containerClassName="container flex flex-col gap-14 items-start">
+      <div className="container flex flex-col gap-2 items-start">
         <RevealAnimation delay={delay}>
           <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second">
             {firstText}
@@ -84,7 +84,7 @@ export default function Text({
             </SecondaryButton>
           </div>
         </RevealAnimation>
-      </DragConstraints>
+      </div>
     </article>
   );
 }
