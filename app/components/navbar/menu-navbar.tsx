@@ -95,6 +95,7 @@ export default function MenuNavbar({ className, locale }: MenuNavbarProps) {
             items={navbarMenuArray}
             activeSection={activeSection}
             setActiveSection={setActiveSection}
+            setIsOpen={setIsOpen}
           />
         </motion.div>
         <button
@@ -142,10 +143,12 @@ const Navigation = ({
   items,
   activeSection,
   setActiveSection,
+  setIsOpen,
 }: {
   items: NavbarMenu[];
   activeSection: string;
   setActiveSection: (section: string) => void;
+  setIsOpen: (isOpen: boolean) => void;
 }) => {
   // Memoize the navigation items to prevent unnecessary re-renders
   const memoizedItems = React.useMemo(() => items, [items]);
@@ -157,7 +160,10 @@ const Navigation = ({
         <MenuItem
           key={item.id}
           activeSection={activeSection}
-          onClick={() => setActiveSection(item.id)}
+          onClick={() => {
+            setActiveSection(item.id);
+            setIsOpen(false);
+          }}
           item={item}
           label={t(item.text)}
         />
