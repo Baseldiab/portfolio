@@ -37,7 +37,7 @@ const MarqueeItemLink = memo(
           {/* the marquee happend on hover the parent div only shown on hover */}
           <Marquee
             speed={100}
-            className="!p-0 !m-0 !hidden group-hover:!flex duration-150 h-full"
+            className="!p-0 !m-0 !hidden md:group-hover:!flex duration-150 h-full"
             gradient={false}
             autoFill
             direction={locale === "ar" ? "left" : "right"}
@@ -50,7 +50,7 @@ const MarqueeItemLink = memo(
             href={href}
             title={title}
             className={cn(
-              "group-hover:!hidden !justify-between !text-start",
+              "md:group-hover:!hidden !justify-between !text-start",
               "container"
             )}
           />

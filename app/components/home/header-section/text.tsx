@@ -65,7 +65,7 @@ export default function Text({
         <RevealAnimation className="h-fit my-2" delay={delay}>
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
-          </h1>
+          </h1>f
           <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 mix-blend-lighten dark:mix-blend-darken">
             {thirdText}
           </p>

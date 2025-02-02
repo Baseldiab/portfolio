@@ -28,7 +28,7 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
 
   return (
     <nav className=" sticky sm:top-8 top-5 left-0 right-0  z-50 ">
-      <div className="flex justify-between items-center container py-4 sm:px-8 px-6 bg-white dark:bg-theme-background-dark rounded-full shadow-2xl border border-grey-200 dark:border-grey-200">
+      <div className="flex justify-between items-center container md:py-4 py-3 sm:px-8 px-6 bg-white dark:bg-theme-background-dark rounded-full shadow-2xl border border-grey-200 dark:border-grey-200">
         <Logo />
 
         {/* desktop menu */}

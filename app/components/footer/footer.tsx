@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 // interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
@@ -58,7 +60,7 @@ const ContactItem = ({
       className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out"
       title={t(`navigation.${item.text.toLowerCase()}`)}
     >
-      {item.icon}
+      <Link href={item.href}>{item.icon}</Link>
     </li>
   );
 };
