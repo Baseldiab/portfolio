@@ -25,13 +25,13 @@ export default function InitialLoader() {
     const mainContent = document.getElementById("main-content");
     if (mainContent) {
       mainContent.style.opacity = "0";
-      mainContent.style.transition = "opacity 1s ease-in-out";
+      mainContent.style.transition = "opacity 0.5s ease-in-out";
       mainContent.style.visibility = "hidden"; // Hide initially
     }
 
     document.body.style.overflow = "hidden";
 
-    // Minimum loading time
+    // Reduced timing from 2200ms to 1000ms
     const timer = setTimeout(() => {
       // Start fade out of loader
       setOpacity(0);
@@ -40,19 +40,16 @@ export default function InitialLoader() {
       setTimeout(() => {
         if (mainContent) {
           mainContent.style.visibility = "visible"; // Make visible before fade
-          // Small delay before starting fade in
-          setTimeout(() => {
-            mainContent.style.opacity = "1";
-          }, 50);
+          mainContent.style.opacity = "1";
         }
 
         // Additional delay before removing loader completely
         setTimeout(() => {
           setIsLoading(false);
           document.body.style.overflow = "";
-        }, 700);
-      }, 500);
-    }, 2200);
+        }, 300); // Reduced from 700ms
+      }, 200); // Reduced from 500ms
+    }, 1000); // Reduced from 2200ms
 
     return () => {
       clearTimeout(timer);

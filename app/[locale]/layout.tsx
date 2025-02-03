@@ -10,15 +10,13 @@ import "./globals.css";
 
 // Utils
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
+import { playfair } from "@/app/utils/fonts";
 
 // Config
 import i18nConfig from "@/i18nConfig";
 
 // Components
 import CustomCursor from "@/app/components/common/custom-cursor";
-
-// fonts
-import { Playfair_Display } from "next/font/google";
 
 // layout
 import Navbar from "@/app/components/navbar/navbar";
@@ -31,11 +29,6 @@ import Footer from "@/app/components/footer/footer";
 
 // Add these imports at the top with other imports
 import QueryProvider from "@/app/providers/query-provider";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-});
 
 const InitialLoader = dynamic(
   () => import("@/app/components/loading/loading-animation"),
