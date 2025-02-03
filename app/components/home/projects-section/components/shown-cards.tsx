@@ -47,9 +47,9 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
             <ImageHover
               src={item.image}
               alt={item.title}
-              width={1000}
-              height={1000}
-              className="!max-h-[calc(350px-2rem)] overflow-hidden !flex-1 w-full "
+              width={600}
+              height={440}
+              className="!max-h-[calc(350px-2rem)] overflow-hidden !flex-1 w-full"
             />
           </ComeFromSidesAnimation>
           <ComeFromSidesAnimation

@@ -11,9 +11,9 @@ function Scene() {
 
   // Load Earth texture
   const earthTexture = useTexture({
-    map: "/earth-texture.jpg",
-    bumpMap: "/earth-bump.jpg",
-    specularMap: "/earth-specular.jpg",
+    map: "/earth-texture.webp",
+    bumpMap: "/earth-bump.webp",
+    specularMap: "/earth-specular.webp",
   });
 
   // Increase rotation speed
