@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
 // Components loading
-import TypingLoader from "@/app/components/loading/typing";
+import Typing from "@/app/components/loading/typing";
 
 export default function InitialLoader() {
   const queryClient = useQueryClient();
@@ -19,6 +19,18 @@ export default function InitialLoader() {
   });
 
   useEffect(() => {
+    // Check if user has already visited
+    const hasVisited = sessionStorage.getItem("hasVisited");
+    if (hasVisited) {
+      setIsLoading(false);
+      const mainContent = document.getElementById("main-content");
+      if (mainContent) {
+        mainContent.style.visibility = "visible";
+        mainContent.style.opacity = "1";
+      }
+      return;
+    }
+
     queryClient.setQueryData(["isFirstLoading"], true);
 
     // Hide main content initially with smooth transition setup
@@ -26,30 +38,29 @@ export default function InitialLoader() {
     if (mainContent) {
       mainContent.style.opacity = "0";
       mainContent.style.transition = "opacity 0.5s ease-in-out";
-      mainContent.style.visibility = "hidden"; // Hide initially
+      mainContent.style.visibility = "hidden";
     }
 
     document.body.style.overflow = "hidden";
 
-    // Reduced timing from 2200ms to 1000ms
     const timer = setTimeout(() => {
-      // Start fade out of loader
       setOpacity(0);
 
-      // Show main content after loader starts fading
       setTimeout(() => {
         if (mainContent) {
-          mainContent.style.visibility = "visible"; // Make visible before fade
+          mainContent.style.visibility = "visible";
           mainContent.style.opacity = "1";
         }
 
-        // Additional delay before removing loader completely
         setTimeout(() => {
           setIsLoading(false);
           document.body.style.overflow = "";
-        }, 300); // Reduced from 700ms
-      }, 200); // Reduced from 500ms
-    }, 1000); // Reduced from 2200ms
+        }, 300);
+      }, 200);
+    }, 1000);
+
+    // Set visited flag
+    sessionStorage.setItem("hasVisited", "true");
 
     return () => {
       clearTimeout(timer);
@@ -65,16 +76,13 @@ export default function InitialLoader() {
 
   return (
     <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-theme-background-main dark:bg-theme-background-dark"
       style={{
-        backdropFilter: "blur(5px)",
-        opacity: opacity,
-        transition: "opacity 1s ease-in-out",
+        opacity,
+        transition: "opacity 0.5s ease-in-out",
       }}
-      className="fixed inset-0 z-[9999] flex justify-center items-center bg-theme-background-main/90 dark:bg-theme-background-dark/90"
     >
-      <div className="transform scale-110">
-        <TypingLoader />
-      </div>
+      <Typing />
     </div>
   );
 }

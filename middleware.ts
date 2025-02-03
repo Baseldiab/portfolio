@@ -21,6 +21,9 @@ export function middleware(request: NextRequest) {
       request.nextUrl.pathname.includes('/images/') ||
       request.nextUrl.pathname.endsWith('.ico')) {
     response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+  } else {
+    // Add cache-control for other routes to enable bfcache
+    response.headers.set('Cache-Control', 'public, max-age=0, must-revalidate')
   }
 
   return response
