@@ -16,19 +16,24 @@ import { playfair } from "@/app/utils/fonts";
 import i18nConfig from "@/i18nConfig";
 
 // Components
-import CustomCursor from "@/app/components/common/custom-cursor";
+const Navbar = dynamic(() => import("@/app/components/navbar/navbar"), {
+  ssr: true,
+  loading: () => <div className="h-16" />, // Placeholder height
+});
 
-// layout
-import Navbar from "@/app/components/navbar/navbar";
+const Footer = dynamic(() => import("@/app/components/footer/footer"), {
+  ssr: true,
+});
+
+const CustomCursor = dynamic(
+  () => import("@/app/components/common/custom-cursor"),
+  {
+    ssr: false,
+  }
+);
 
 // assets
 import WavesImage from "@/app/components/icons/wavesImage";
-
-// Components
-import Footer from "@/app/components/footer/footer";
-
-// Add these imports at the top with other imports
-import QueryProvider from "@/app/providers/query-provider";
 
 const InitialLoader = dynamic(
   () => import("@/app/components/loading/loading-animation"),
@@ -72,7 +77,7 @@ export default async function RootLayout({
     redirect(`/${defaultLocale}${pathWithoutLocale}`);
   }
 
-  await new Promise((resolve) => setTimeout(resolve, 2500));
+  // await new Promise((resolve) => setTimeout(resolve, 2500));
 
   return (
     <html
@@ -83,7 +88,6 @@ export default async function RootLayout({
       <body
         className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
-        <QueryProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <InitialLoader />
             <main
@@ -91,16 +95,13 @@ export default async function RootLayout({
               id="main-content"
               style={{ opacity: 0, visibility: "hidden" }}
             >
-              <>
-                <Navbar params={{ locale }} />
-                {children}
-                <Footer params={{ locale }} />
-                <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
-              </>
+              <Navbar params={{ locale }} />
+              {children}
+              <Footer params={{ locale }} />
+              <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
             </main>
             <CustomCursor />
           </ThemeProvider>
-        </QueryProvider>
       </body>
     </html>
   );

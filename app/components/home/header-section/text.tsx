@@ -14,7 +14,6 @@ import SectionDescription from "@/app/components/common/section-description";
 import { resumeLink } from "@/app/components/constants/resume-link";
 
 // React query
-import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 interface TextProps {
@@ -34,35 +33,25 @@ export default function Text({
   contact,
   resume,
 }: TextProps) {
-  const [delay, setDelay] = React.useState(0);
-
-  const { data: isFirstLoading } = useQuery({
-    queryKey: ["isFirstLoading"],
-    queryFn: async () => {
-      await new Promise((resolve) => setTimeout(resolve, 2200)); // 2.2 second delay
-      return false;
-    },
-    initialData: true, // Start with true
-  });
-
-  React.useEffect(() => {
-    if (isFirstLoading) {
-      setDelay(2.2);
-    } else {
-      setDelay(0);
-    }
-  }, [isFirstLoading]);
+  // const { data: isFirstLoading } = useQuery({
+  //   queryKey: ["isFirstLoading"],
+  //   queryFn: async () => {
+  //     await new Promise((resolve) => setTimeout(resolve, 2200)); // 2.2 second delay
+  //     return false;
+  //   },
+  //   initialData: true, // Start with true
+  // });
 
   return (
     <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
       <div className="container flex flex-col gap-2 items-start">
-        <RevealAnimation delay={delay}>
+        <RevealAnimation delay={0.2}>
           <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second">
             {firstText}
           </h6>
         </RevealAnimation>
 
-        <RevealAnimation className="h-fit my-2" delay={delay}>
+        <RevealAnimation className="h-fit my-2" delay={0.2}>
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
           </h1>
@@ -71,11 +60,11 @@ export default function Text({
           </p>
         </RevealAnimation>
 
-        <RevealAnimation className="max-w-[500px]" delay={delay}>
+        <RevealAnimation className="max-w-[500px]" delay={0.2}>
           <SectionDescription text={description} />
         </RevealAnimation>
 
-        <RevealAnimation className="md:mt-7 mt-4" delay={delay}>
+        <RevealAnimation className="md:mt-7 mt-4" delay={0.2}>
           <div className="flex justify-start items-center gap-4 max-sm:flex-wrap ">
             <MainButton>{contact}</MainButton>
 
