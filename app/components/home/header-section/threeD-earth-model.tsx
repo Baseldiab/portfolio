@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import * as THREE from "three";
@@ -9,21 +9,38 @@ import { cn } from "@/lib/utils";
 function Scene() {
   const groupRef = useRef<THREE.Group>(null);
 
-  // Load Earth texture
+  // Memoize textures
   const earthTexture = useTexture({
     map: "/earth-texture.webp",
     bumpMap: "/earth-bump.webp",
     specularMap: "/earth-specular.webp",
   });
 
-  // Increase rotation speed
-  const rotationSpeed = 0.5;
-  useFrame(() => {
-    if (groupRef.current) {
-      // Make rotation continuous
-      groupRef.current.rotation.y += rotationSpeed * 0.01;
-    }
-  });
+  // Use RAF callback for smoother animation
+  useFrame(
+    useCallback(() => {
+      if (groupRef.current) {
+        groupRef.current.rotation.y += 0.005;
+      }
+    }, [])
+  );
+
+  // Memoize geometry and material
+  const sphereGeometry = useMemo(
+    () => new THREE.SphereGeometry(2.5, 32, 32),
+    []
+  ); // Reduced segments
+  const material = useMemo(
+    () =>
+      new THREE.MeshStandardMaterial({
+        map: earthTexture.map,
+        bumpMap: earthTexture.bumpMap,
+        bumpScale: 0.12,
+        metalness: 0.15,
+        roughness: 0.7,
+      }),
+    [earthTexture]
+  );
 
   return (
     <group ref={groupRef}>
@@ -35,18 +52,7 @@ function Scene() {
         castShadow={false}
         color="#ffffff"
       />
-      <mesh rotation={[0, -Math.PI / 2, 0]}>
-        <sphereGeometry args={[2.5, 64, 64]} />
-        <meshStandardMaterial
-          map={earthTexture.map}
-          bumpMap={earthTexture.bumpMap}
-          bumpScale={0.12} // Slightly reduced for less harsh shadows
-          metalness={0.15} // Increased for more reflectivity
-          roughness={0.7} // Reduced for more shine
-          emissive="#1a365d" // Lighter blue tint
-          emissiveIntensity={0.02} // Reduced emission for lighter appearance
-        />
-      </mesh>
+      <mesh geometry={sphereGeometry} material={material} />
     </group>
   );
 }
