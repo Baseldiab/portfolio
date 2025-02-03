@@ -101,6 +101,7 @@ export default function MenuNavbar({ className, locale }: MenuNavbarProps) {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="relative z-50 p-2"
+          aria-label="Toggle menu"
         >
           <svg width="23" height="23" viewBox="0 0 23 23">
             <Path

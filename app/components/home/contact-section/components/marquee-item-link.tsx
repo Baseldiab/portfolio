@@ -83,6 +83,7 @@ const MarqueeText = ({
         "leading-normal",
         className
       )}
+      aria-label={title}
     >
       {title}
 

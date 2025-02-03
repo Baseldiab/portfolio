@@ -1,5 +1,6 @@
 // Next
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
 
 // Utils
 import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-metadata";
@@ -7,14 +8,56 @@ import { generateMetadata as generatePageMetadata } from "@/app/utils/generate-m
 // Interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
-// components home
-import HeaderSection from "@/app/components/home/header-section/header-section";
-import ContactSection from "@/app/components/home/contact-section/contact-section";
-import ProjectsSection from "@/app/components/home/projects-section/projects-section";
-import TechSection from "@/app/components/home/tech-section/tech-section";
-import ExperienceSection from "@/app/components/home/experience-section/experience-section";
+// Dynamically import components with loading states
+const HeaderSection = dynamic(
+  () => import("@/app/components/home/header-section/header-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-[500px] bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
 
-// Add these imports
+const ProjectsSection = dynamic(
+  () => import("@/app/components/home/projects-section/projects-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
+
+const ExperienceSection = dynamic(
+  () => import("@/app/components/home/experience-section/experience-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
+
+const TechSection = dynamic(
+  () => import("@/app/components/home/tech-section/tech-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
+
+const ContactSection = dynamic(
+  () => import("@/app/components/home/contact-section/contact-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
 
 export async function generateMetadata({
   params: { locale },
