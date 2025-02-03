@@ -81,12 +81,16 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
   return (
     <div className="flex justify-between items-start w-full">
       <div className="flex items-center p-3 justify-center size-fit bg-gradient-to-r from-theme-gradient-mainFrom to-theme-gradient-mainTo">
-        <h5 className="text-4xl font-karla  font-semibold text-white">
+        <h3 className="text-4xl font-karla  font-semibold text-white">
           0{index + 1}
-        </h5>
+        </h3>
       </div>
       <BreathAnimation>
-        <Link href={project.href as string} target="_blank">
+        <Link
+          href={project.href as string}
+          target="_blank"
+          aria-label={project.title}
+        >
           <ExternalLink className="size-8 text-theme-text-main dark:text-theme-text-dark" />
         </Link>
       </BreathAnimation>
