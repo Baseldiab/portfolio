@@ -88,20 +88,20 @@ export default async function RootLayout({
       <body
         className={`${playfair.variable} min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <InitialLoader />
-            <main
-              className="min-h-screen flex flex-col w-full"
-              id="main-content"
-              style={{ opacity: 0, visibility: "hidden" }}
-            >
-              <Navbar params={{ locale }} />
-              {children}
-              <Footer params={{ locale }} />
-              <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
-            </main>
-            <CustomCursor />
-          </ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <InitialLoader />
+          <main
+            className="min-h-screen flex flex-col w-full"
+            id="main-content"
+            style={{ opacity: 0, visibility: "hidden" }}
+          >
+            <Navbar params={{ locale }} />
+            {children}
+            <Footer params={{ locale }} />
+            <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
+          </main>
+          <CustomCursor />
+        </ThemeProvider>
       </body>
     </html>
   );

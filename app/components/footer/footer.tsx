@@ -60,7 +60,9 @@ const ContactItem = ({
       className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out"
       title={t(`navigation.${item.text.toLowerCase()}`)}
     >
-      <Link href={item.href}>{item.icon}</Link>
+      <Link href={item.href} aria-label={item.text}>
+        {item.icon}
+      </Link>
     </li>
   );
 };

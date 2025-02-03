@@ -83,12 +83,12 @@ const ExperienceItem = ({ item, locale }: ExperienceItemProps) => {
   return (
     <AccordionItem value={item.id} className="border-b last:border-b-0 p-4">
       <AccordionTrigger className="flex items-start gap-3">
-        <h6 className="font-bold flex-col  flex sm:text-2xl text-xl text-theme-text-main dark:text-theme-text-dark items-start">
+        <h5 className="font-bold flex-col  flex sm:text-2xl text-xl text-theme-text-main dark:text-theme-text-dark items-start">
           <span className="uppercase">{item.company}</span>
           <span className="text-muted-foreground text-sm capitalize">
             {item.job[locale]}, {item.office[locale]}
           </span>
-        </h6>
+        </h5>
         <h6 className="text-muted-foreground flex flex-col sm:items-end items-start">
           <span className="text-sm">{item.time[locale]}</span>
           <span className="text-sm font-semibold">{item.location[locale]}</span>

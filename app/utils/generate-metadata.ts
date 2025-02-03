@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import getTranslations from "@/app/i18n";
+import { headers } from "next/headers";
 
 export async function generateMetadata(
   locale: string,
@@ -7,6 +8,10 @@ export async function generateMetadata(
   pageDescriptionKey?: string
 ): Promise<Metadata> {
   const { t } = await getTranslations(locale);
+  const headersList = headers();
+  const host = headersList.get("host") || "";
+  const protocol = process.env.NODE_ENV === "development" ? "http" : "https";
+  const baseUrl = `${protocol}://${host}`;
 
   // Get the title translation
   const title = t(pageTitleKey);
@@ -21,8 +26,8 @@ export async function generateMetadata(
     description,
     alternates: {
       languages: {
-        'en': `/${locale === 'en' ? '' : 'en'}`,
-        'ar': `/${locale === 'ar' ? '' : 'ar'}`,
+        'en': `${baseUrl}${locale === 'en' ? '' : '/en'}`,
+        'ar': `${baseUrl}${locale === 'ar' ? '' : '/ar'}`,
       },
     },
   };

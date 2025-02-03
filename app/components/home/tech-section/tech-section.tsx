@@ -75,7 +75,7 @@ const TechItem = ({ item }: TechItemProps) => {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <button>
+          <button aria-label={item.text}>
             <BreathAnimation scale={1.05}>{item.icon}</BreathAnimation>
           </button>
         </TooltipTrigger>
