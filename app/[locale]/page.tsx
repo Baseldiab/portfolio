@@ -15,7 +15,7 @@ const HeaderSection = dynamic(
     loading: () => (
       <div className="animate-pulse h-[500px] bg-gray-200 dark:bg-gray-800 rounded-lg" />
     ),
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -25,7 +25,7 @@ const ProjectsSection = dynamic(
     loading: () => (
       <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
     ),
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -35,7 +35,7 @@ const ExperienceSection = dynamic(
     loading: () => (
       <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
     ),
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -45,7 +45,7 @@ const TechSection = dynamic(
     loading: () => (
       <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
     ),
-    ssr: true,
+    ssr: false,
   }
 );
 
@@ -55,7 +55,7 @@ const ContactSection = dynamic(
     loading: () => (
       <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
     ),
-    ssr: true,
+    ssr: false,
   }
 );
 
