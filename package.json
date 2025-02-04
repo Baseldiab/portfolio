@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "light-test": "pnpx lighthouse http://localhost:3000/en --view"
+    "light-test": "pnpx lighthouse http://localhost:3000/en --view",
+    "analyze": "cross-env ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
@@ -51,6 +52,7 @@
     "lighthouse": "^12.3.0",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "cross-env": "^7.0.3"
   }
 }

@@ -19,7 +19,7 @@ export default function InitialLoader() {
       document
         .getElementById("main-content")
         ?.style.setProperty("visibility", "visible");
-    }, 2500);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, []);

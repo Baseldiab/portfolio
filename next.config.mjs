@@ -1,9 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  httpAgentOptions: {
+    keepAlive: true,
+  },
   experimental: {
     optimizeCss: true,
+    optimizePackageImports: ['framer-motion', '@radix-ui/react-accordion'],
+    webpackBuildWorker: true,
   },
-  webpack(config, { dev }) {
+  webpack(config, { dev, isServer }) {
     // SVG Configuration
     config.module.rules.push({
       test: /\.svg$/,
@@ -15,10 +29,8 @@ const nextConfig = {
       }]
     });
 
-
-
     // Enable optimization in production
-    if (!dev) {
+    if (!dev && !isServer) {
       config.optimization = {
         ...config.optimization,
         minimize: true,  // Enable minification
@@ -26,32 +38,24 @@ const nextConfig = {
         runtimeChunk: 'single',
         splitChunks: {
           chunks: 'all',
-          maxInitialRequests: 25,
           minSize: 20000,
+          maxSize: 244000,
+          minChunks: 1,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
           cacheGroups: {
             default: false,
             vendors: false,
             framework: {
-              chunks: 'all',
               name: 'framework',
-              test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler)[\\/]/,
+              chunks: 'all',
+              test: /(?<!node_modules.*)[\\/]node_modules[\\/](react|react-dom|scheduler|prop-types|use-subscription)[\\/]/,
               priority: 40,
               enforce: true
             },
-            commons: {
-              name: 'commons',
-              chunks: 'initial',
-              minChunks: 2,
-              priority: 20
-            },
             lib: {
               test: /[\\/]node_modules[\\/]/,
-              chunks: 'async',
-              name(module) {
-                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                return `lib.${packageName.replace('@', '')}`;
-              },
-              priority: 10,
+              priority: 20,
               minChunks: 2,
               reuseExistingChunk: true
             }

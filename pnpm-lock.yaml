@@ -111,6 +111,9 @@ importers:
       critters:
         specifier: ^0.0.25
         version: 0.0.25
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
