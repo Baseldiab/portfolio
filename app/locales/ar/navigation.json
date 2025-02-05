@@ -1,0 +1,17 @@
+{
+  "home": "الرئيسية",
+  "about": "عني",
+  "projects": "المشاريع",
+  "experience": "الخبرة",
+  "others": "الأخرى",
+  "contact": "تواصل معي",
+  "lets_connect": "دعنا نتواصل",
+  "footer-text": "كل الحقوق محفوظة © {{yearNow}} من قبل",
+  "footer-name": "باسل دياب",
+  "linkedin": "لينكدان",
+  "github": "جيت",
+  "email": "البريد الإلكتروني",
+  "phone": "الهاتف",
+  "whatsapp": "واتساب",
+  "my_git_link": "رابط جيتهب الخاص بي"
+}

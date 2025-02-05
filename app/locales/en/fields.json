@@ -1,0 +1,36 @@
+{
+  "app-name": "Basel Diab",
+  "app-description": "A skilled frontend developer proficient in React.js, Next.js, TypeScript, and modern UI frameworks. Showcasing expertise in state management, responsive design, and innovative web solutions for seamless user experiences.",
+  "not-found": "Page not found",
+  "not-found-msg": "We couldn't find the page you were looking for. Please check the URL you entered or return to the home page.",
+  "loading_first_text": "Basel Diab",
+  "loading_second_text": "Basel Diab Frontend developer",
+  "hello_there": "Hello there, my name is",
+  "header": "Basel Diab",
+  "header-gradient": "Frontend developer.",
+  "header-details": " I'm a frontend developer based in Egypt. I specialize in creating responsive and user-friendly websites using modern technologies like HTML, CSS, JavaScript, Typescript, React and Next. I'm passionate about turning ideas into reality and always strive to deliver high-quality work.",
+  "projects": {
+    "title": "Latest Featured Projects",
+    "description": "Some of these projects were built entirely by me, while others were created as part of a team, where I contributed to key aspects of development."
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "I specialize in frontend development using modern technologies like HTML, CSS, JavaScript, and React. I also have experience with version control tools like Git and GitHub."
+  },
+  "experience": {
+    "title": "I'm honored to work with",
+    "description": "Throughout my career, I've collaborated on diverse projects as both a professional developer and freelancer, continuously expanding my expertise in frontend development."
+  },
+  "contact": {
+    "title": "Reach Me Out",
+    "text": "Want to contact me professionally or as a fellow developer?",
+    "talk_about": "Let's talk about your",
+    "next_project": "Next project",
+    "looking_for": "I'm currently looking for more employment and freelance opportunities",
+    "social_links": "Social media and contact Links"
+  },
+  "button": {
+    "contact": "Contact",
+    "resume": "Resume"
+  }
+}

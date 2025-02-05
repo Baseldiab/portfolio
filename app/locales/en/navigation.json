@@ -1,0 +1,17 @@
+{
+  "home": "Home",
+  "about": "About",
+  "projects": "Projects",
+  "experience": "Experience",
+  "others": "Others",
+  "contact": "Contact",
+  "lets_connect": "Let's connect",
+  "footer-text": "All rights reserved © {{yearNow}} Created by",
+  "footer-name": "Basel Diab",
+  "linkedin": "LinkedIn",
+  "github": "Github",
+  "email": "Email",
+  "phone": "Phone",
+  "whatsapp": "WhatsApp",
+  "my_git_link": "My Github Link"
+}
