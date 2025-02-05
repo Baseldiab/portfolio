@@ -12,7 +12,6 @@ import LanguageToggle from "@/app/utils/lang_toggle";
 // components
 import MenuNavbar from "@/app/components/navbar/menu-navbar";
 import Logo from "@/app/components/common/logo";
-import BreathAnimation from "@/app/components/common/breath-animation";
 
 // types
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
@@ -35,35 +34,29 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
         <ul className="flex justify-end items-end gap-8 text-theme-text-main dark:text-theme-text-dark font-bold text-base md:text-xl max-lg:hidden">
           {navbarMenuArray.map((item) => (
             <li key={item.id} className="!p-0 !m-0">
-              <BreathAnimation>
-                <Link
-                  href={item.link}
-                  onClick={() => {
-                    if (item.link === "/") {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }
-                  }}
-                  className={cn(
-                    "hover:underline link-hover uppercase",
-                    "text-theme-text-main dark:text-theme-text-dark"
-                  )}
-                >
-                  {t(item.text)}
-                </Link>
-              </BreathAnimation>
+              <Link
+                href={item.link}
+                onClick={() => {
+                  if (item.link === "/") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
+                className={cn(
+                  "hover:underline link-hover uppercase",
+                  "text-theme-text-main dark:text-theme-text-dark"
+                )}
+              >
+                {t(item.text)}
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* mobile menu */}
         <div className="flex justify-end items-center gap-2">
-          <BreathAnimation>
-            <ThemeToggle />
-          </BreathAnimation>
+          <ThemeToggle />
 
-          <BreathAnimation>
-            <LanguageToggle params={{ locale }} />
-          </BreathAnimation>
+          <LanguageToggle params={{ locale }} />
 
           <MenuNavbar locale={locale as string} className={`lg:hidden`} />
         </div>
