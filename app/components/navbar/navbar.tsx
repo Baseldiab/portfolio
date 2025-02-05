@@ -27,11 +27,11 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
 
   return (
     <nav className=" sticky sm:top-8 top-5 left-0 right-0  z-50 ">
-      <div className="flex justify-between items-center container md:py-4 py-3 sm:px-8 px-6 bg-white dark:bg-theme-background-dark rounded-full shadow-2xl border border-grey-200 dark:border-grey-200">
+      <div className="flex justify-between items-center container md:py-4 py-3 sm:px-8 px-6 bg-white dark:bg-gray-950 rounded-full shadow-lg border border-grey-200 dark:border-grey-200">
         <Logo />
 
         {/* desktop menu */}
-        <ul className="flex justify-end items-end gap-8 text-theme-text-main dark:text-theme-text-dark font-bold text-base md:text-xl max-lg:hidden">
+        <ul className="flex justify-end items-end gap-8 text-gray-800 dark:text-gray-100 font-bold text-base md:text-xl max-lg:hidden">
           {navbarMenuArray.map((item) => (
             <li key={item.id} className="!p-0 !m-0">
               <Link
@@ -42,8 +42,8 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
                   }
                 }}
                 className={cn(
-                  "hover:underline link-hover uppercase",
-                  "text-theme-text-main dark:text-theme-text-dark"
+                  "hover:underline link-hover capitalize font-normal",
+                  "text-gray-800 dark:text-gray-100"
                 )}
               >
                 {t(item.text)}

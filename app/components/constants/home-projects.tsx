@@ -56,7 +56,7 @@ export const HomeProjects: Project[] = [
   },
   {
     id: "professionals",
-    href: "https://github.com/Baseldiab",
+    href: "https://carx.asusapps.com/",
     image: professionals.src,
     title: "Professionals",
     description: {

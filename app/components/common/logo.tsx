@@ -3,12 +3,9 @@ import Link from "next/link";
 export default function Logo() {
   return (
     <>
-      <Link href="/" className="text-base md:text-xl  uppercase">
-        <span className="!underline underline-offset-2 text-3xl font-extrabold text-gradient hover:!scale-150">
-          {"b"}
-        </span>
-        <span className="font-bold">{"asel "}</span>
-        <span className="font-bold">{"Diab"}</span>
+      <Link href="/" className="text-base md:text-xl capitalize text-gray-800 dark:text-gray-100">
+    
+        <span className="font-bold">{"basel Diab"}</span>
         {/* <span className="font-bold">{"iab"}</span> */}
       </Link>
     </>
