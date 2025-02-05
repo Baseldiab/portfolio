@@ -10,7 +10,7 @@ export default function SectionText({ text, className }: SectionTextProps) {
     <>
       <h6
         className={cn(
-          "sm:text-base md:text-base text-sm font-normal font-karla text-theme-text-second ",
+          "sm:text-base md:text-base text-sm font-normal font-karla text-theme-text-second dark:text-gray-400",
           className
         )}
       >

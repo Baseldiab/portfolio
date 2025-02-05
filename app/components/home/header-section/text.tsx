@@ -32,19 +32,10 @@ export default function Text({
   contact,
   resume,
 }: TextProps) {
-  // const { data: isFirstLoading } = useQuery({
-  //   queryKey: ["isFirstLoading"],
-  //   queryFn: async () => {
-  //     await new Promise((resolve) => setTimeout(resolve, 2200)); // 2.2 second delay
-  //     return false;
-  //   },
-  //   initialData: true, // Start with true
-  // });
-
   return (
     <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
       <div className="container flex flex-col gap-2 items-start">
-        <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second">
+        <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second dark:text-gray-400">
           {firstText}
         </h6>
 

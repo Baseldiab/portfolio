@@ -12,7 +12,7 @@ export default function SectionDescription({
   return (
     <p
       className={cn(
-        "md:text-lg sm:text-base text-base font-medium font-karla text-theme-text-second",
+        "md:text-lg sm:text-base text-base font-medium font-karla text-theme-text-second  dark:text-gray-400",
         className
       )}
     >

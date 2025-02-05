@@ -33,7 +33,7 @@ export default function SecondaryButton({
         className
       )}
     >
-      <span className="relative z-10 text-theme-text-second group-hover:text-white text-base font-bold duration-500 text-gradient">
+      <span className="relative z-10 text-theme-text-second dark:text-gray-400 group-hover:text-white text-base font-bold duration-500 text-gradient">
         {children}
       </span>
       <span className="absolute w-full h-full bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] -left-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:left-0 duration-500"></span>

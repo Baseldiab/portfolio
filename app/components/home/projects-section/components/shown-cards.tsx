@@ -25,15 +25,18 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
   return (
     <article
       // dir="ltr"
-      className={cn("flex flex-col lg:gap-14 md:gap-12 gap-6 mt-4", "w-full")}
+      className={cn(
+        "flex flex-col lg:gap-14 md:gap-12 gap-6 mt-4",
+        "md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
+      )}
     >
       {HomeProjects.map((item, index) => (
         <div
           key={`home-project-${item.id}`}
-          className="container flex md:even:flex-row-reverse max-md:flex-col justify-center items-start lg:max-h-[350px] md:gap-10 gap-5 max-md:border border-theme-border-main p-4 rounded-xl"
+          className=" flex md:even:flex-row-reverse max-md:flex-col justify-center items-start md:gap-10 gap-5 max-md:border border-theme-border-main p-4 rounded-xl"
         >
           <ComeFromSidesAnimation
-            className="md:max-w-[50%] max-md:mx-auto"
+            className=" max-md:mx-auto md:basis-2/3"
             direction={
               locale === "ar"
                 ? index % 2 === 0
@@ -53,7 +56,7 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
             />
           </ComeFromSidesAnimation>
           <ComeFromSidesAnimation
-            className="flex flex-col items-start md:max-w-[50%] md:basis-1/2"
+            className="flex flex-col items-start  md:basis-1/3"
             direction={
               locale === "ar"
                 ? index % 2 === 0
@@ -80,8 +83,8 @@ interface ProjectHeaderProps {
 const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
   return (
     <div className="flex justify-between items-start w-full">
-      <div className="flex items-center p-3 justify-center size-fit bg-gradient-to-r from-theme-gradient-mainFrom to-theme-gradient-mainTo">
-        <h3 className="text-4xl font-karla  font-semibold text-white">
+      <div className="flex items-center p-1 justify-center size-fit bg-sky-300 ">
+        <h3 className="text-5xl font-karla  font-normal text-gray-950">
           0{index + 1}
         </h3>
       </div>
@@ -108,7 +111,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
       <h4 className="md:text-2xl sm:text-xl text-base font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark">
         {project.title}
       </h4>
-      <p className="md:text-lg sm:text-base text-sm font-medium font-karla text-theme-text-second">
+      <p className="sm:text-base text-sm font-medium font-karla  dark:text-gray-400">
         {project.description[locale]}
       </p>
 
@@ -116,7 +119,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
         {project.tech.map((item) => (
           <Badge
             key={`project-${item}-${project.id}`}
-            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase lg:text-sm text-xs font-normal"
+            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase md:text-sm  text-xs font-normal"
           >
             {item}
           </Badge>

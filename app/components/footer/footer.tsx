@@ -25,13 +25,13 @@ export default function Footer({ params: { locale } }: LocalProps) {
           <span className="dark:text-white text-black max-sm:text-sm">
             {t("navigation.footer-text", { yearNow })}
           </span>
-          <a
-            className="text-gradient font-bold max-sm:text-sm"
+          <Link
+            className="font-bold max-sm:text-sm"
             href="https://github.com/Baseldiab"
             title={t("navigation.my_git_link")}
           >
             {t("navigation.footer-name")}
-          </a>
+          </Link>
         </div>
 
         <ul className="flex justify-center items-center gap-2">

@@ -29,7 +29,7 @@ export default function ImageHover({
   return (
     <motion.figure
       className={cn(
-        "relative w-full max-w-xs overflow-hidden rounded-lg border border-theme-border-main dark:border-theme-border-dark",
+        "relative w-full min-w-full max-w-xs overflow-hidden rounded-lg border border-theme-border-main dark:border-theme-border-dark",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -39,6 +39,7 @@ export default function ImageHover({
       transition={{ duration: 0.4 }}
     >
       <motion.div
+        className="w-full"
         style={{ y: "0%" }}
         animate={{
           y: isHovered ? "-55%" : "0%",
@@ -65,7 +66,7 @@ export default function ImageHover({
           width={width}
           height={height}
           loading="lazy"
-          className={cn("w-full h-auto", imageClassName)}
+          className={cn("w-full h-auto block", imageClassName)}
         />
       </motion.div>
     </motion.figure>
