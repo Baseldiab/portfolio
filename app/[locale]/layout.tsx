@@ -25,14 +25,6 @@ const Footer = dynamic(() => import("@/app/components/footer/footer"), {
   ssr: true,
 });
 
-const CustomCursor = dynamic(
-  () => import("@/app/components/common/custom-cursor"),
-  {
-    ssr: false,
-    loading: () => null,
-  }
-);
-
 // assets
 import WavesImage from "@/app/components/icons/wavesImage";
 
@@ -101,7 +93,6 @@ export default async function RootLayout({
             <Footer params={{ locale }} />
             <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-slate-100 dark:fill-[#1F7BF6]/5" />
           </main>
-          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

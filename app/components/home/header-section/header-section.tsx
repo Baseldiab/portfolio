@@ -8,7 +8,7 @@ import getTranslations from "@/app/i18n";
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components home
-import ThreeDModel from "@/app/components/home/header-section/threeD-earth-model";
+
 import Text from "@/app/components/home/header-section/text";
 
 export default async function HeaderSection({
@@ -39,8 +39,6 @@ export default async function HeaderSection({
         className
       )}
     >
-      <ThreeDModel className="absolute md:start-1/2 end-0 start-0 top-1/2 -translate-y-1/2 z-[1] h-fit max-md:hidden" />
-
       <Text {...textProps} />
     </header>
   );
