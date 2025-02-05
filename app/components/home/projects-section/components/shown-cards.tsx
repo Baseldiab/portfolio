@@ -27,7 +27,7 @@ export default async function ShownCards({ params: { locale } }: LocalProps) {
       // dir="ltr"
       className={cn(
         "flex flex-col lg:gap-14 md:gap-12 gap-6 mt-4",
-        "md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
+        "lg:max-w-[60%] sm:max-w-[80%] max-w-[90%] mx-auto"
       )}
     >
       {HomeProjects.map((item, index) => (

@@ -13,8 +13,6 @@ import RevealAnimation from "@/app/components/common/reveal-animation";
 import SectionText from "@/app/components/common/section-text";
 
 // components home
-import MarqeeTitle from "@/app/components/home/contact-section/components/marqee-title";
-import MarqueeItemLink from "./components/marquee-item-link";
 
 // common
 import { ContactLinks } from "@/app/components/constants/contact-links";

@@ -10,6 +10,7 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 // components home
 
 import Text from "@/app/components/home/header-section/text";
+import Image from "next/image";
 
 export default async function HeaderSection({
   params: { locale },
@@ -35,11 +36,18 @@ export default async function HeaderSection({
     <header
       id={id}
       className={cn(
-        "relative md:min-h-[500px] w-full overflow-hidden pt-5",
+        "flex justify-center items-center gap-4 w-full overflow-hidden pt-5",
         className
       )}
     >
       <Text {...textProps} />
+      <Image
+        src="/images/header.svg"
+        alt="immm"
+        width={700}
+        height={700}
+        className="block"
+      />
     </header>
   );
 }
