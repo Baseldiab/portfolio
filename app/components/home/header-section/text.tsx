@@ -37,18 +37,18 @@ export default function Text({
 }: TextProps) {
   return (
     <article
-      className={cn("relative z-[2] lg:py-20 md:py-12 pb-8 pt-6", className)}
+      className={cn("relative z-[2] ", className)}
     >
       <div className="container flex flex-col gap-2 items-start">
-        <h6 className="sm:text-xl text-lg font-medium font-karla secondary-text">
+        <h6 className="sm:text-xl text-base font-medium font-karla secondary-text">
           {firstText}
         </h6>
 
         <div className="h-fit my-2">
-          <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
+          <h1 className="md:text-7xl sm:text-5xl text-4xl font-bold font-karla uppercase min-h-fit  sm:leading-normal text-gradient my-1">
             {secondText}.
           </h1>
-          <p className=" md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 main-text">
+          <p className=" md:text-4xl sm:text-2xl text-xl font-semibold sm:leading-normal font-playfair uppercase sm:my-3 my-1 main-text">
             {thirdText}
           </p>
         </div>

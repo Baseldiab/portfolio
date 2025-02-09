@@ -35,7 +35,10 @@ export default async function HeaderSection({
   return (
     <header
       id={id}
-      className={cn(" w-full overflow-hidden pt-5 container", className)}
+      className={cn(
+        " w-full overflow-hidden  container",
+        className
+      )}
     >
       <div className="container flex justify-center max-md:flex-col items-center gap-4">
         <Text className={"md:basis-1/2"} {...textProps} />
