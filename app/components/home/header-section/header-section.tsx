@@ -35,19 +35,18 @@ export default async function HeaderSection({
   return (
     <header
       id={id}
-      className={cn(
-        "flex justify-center items-center gap-4 w-full overflow-hidden pt-5",
-        className
-      )}
+      className={cn(" w-full overflow-hidden pt-5 container", className)}
     >
-      <Text {...textProps} />
-      <Image
-        src="/images/header.svg"
-        alt="immm"
-        width={700}
-        height={700}
-        className="block"
-      />
+      <div className="container flex justify-center max-md:flex-col items-center gap-4">
+        <Text className={"md:basis-1/2"} {...textProps} />
+        <Image
+          src="/images/header.svg"
+          alt="Header illustration"
+          width={650}
+          height={650}
+          className="block min-w-[50%] md:basis-1/2 dark:brightness-[0.82] dark:contrast-[1.1]"
+        />
+      </div>
     </header>
   );
 }

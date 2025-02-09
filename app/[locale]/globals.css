@@ -149,7 +149,7 @@
 }
 
 .text-gradient {
-  @apply bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent;
+  @apply bg-gradient-to-r to-sky-600 from-sky-700 dark:to-sky-400 dark:from-sky-400 bg-clip-text text-transparent;
 }
 
 .border-gradient {

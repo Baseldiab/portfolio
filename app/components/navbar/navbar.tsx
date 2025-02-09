@@ -51,7 +51,7 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
                   }
                 }}
                 className={cn(
-                  "hover:underline link-hover capitalize font-normal",
+                  "hover:underline hover:underline-offset-2 capitalize font-normal",
                   "main-text"
                 )}
               >

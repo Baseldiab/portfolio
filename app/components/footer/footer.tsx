@@ -19,7 +19,7 @@ export default function Footer({ params: { locale } }: LocalProps) {
   const yearNow = new Date().getFullYear();
 
   return (
-    <footer className={`bg-gray-300 shadow-xl dark:bg-white/5 z-30`}>
+    <footer className={`bg-sky-100 shadow-2xl dark:bg-white/5 z-30 `}>
       <div className="container py-4 align-middle text-center relative flex justify-between items-center max-md:flex-col">
         <div className="flex justify-center items-center gap-1 flex-wrap font-karla my-3">
           <span className="main-text max-sm:text-sm">

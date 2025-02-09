@@ -14,6 +14,7 @@ import { resumeLink } from "@/app/components/constants/resume-link";
 
 // React query
 import React from "react";
+import { cn } from "@/lib/utils";
 
 interface TextProps {
   firstText: string;
@@ -22,6 +23,7 @@ interface TextProps {
   description: string;
   contact: string;
   resume: string;
+  className?: string;
 }
 
 export default function Text({
@@ -31,9 +33,12 @@ export default function Text({
   description,
   contact,
   resume,
+  className,
 }: TextProps) {
   return (
-    <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
+    <article
+      className={cn("relative z-[2] lg:py-20 md:py-12 pb-8 pt-6", className)}
+    >
       <div className="container flex flex-col gap-2 items-start">
         <h6 className="sm:text-xl text-lg font-medium font-karla secondary-text">
           {firstText}
@@ -43,7 +48,7 @@ export default function Text({
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
           </h1>
-          <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 main-text">
+          <p className=" md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 main-text">
             {thirdText}
           </p>
         </div>

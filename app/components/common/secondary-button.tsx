@@ -37,7 +37,7 @@ export default function SecondaryButton({
         {children}
       </span>
       <span className="absolute w-full h-full bg-sky-600 dark:bg-sky-900 -left-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:left-0 duration-500"></span>
-      <span className="absolute w-full h-full bg-sky-600 dark:bg-sky-900 -right-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:right-0 duration-500"></span>
+      <span className="absolute w-full h-full bg-sky-600 dark:bg-sky-800 -right-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:right-0 duration-500"></span>
     </Component>
   );
 }
