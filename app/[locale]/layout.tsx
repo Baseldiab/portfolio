@@ -79,7 +79,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${playfair.variable} bg-white dark:bg-gray-900 min-h-fit max-w-[100vw] overflew-x-hidden`}
+        className={`${playfair.variable} bg-sky-50 dark:bg-gray-950 min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <InitialLoader />
