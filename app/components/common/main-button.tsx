@@ -12,8 +12,8 @@ export default function MainButton({
       {/* bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent; */}
       <button
         className={cn(
-          "overflow-hidden text-gradient text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
-          "bg-sky-600 dark:bg-sky-800",
+          "overflow-hidden text-white dark:text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
+          "bg-sky-700 dark:bg-sky-800",
           "sm:w-32 w-24 p-2 sm:h-12 h-8",
           "font-bold sm:text-base text-xs",
           className

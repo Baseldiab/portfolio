@@ -38,7 +38,7 @@ const config: Config = {
   				text: {
   					main: '#000',
   					dark: '#fff',
-  					second: '#6c757d'
+  					second: '#374151'
   				},
   				border: {
   					main: '#9ca3af94',

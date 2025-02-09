@@ -141,7 +141,7 @@
   @apply text-sky-950 dark:text-sky-100;
 }
 .secondary-text {
-  @apply text-theme-text-second  dark:text-gray-400;
+  @apply text-gray-700 dark:text-gray-200;
 }
 
 .default-text {
