@@ -13,7 +13,7 @@ export default function MainButton({
       <button
         className={cn(
           "overflow-hidden text-gradient text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
-          "bg-sky-600 dark:bg-sky-800",
+          "bg-sky-600 dark:bg-sky-900",
           "w-32 p-2 h-12",
           "font-bold text-base",
           className

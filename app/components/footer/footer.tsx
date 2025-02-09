@@ -22,11 +22,11 @@ export default function Footer({ params: { locale } }: LocalProps) {
     <footer className={`bg-gray-300 shadow-xl dark:bg-white/5 z-30`}>
       <div className="container py-4 align-middle text-center relative flex justify-between items-center max-md:flex-col">
         <div className="flex justify-center items-center gap-1 flex-wrap font-karla my-3">
-          <span className="dark:text-white text-black max-sm:text-sm">
+          <span className="main-text max-sm:text-sm">
             {t("navigation.footer-text", { yearNow })}
           </span>
           <Link
-            className="font-bold max-sm:text-sm"
+            className="font-bold max-sm:text-sm main-text"
             href="https://github.com/Baseldiab"
             title={t("navigation.my_git_link")}
           >
@@ -54,7 +54,7 @@ const ContactItem = ({
   const { t } = useTranslations(locale as string);
   return (
     <li
-      className="flex justify-center items-center bg-white dark:bg-black/50 p-2 rounded-md group btn-radial-out"
+      className="flex justify-center items-center p-2 rounded-md group btn-radial-out"
       title={t(`navigation.${item.text.toLowerCase()}`)}
     >
       <Link href={item.href} aria-label={item.text}>

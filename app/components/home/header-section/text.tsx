@@ -43,7 +43,7 @@ export default function Text({
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
           </h1>
-          <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 mix-blend-lighten dark:mix-blend-darken main-text">
+          <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 main-text">
             {thirdText}
           </p>
         </div>

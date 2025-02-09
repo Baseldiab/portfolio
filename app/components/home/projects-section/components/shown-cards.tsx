@@ -83,8 +83,8 @@ interface ProjectHeaderProps {
 const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
   return (
     <div className="flex justify-between items-start w-full">
-      <div className="flex items-center p-1 justify-center size-fit bg-sky-300 ">
-        <h3 className="text-5xl font-karla  font-normal text-gray-950">
+      <div className="flex items-center p-1 justify-center size-fit bg-sky-500 dark:bg-sky-400">
+        <h3 className="text-5xl font-karla  font-bold text-sky-950">
           0{index + 1}
         </h3>
       </div>
@@ -94,7 +94,7 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
           target="_blank"
           aria-label={project.title}
         >
-          <ExternalLink className="size-8 text-theme-text-main dark:text-theme-text-dark" />
+          <ExternalLink className="size-8 main-text" />
         </Link>
       </BreathAnimation>
     </div>
@@ -108,7 +108,7 @@ interface ProjectContentProps {
 const ProjectContent = ({ project, locale }: ProjectContentProps) => {
   return (
     <div className="flex flex-col justify-between items-start w-full my-4 gap-4">
-      <h4 className="md:text-2xl sm:text-xl text-base font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark">
+      <h4 className="md:text-2xl sm:text-xl text-base font-karla  font-semibold main-text">
         {project.title}
       </h4>
       <p className="sm:text-base text-sm font-medium font-karla  secondary-text">
@@ -119,7 +119,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
         {project.tech.map((item) => (
           <Badge
             key={`project-${item}-${project.id}`}
-            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase  text-xs font-normal"
+            className="min-w-fit text-gray-100 bg-sky-900 dark:bg-sky-950 dark:text-white uppercase  text-xs font-normal"
           >
             {item}
           </Badge>

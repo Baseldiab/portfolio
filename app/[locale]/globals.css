@@ -173,13 +173,13 @@
 }
 
 .btn-radial-out::before {
+  @apply bg-sky-600 dark:bg-sky-900;
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, #1f7bf6, #00e5da);
   transform: scale(0);
   transition: transform 0.3s ease-out;
   border-radius: inherit;

@@ -79,9 +79,12 @@ const MenuButton = ({
         transition={transition}
       >
         {isOpen ? (
-          <X className="block sm:size-6 size-4" aria-hidden="true" />
+          <X className="block sm:size-6 size-4 main-text" aria-hidden="true" />
         ) : (
-          <Menu className="block sm:size-6 size-4" aria-hidden="true" />
+          <Menu
+            className="block sm:size-6 size-4 main-text"
+            aria-hidden="true"
+          />
         )}
       </motion.div>
     </button>
@@ -151,13 +154,10 @@ const MobileNav = ({
       )}
     >
       {navItems.map((item) => (
-        <li
-          key={item.text}
-          className=""
-        >
+        <li key={item.text} className="">
           <Link
             href={item.link}
-            className={`font-medium default-text py-3 sm:px-8 px-6 w-full h-full block`}
+            className={`font-medium default-text py-3 sm:px-8 px-6 w-full h-full block main-text`}
             onClick={() => setIsOpen(false)}
           >
             {t(item.text)}

@@ -3,7 +3,7 @@ import { Linkedin, Mail, Phone } from "lucide-react";
 import GithubIcon from "@/app/components/icons/githubIcon";
 import WhatsAppIcon from "@/app/components/icons/whatsAppIcon";
 
-const iconClassName = "size-4 lg:size-5 group-hover:text-white ";
+const iconClassName = "size-4 lg:size-5 group-hover:text-white main-text";
 
 export const ContactLinks = [
   {
