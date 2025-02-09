@@ -84,7 +84,7 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
   return (
     <div className="flex justify-between items-start w-full">
       <div className="flex items-center p-1 justify-center size-fit bg-sky-500 dark:bg-sky-400">
-        <h3 className="text-5xl font-karla  font-bold text-sky-950">
+        <h3 className="sm:text-5xl text-3xl font-karla  font-bold text-sky-950">
           0{index + 1}
         </h3>
       </div>
@@ -94,7 +94,7 @@ const ProjectHeader = ({ index, project }: ProjectHeaderProps) => {
           target="_blank"
           aria-label={project.title}
         >
-          <ExternalLink className="size-8 main-text" />
+          <ExternalLink className="sm:size-8 size-6 main-text" />
         </Link>
       </BreathAnimation>
     </div>

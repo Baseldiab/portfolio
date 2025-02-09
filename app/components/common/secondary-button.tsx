@@ -26,14 +26,15 @@ export default function SecondaryButton({
     <Component
       {...(href && { href })}
       className={cn(
-        "cursor-pointer font-semibold overflow-hidden relative z-100 border border-theme-border-main dark:border-theme-border-dark group",
+        "cursor-pointer overflow-hidden relative z-100 border border-theme-border-main dark:border-theme-border-dark group",
         "rounded-3xl",
-        "w-32 p-2 h-12",
+        "sm:w-32 w-24 p-2 sm:h-12 h-8",
         "text-center flex justify-center items-center bg-white dark:bg-transparent",
+        "font-bold sm:text-base text-xs",
         className
       )}
     >
-      <span className="relative z-10 group-hover:text-white text-base font-bold duration-500 main-text">
+      <span className="relative z-10 group-hover:text-white sm:text-base text-xs font-bold duration-500 main-text">
         {children}
       </span>
       <span className="absolute w-full h-full bg-sky-600 dark:bg-sky-900 -left-32 top-0 -rotate-45 group-hover:rotate-0 group-hover:left-0 duration-500"></span>

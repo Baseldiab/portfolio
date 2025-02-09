@@ -36,9 +36,7 @@ export default function Text({
   className,
 }: TextProps) {
   return (
-    <article
-      className={cn("relative z-[2] ", className)}
-    >
+    <article className={cn("relative z-[2] ", className)}>
       <div className="container flex flex-col gap-2 items-start">
         <h6 className="sm:text-xl text-base font-medium font-karla secondary-text">
           {firstText}
@@ -57,7 +55,7 @@ export default function Text({
           <SectionDescription text={description} />
         </div>
 
-        <div className="flex justify-start items-center gap-4 max-sm:flex-wrap md:mt-7 mt-4">
+        <div className="flex justify-start items-center sm:gap-4 gap-3 max-sm:flex-wrap md:mt-7 mt-4">
           <MainButton>{contact}</MainButton>
 
           <SecondaryButton href={resumeLink} as={Link}>

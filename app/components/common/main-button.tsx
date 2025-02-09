@@ -14,8 +14,8 @@ export default function MainButton({
         className={cn(
           "overflow-hidden text-gradient text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
           "bg-sky-600 dark:bg-sky-800",
-          "w-32 p-2 h-12",
-          "font-bold text-base",
+          "sm:w-32 w-24 p-2 sm:h-12 h-8",
+          "font-bold sm:text-base text-xs",
           className
         )}
       >
