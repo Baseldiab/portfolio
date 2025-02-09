@@ -6,7 +6,6 @@ import getTranslations from "@/app/i18n";
 
 // interfaces
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
-import { ContactLink } from "@/app/components/interfaces/contact-links";
 
 // components common
 import RevealAnimation from "@/app/components/common/reveal-animation";
@@ -15,7 +14,6 @@ import SectionText from "@/app/components/common/section-text";
 // components home
 
 // common
-import { ContactLinks } from "@/app/components/constants/contact-links";
 
 export default async function ContactSection({
   params: { locale },
@@ -37,10 +35,10 @@ export default async function ContactSection({
     >
       <RevealAnimation className="flex flex-col gap-6 justify-center items-center overflow-hidden max-w-full">
         <div dir="ltr" className="overflow-hidden  mx-auto  min-h-fit">
-          <MarqeeTitle
+          {/* <MarqeeTitle
             locale={locale as string}
             title={t("fields.contact.title")}
-          />
+          /> */}
         </div>
       </RevealAnimation>
 
@@ -49,16 +47,6 @@ export default async function ContactSection({
           text={t("fields.contact.social_links")}
           className="text-start container w-full my-6"
         />
-      </RevealAnimation>
-      <RevealAnimation>
-        {ContactLinks.map((item: ContactLink) => (
-          <MarqueeItemLink
-            key={item.id}
-            href={item.href}
-            title={t(`navigation.${item.text.toLowerCase()}`)}
-            locale={locale as string}
-          />
-        ))}
       </RevealAnimation>
     </section>
   );
