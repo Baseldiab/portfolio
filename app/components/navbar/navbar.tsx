@@ -32,7 +32,7 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
     <nav className=" sticky sm:top-8 top-5 left-0 right-0  z-50 ">
       <div
         className={cn(
-          "flex justify-between items-center container md:py-4 py-2 sm:px-8 px-6 bg-white dark:bg-slate-950  shadow-lg border ",
+          "flex justify-between items-center container md:py-4 py-2 sm:px-8 px-6 bg-sky-100 dark:bg-slate-950/30 backdrop-blur-lg border ",
           "border-grey-200 dark:border-grey-200",
           isOpen ? "rounded-t-3xl lg:rounded-full" : "rounded-full"
         )}

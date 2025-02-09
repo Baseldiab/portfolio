@@ -79,7 +79,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body
-        className={`${playfair.variable} bg-gray-100 dark:bg-gray-950 min-h-fit max-w-[100vw] overflew-x-hidden`}
+        className={`${playfair.variable} bg-sky-50 dark:bg-gray-950 min-h-fit max-w-[100vw] overflew-x-hidden`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <InitialLoader />
@@ -91,7 +91,7 @@ export default async function RootLayout({
             <Navbar params={{ locale }} />
             {children}
             <Footer params={{ locale }} />
-            <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-sky-50 dark:fill-[#1F7BF6]/5" />
+            <WavesImage className="z-[-5] fixed left-0 right-0 bottom-0 fill-sky-100 dark:fill-[#1F7BF6]/5" />
           </main>
         </ThemeProvider>
       </body>
