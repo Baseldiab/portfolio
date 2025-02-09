@@ -148,7 +148,7 @@ const MobileNav = ({
       variants={menuVariants}
       className={cn(
         " absolute top-full left-0 right-0 shadow-xl",
-        "bg-sky-100 dark:bg-slate-950/30 backdrop-blur-lg",
+        "bg-sky-100 dark:bg-slate-950 backdrop-blur-lg dark:backdrop-blur-xl",
         "border border-grey-200 dark:border-grey-200",
         "flex flex-col gap-0",
         !isOpen && "pointer-events-none"
