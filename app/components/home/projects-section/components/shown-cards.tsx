@@ -111,7 +111,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
       <h4 className="md:text-2xl sm:text-xl text-base font-karla  font-semibold text-theme-text-main dark:text-theme-text-dark">
         {project.title}
       </h4>
-      <p className="sm:text-base text-sm font-medium font-karla  dark:text-gray-400">
+      <p className="sm:text-base text-sm font-medium font-karla  secondary-text">
         {project.description[locale]}
       </p>
 

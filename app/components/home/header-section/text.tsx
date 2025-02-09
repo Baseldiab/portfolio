@@ -35,7 +35,7 @@ export default function Text({
   return (
     <article className="relative z-[2] lg:py-20 md:py-12 pb-8 pt-6">
       <div className="container flex flex-col gap-2 items-start">
-        <h6 className="sm:text-xl text-lg font-medium font-karla text-theme-text-second dark:text-gray-400">
+        <h6 className="sm:text-xl text-lg font-medium font-karla secondary-text">
           {firstText}
         </h6>
 
@@ -43,7 +43,7 @@ export default function Text({
           <h1 className="md:text-7xl sm:text-5xl text-3xl font-bold font-karla uppercase min-h-fit  leading-normal text-gradient my-1">
             {secondText}.
           </h1>
-          <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 mix-blend-lighten dark:mix-blend-darken">
+          <p className="lg:text-5xl md:text-4xl sm:text-2xl text-xl font-semibold leading-normal font-playfair uppercase sm:my-3 my-1 mix-blend-lighten dark:mix-blend-darken main-text">
             {thirdText}
           </p>
         </div>

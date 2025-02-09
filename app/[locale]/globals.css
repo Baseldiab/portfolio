@@ -137,6 +137,13 @@
   @apply border-gray-200 border-b dark:border-gray-800;
 }
 
+.main-text {
+  @apply text-sky-950 dark:text-sky-100;
+}
+.secondary-text {
+  @apply text-theme-text-second  dark:text-gray-400;
+}
+
 .default-text {
   @apply text-sm;
 }
@@ -238,11 +245,11 @@
   @apply h-[10px] w-[10px];
 }
 *::-webkit-scrollbar-track {
-  @apply rounded-[3px] bg-[#dfe9eb];
+  @apply rounded-[3px] bg-[#dfe9eb] dark:bg-[#1f2937];
 }
 
 *::-webkit-scrollbar-thumb {
-  @apply rounded-[3px] bg-gradient-to-b to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6];
+  @apply rounded-[3px] bg-sky-600 dark:bg-sky-900;
 }
 
 *::-webkit-scrollbar-thumb:hover {

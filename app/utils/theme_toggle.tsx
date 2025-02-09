@@ -24,7 +24,7 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className=" rounded-full  text-primary size-4 sm:size-5"
+      className=" rounded-full size-4 sm:size-5"
       aria-label="Toggle theme"
     >
       <motion.div
@@ -33,9 +33,9 @@ export default function ThemeToggle() {
         transition={{ type: "spring", stiffness: 200, damping: 10 }}
       >
         {theme === "dark" ? (
-          <Sun className="!size-full text-gray-800 dark:text-gray-100" />
+          <Sun className="!size-full main-text" />
         ) : (
-          <Moon className="!size-full text-gray-800 dark:text-gray-100" />
+          <Moon className="!size-full main-text" />
         )}
       </motion.div>
     </motion.button>

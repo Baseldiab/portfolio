@@ -40,7 +40,7 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
         <Logo />
 
         {/* desktop menu */}
-        <ul className="flex justify-end items-end gap-8 text-gray-800 dark:text-gray-100 font-bold text-sm md:text-base max-lg:hidden">
+        <ul className="flex justify-end items-end gap-8 max-lg:hidden">
           {navbarMenuArray.map((item) => (
             <li key={item.id} className="!p-0 !m-0">
               <Link
@@ -52,7 +52,7 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
                 }}
                 className={cn(
                   "hover:underline link-hover capitalize font-normal",
-                  "text-gray-800 dark:text-gray-100"
+                  "main-text"
                 )}
               >
                 {t(item.text)}
