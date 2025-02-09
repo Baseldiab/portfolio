@@ -119,7 +119,7 @@ const ProjectContent = ({ project, locale }: ProjectContentProps) => {
         {project.tech.map((item) => (
           <Badge
             key={`project-${item}-${project.id}`}
-            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase md:text-sm  text-xs font-normal"
+            className="min-w-fit text-theme-text-dark/90 dark:bg-theme-background-secondDark dark:text-white uppercase  text-xs font-normal"
           >
             {item}
           </Badge>

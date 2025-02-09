@@ -3,12 +3,9 @@
 // next imports
 import Link from "next/link";
 
-// react
-import { useEffect, useRef, useState } from "react";
-import React from "react";
-
 // hooks
 import { useTranslations } from "@/app/components/hooks/useTranslation";
+import { useEffect, useRef } from "react";
 
 // framer-motion imports
 import type { Variants } from "framer-motion";
@@ -24,295 +21,149 @@ import { NavbarMenu } from "@/app/components/interfaces/navbar";
 import { navbarMenuArray } from "@/app/components/constants/navbar-menu";
 
 // Components navbar
-import LinkedinButton from "@/app/components/navbar/linkedin-button";
+import { Menu, X } from "lucide-react";
 
 interface MenuNavbarProps {
   className?: string;
   locale: string;
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-export default function MenuNavbar({ className, locale }: MenuNavbarProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { height } = useDimensions(containerRef);
-
-  // state
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
-
-  const sidebarVariants = {
-    open: {
-      x: 0,
-      y: 0,
-      transition: {
-        delay: 0.2,
-        type: "spring",
-        stiffness: 400,
-        damping: 100,
-      },
-    },
-    closed: {
-      x: locale === "ar" ? "-100%" : "100%",
-      y: "-100%",
-      transition: {
-        delay: 0.2,
-        type: "spring",
-        stiffness: 400,
-        damping: 40,
-      },
-    },
-  };
-
+export default function MenuNavbar({
+  className,
+  locale,
+  isOpen,
+  setIsOpen,
+}: MenuNavbarProps) {
   return (
     <div className={cn("", className)}>
-      {" "}
-      {/* Only show on mobile */}
-      <motion.nav
-        initial={false}
-        animate={isOpen ? "open" : "closed"}
-        custom={height}
-        ref={containerRef}
-        className="relative"
-      >
-        {isOpen && (
-          <motion.div
-            className="fixed inset-0 bg-theme-background-dark/50 dark:bg-theme-background-dark/90 z-40"
-            variants={backdropVariants}
-            initial="closed"
-            animate="open"
-            exit="closed"
-          />
-        )}
-        <motion.div
-          className={cn(
-            "fixed end-0 top-0 h-full w-[300px] bg-white dark:bg-black border-l z-50 shadow-xl"
-          )}
-          dir={locale === "ar" ? "rtl" : "ltr"}
-          variants={sidebarVariants}
-          initial="closed"
-          animate={isOpen ? "open" : "closed"}
-        >
-          <Navigation
-            items={navbarMenuArray}
-            activeSection={activeSection}
-            setActiveSection={setActiveSection}
-            setIsOpen={setIsOpen}
-          />
-        </motion.div>
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative z-50 p-2"
-          aria-label="Toggle menu"
-        >
-          <svg width="23" height="23" viewBox="0 0 23 23">
-            <Path
-              variants={{
-                closed: { d: "M 2 2.5 L 20 2.5" },
-                open: { d: "M 3 16.5 L 17 2.5" },
-              }}
-            />
-            <Path
-              d="M 2 9.423 L 20 9.423"
-              variants={{
-                closed: { opacity: 1 },
-                open: { opacity: 0 },
-              }}
-              transition={{ duration: 0.1 }}
-            />
-            <Path
-              variants={{
-                closed: { d: "M 2 16.346 L 20 16.346" },
-                open: { d: "M 3 2.5 L 17 16.346" },
-              }}
-            />
-          </svg>
-        </button>
-      </motion.nav>
+      {/* Mobile Menu Button */}
+      <MenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+
+      <MobileNav
+        locale={locale}
+        navItems={navbarMenuArray}
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+      />
     </div>
   );
 }
 
-const navVariants = {
-  open: {
-    transition: { staggerChildren: 0.05, delayChildren: 0.1 },
-  },
-  closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
-};
-
-const Navigation = ({
-  items,
-  activeSection,
-  setActiveSection,
+const MenuButton = ({
+  isOpen,
   setIsOpen,
 }: {
-  items: NavbarMenu[];
-  activeSection: string;
-  setActiveSection: (section: string) => void;
+  isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }) => {
-  // Memoize the navigation items to prevent unnecessary re-renders
-  const memoizedItems = React.useMemo(() => items, [items]);
-  const { t } = useTranslations("navigation");
+  const iconVariants: Variants = {
+    open: { rotate: 90, scale: 1 },
+    closed: { rotate: 0, scale: 1 },
+  };
+
+  const transition = {
+    duration: 0.2,
+    ease: "easeInOut",
+  };
 
   return (
-    <motion.ul className="pt-20 px-6" variants={navVariants}>
-      {memoizedItems.map((item) => (
-        <MenuItem
-          key={item.id}
-          activeSection={activeSection}
-          onClick={() => {
-            setActiveSection(item.id);
-            setIsOpen(false);
-          }}
-          item={item}
-          label={t(item.text)}
-        />
-      ))}
-      <motion.li
-        style={listItem}
-        variants={itemVariants}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="mb-4"
-      >
-        {/* <a
-          href={"https://www.linkedin.com/in/basel-diab-94b526259/"}
-          className="flex justify-center items-center text-white bg-[#1976D2]/95 hover:bg-[#1976D2] px-3 py-2 gap-1.5 rounded-md font-bold text-lg uppercase"
-        >
-          <Linkedin className="size-5" />
-          {t("navigation.lets_connect")}
-        </a> */}
-        <LinkedinButton
-          text={t("fields.app-name")}
-          href="https://www.linkedin.com/in/basel-diab-94b526259/"
-        />
-      </motion.li>
-    </motion.ul>
-  );
-};
-
-const itemVariants = {
-  open: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      y: { stiffness: 1000, velocity: -100 },
-    },
-  },
-  closed: {
-    y: 50,
-    opacity: 0,
-    transition: {
-      y: { stiffness: 1000 },
-    },
-  },
-};
-
-const MenuItem = ({
-  item,
-  label,
-  activeSection,
-  onClick,
-}: {
-  item: NavbarMenu;
-  label: string;
-  activeSection: string;
-  onClick: () => void;
-}) => {
-  return (
-    <motion.li
-      style={listItem}
-      variants={itemVariants}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="mb-4 font-bold text-base md:text-xl"
+    <button
+      onClick={() => setIsOpen(!isOpen)}
+      className="flex items-center justify-center p-1 rounded-md text-gray-800 dark:text-gray-100"
     >
-      <Link
-        href={item.link}
-        onClick={onClick}
-        className={cn(
-          "hover:underline link-hover  uppercase",
-          activeSection === item.id &&
-            "text-accent text-gradient dark:text-gradient"
-        )}
+      <motion.div
+        animate={isOpen ? "open" : "closed"}
+        variants={iconVariants}
+        transition={transition}
       >
-        {label}
-      </Link>
-    </motion.li>
+        {isOpen ? (
+          <X className="block sm:size-6 size-4" aria-hidden="true" />
+        ) : (
+          <Menu className="block sm:size-6 size-4" aria-hidden="true" />
+        )}
+      </motion.div>
+    </button>
   );
 };
 
-const backdropVariants = {
-  open: {
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 20,
-      restDelta: 2,
-      delay: 2,
-    },
-  },
-  closed: {
-    opacity: 1,
-    transition: {
-      restDelta: 2,
-      delay: 2,
-      type: "spring",
-      stiffness: 20,
-      //   damping: 20,
-    },
-  },
-};
-
-interface PathProps {
-  d?: string;
-  variants: Variants;
-  transition?: { duration: number };
+interface MobileNavigationProps {
+  navItems: NavbarMenu[];
+  isOpen: boolean;
+  locale: string;
+  setIsOpen: (isOpen: boolean) => void;
 }
+const MobileNav = ({
+  navItems,
+  isOpen,
+  locale,
+  setIsOpen,
+}: MobileNavigationProps) => {
+  const { t } = useTranslations(locale as string);
+  const menuRef = useRef<HTMLUListElement>(null);
 
-const Path = (props: PathProps) => (
-  <motion.path
-    fill="transparent"
-    strokeWidth="3"
-    stroke="currentColor"
-    strokeLinecap="round"
-    {...props}
-  />
-);
-
-/**
- * ==============   Styles   ================
- */
-
-const listItem: React.CSSProperties = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "flex-start",
-  padding: 0,
-  margin: 0,
-  listStyle: "none",
-  marginBottom: 20,
-  cursor: "pointer",
-};
-
-/**
- * ==============   Utils   ================
- */
-
-// Naive implementation - in reality would want to attach
-// a window or resize listener. Also use state/layoutEffect instead of ref/effect
-// if this is important to know on initial client render.
-// It would be safer to  return null for unmeasured states.
-const useDimensions = (ref: React.RefObject<HTMLDivElement | null>) => {
-  const dimensions = useRef({ width: 0, height: 0 });
+  const menuVariants: Variants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+        duration: 0.2,
+      },
+    },
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+        duration: 0.2,
+      },
+    },
+  };
 
   useEffect(() => {
-    if (ref.current) {
-      dimensions.current.width = ref.current.offsetWidth;
-      dimensions.current.height = ref.current.offsetHeight;
-    }
-  }, [ref]);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
 
-  return dimensions.current;
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setIsOpen]);
+
+  return (
+    <motion.ul
+      ref={menuRef}
+      initial="closed"
+      animate={isOpen ? "open" : "closed"}
+      variants={menuVariants}
+      className={cn(
+        "container absolute top-full left-0 right-0 bg-gray-50 dark:bg-slate-950 shadow-xl",
+        "border border-grey-200 dark:border-grey-200",
+        "flex flex-col gap-0",
+        !isOpen && "pointer-events-none"
+      )}
+    >
+      {navItems.map((item) => (
+        <li
+          key={item.text}
+          className=""
+        >
+          <Link
+            href={item.link}
+            className={`font-medium default-text py-3 sm:px-8 px-6 w-full h-full block`}
+            onClick={() => setIsOpen(false)}
+          >
+            {t(item.text)}
+          </Link>
+        </li>
+      ))}
+    </motion.ul>
+  );
 };

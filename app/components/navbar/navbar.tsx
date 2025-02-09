@@ -25,13 +25,22 @@ import { useTranslations } from "@/app/components/hooks/useTranslation";
 const Navbar = ({ params: { locale } }: LocalProps) => {
   const { t } = useTranslations(locale as string);
 
+  // state
+  const [isOpen, setIsOpen] = React.useState(false);
+
   return (
     <nav className=" sticky sm:top-8 top-5 left-0 right-0  z-50 ">
-      <div className="flex justify-between items-center container md:py-4 py-3 sm:px-8 px-6 bg-white dark:bg-gray-950 rounded-full shadow-lg border border-grey-200 dark:border-grey-200">
+      <div
+        className={cn(
+          "flex justify-between items-center container md:py-4 py-2 sm:px-8 px-6 bg-white dark:bg-slate-950  shadow-lg border ",
+          "border-grey-200 dark:border-grey-200",
+          isOpen ? "rounded-t-3xl lg:rounded-full" : "rounded-full"
+        )}
+      >
         <Logo />
 
         {/* desktop menu */}
-        <ul className="flex justify-end items-end gap-8 text-gray-800 dark:text-gray-100 font-bold text-base md:text-lg max-lg:hidden">
+        <ul className="flex justify-end items-end gap-8 text-gray-800 dark:text-gray-100 font-bold text-sm md:text-base max-lg:hidden">
           {navbarMenuArray.map((item) => (
             <li key={item.id} className="!p-0 !m-0">
               <Link
@@ -58,7 +67,12 @@ const Navbar = ({ params: { locale } }: LocalProps) => {
 
           <LanguageToggle params={{ locale }} />
 
-          <MenuNavbar locale={locale as string} className={`lg:hidden`} />
+          <MenuNavbar
+            locale={locale as string}
+            className={`lg:hidden`}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+          />
         </div>
       </div>
     </nav>

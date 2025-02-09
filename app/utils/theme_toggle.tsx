@@ -33,9 +33,9 @@ export default function ThemeToggle() {
         transition={{ type: "spring", stiffness: 200, damping: 10 }}
       >
         {theme === "dark" ? (
-          <Sun className="!size-full" />
+          <Sun className="!size-full text-gray-800 dark:text-gray-100" />
         ) : (
-          <Moon className="!size-full" />
+          <Moon className="!size-full text-gray-800 dark:text-gray-100" />
         )}
       </motion.div>
     </motion.button>
