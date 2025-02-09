@@ -24,7 +24,7 @@ export default function ThemeToggle() {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className=" rounded-full size-4 sm:size-5"
+      className=" rounded-full size-5 sm:size-5"
       aria-label="Toggle theme"
     >
       <motion.div

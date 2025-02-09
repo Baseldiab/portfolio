@@ -79,10 +79,10 @@ const MenuButton = ({
         transition={transition}
       >
         {isOpen ? (
-          <X className="block sm:size-6 size-4 main-text" aria-hidden="true" />
+          <X className="block size-5 sm:size-5 main-text" aria-hidden="true" />
         ) : (
           <Menu
-            className="block sm:size-6 size-4 main-text"
+            className="block size-5 sm:size-5 main-text"
             aria-hidden="true"
           />
         )}
@@ -147,7 +147,8 @@ const MobileNav = ({
       animate={isOpen ? "open" : "closed"}
       variants={menuVariants}
       className={cn(
-        "container absolute top-full left-0 right-0 bg-gray-50 dark:bg-slate-950 shadow-xl",
+        " absolute top-full left-0 right-0 shadow-xl",
+        "bg-sky-100 dark:bg-slate-950/30 backdrop-blur-lg",
         "border border-grey-200 dark:border-grey-200",
         "flex flex-col gap-0",
         !isOpen && "pointer-events-none"
