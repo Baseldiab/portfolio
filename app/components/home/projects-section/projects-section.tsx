@@ -14,6 +14,8 @@ import RevealAnimation from "@/app/components/common/reveal-animation";
 
 // components projects
 import ShownCards from "@/app/components/home/projects-section/components/shown-cards";
+import Link from "next/link";
+import SecondaryButton from "./../../common/secondary-button";
 
 export default async function ProjectsSection({
   params: { locale },
@@ -48,6 +50,16 @@ export default async function ProjectsSection({
       </RevealAnimation>
 
       <ShownCards params={{ locale }} />
+
+      <>
+        <SecondaryButton
+          className="text-center mx-auto"
+          href={"https://github.com/Baseldiab"}
+          as={Link}
+        >
+          {t("fields.button.show_more")}
+        </SecondaryButton>
+      </>
     </section>
   );
 }
