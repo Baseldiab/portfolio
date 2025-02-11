@@ -8,8 +8,9 @@ import getTranslations from "@/app/i18n";
 import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components common
+import SectionTitle from "@/app/components/common/section-title";
+import SectionDescription from "@/app/components/common/section-description";
 import RevealAnimation from "@/app/components/common/reveal-animation";
-import SectionText from "@/app/components/common/section-text";
 
 // components home
 
@@ -33,19 +34,15 @@ export default async function ContactSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <RevealAnimation className="flex flex-col gap-6 justify-center items-center overflow-hidden max-w-full">
-        <div dir="ltr" className="overflow-hidden  mx-auto  min-h-fit">
-          {/* <MarqeeTitle
-            locale={locale as string}
-            title={t("fields.contact.title")}
-          /> */}
-        </div>
-      </RevealAnimation>
+      <RevealAnimation className="container">
+        <SectionTitle
+          className="mb-2 max-sm:text-2xl"
+          title={t("fields.contact.title")}
+        />
 
-      <RevealAnimation>
-        <SectionText
-          text={t("fields.contact.social_links")}
-          className="text-start container w-full my-6"
+        <SectionDescription
+          text={t("fields.contact.description")}
+          className="md:pb-10 pb-5 text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
       </RevealAnimation>
     </section>

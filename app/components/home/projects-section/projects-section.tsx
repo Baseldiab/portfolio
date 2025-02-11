@@ -9,11 +9,11 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 
 // components common
 import SectionTitle from "@/app/components/common/section-title";
+import SectionDescription from "@/app/components/common/section-description";
 import RevealAnimation from "@/app/components/common/reveal-animation";
 
 // components projects
 import ShownCards from "@/app/components/home/projects-section/components/shown-cards";
-import SectionDescription from "@/app/components/common/section-description";
 
 export default async function ProjectsSection({
   params: { locale },

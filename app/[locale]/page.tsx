@@ -49,15 +49,15 @@ const TechSection = dynamic(
   }
 );
 
-// const ContactSection = dynamic(
-//   () => import("@/app/components/home/contact-section/contact-section"),
-//   {
-//     loading: () => (
-//       <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
-//     ),
-//     ssr: true,
-//   }
-// );
+const ContactSection = dynamic(
+  () => import("@/app/components/home/contact-section/contact-section"),
+  {
+    loading: () => (
+      <div className="animate-pulse h-96 bg-gray-200 dark:bg-gray-800 rounded-lg" />
+    ),
+    ssr: true,
+  }
+);
 
 export async function generateMetadata({
   params: { locale },
@@ -99,11 +99,11 @@ export default async function HomePage({ params: { locale } }: LocalProps) {
           className="main-section pb-10 md:pt-3 md:pb-14"
         />
 
-        {/* <ContactSection
+        <ContactSection
           id={"contact"}
           params={{ locale }}
           className="md:pt-2"
-        /> */}
+        />
       </main>
     </>
   );

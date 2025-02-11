@@ -99,7 +99,7 @@ const ExperienceItem = ({ item, locale }: ExperienceItemProps) => {
           {item.description.map((desc) => (
             <li
               key={`experience-description-${desc.id}`}
-              className="text-theme-text-second dark:text-gray-400 lg:text-lg sm:text-base"
+              className="text-theme-text-second dark:text-gray-400 sm:text-base text-sm"
             >
               {desc.text[locale]}
             </li>
