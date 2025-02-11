@@ -42,7 +42,7 @@ export default async function ExperienceSection({
         width: "calc(100vw - 10px)",
       }}
     >
-      <RevealAnimation className="container">
+      <RevealAnimation className="container md:pb-7 pb-5">
         <SectionTitle
           className="mb-2 max-sm:text-2xl"
           title={t("fields.experience.title")}
@@ -50,8 +50,9 @@ export default async function ExperienceSection({
 
         <SectionDescription
           text={t("fields.experience.description")}
-          className="md:pb-7 pb-5 text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
+          className=" text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
+        {/* <div className="mt-6 h-1 w-14 md:w-24 bg-sky-950 dark:bg-sky-100  text-center mx-auto" /> */}
       </RevealAnimation>
 
       <RevealAnimation className="container">
