@@ -57,7 +57,7 @@ export default async function ContactSection({
       </RevealAnimation>
 
       <RevealAnimation className="container md:py-10 py-5 ">
-        <p className="text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto text-theme-text-second dark:text-gray-400 !text-2xl flex justify-center gap-1">
+        <p className="text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto text-theme-text-second dark:text-gray-400 md:!text-2xl sm:text-xl text-lg flex justify-center flex-wrap gap-1">
           {t("fields.contact.talk_about")}
           <span className="main-text font-bold">
             {t("fields.contact.next_project")}
