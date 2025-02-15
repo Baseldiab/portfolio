@@ -53,7 +53,7 @@ export default async function ProjectsSection({
 
       <>
         <SecondaryButton
-          className="text-center mx-auto"
+          className="text-center mx-auto max-md:mt-4"
           href={"https://github.com/Baseldiab"}
           as={Link}
         >
