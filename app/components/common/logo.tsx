@@ -8,7 +8,6 @@ export default function Logo() {
         className="text-base md:text-xl capitalize main-text"
       >
         <span className="font-bold">{"basel Diab"}</span>
-        {/* <span className="font-bold">{"iab"}</span> */}
       </Link>
     </>
   );

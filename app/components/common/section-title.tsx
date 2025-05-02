@@ -14,7 +14,6 @@ export default function SectionTitle({ title, className }: SectionTitleProps) {
           className
         )}
       >
-        {/* <span className="text-gradient">#</span> */}
         {title}
       </h2>
     </>

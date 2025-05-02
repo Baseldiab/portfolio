@@ -11,7 +11,6 @@ export default function MainButton({
 }) {
   return (
     <>
-      {/* bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent; */}
       <button
         onClick={onClick}
         className={cn(

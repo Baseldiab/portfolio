@@ -48,7 +48,6 @@ export default async function ContactSection({
           className=" text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
 
-        {/* <div className="mt-6 h-1 w-14 md:w-24 bg-sky-950 dark:bg-sky-100  text-center mx-auto" /> */}
         <ul className="flex justify-center items-center gap-2 pt-4">
           {ContactLinks.map((item: ContactLink) => (
             <ContactItem t={t} key={item.id} item={item} />
@@ -89,7 +88,7 @@ const ContactItem = ({
       className="flex justify-center items-center p-2 rounded-md group btn-radial-out"
       title={t(`navigation.${item.text.toLowerCase()}`)}
     >
-      <Link href={item.href} aria-label={item.text}>
+      <Link href={item.href} aria-label={item.text} target="_blank" rel="noopener noreferrer">
         {item.icon}
       </Link>
     </li>

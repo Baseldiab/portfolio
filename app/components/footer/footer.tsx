@@ -8,12 +8,6 @@ import { LocalProps } from "@/app/components/interfaces/local.props.interface";
 // hooks
 import { useTranslations } from "@/app/components/hooks/useTranslation";
 
-// components
-// import { ContactLinks } from "@/app/components/constants/contact-links";
-
-// Types
-// import { ContactLink } from "@/app/components/interfaces/contact-links";
-
 export default function Footer({ params: { locale } }: LocalProps) {
   const { t } = useTranslations(locale as string);
   const yearNow = new Date().getFullYear();
@@ -26,40 +20,17 @@ export default function Footer({ params: { locale } }: LocalProps) {
             {t("navigation.footer-text", { yearNow })}
           </span>
           <Link
-            className="font-bold max-sm:text-sm main-text"
+            className="font-bold max-sm:text-sm main-text underline"
             href="https://github.com/Baseldiab"
             title={t("navigation.my_git_link")}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t("navigation.footer-name")}
           </Link>
         </div>
-
-        {/* <ul className="flex justify-center items-center gap-2">
-          {ContactLinks.map((item: ContactLink) => (
-            <ContactItem locale={locale as string} key={item.id} item={item} />
-          ))}
-        </ul> */}
       </div>
     </footer>
   );
 }
 
-// const ContactItem = ({
-//   item,
-//   locale,
-// }: {
-//   item: ContactLink;
-//   locale: string;
-// }) => {
-//   const { t } = useTranslations(locale as string);
-//   return (
-//     <li
-//       className="flex justify-center items-center p-2 rounded-md group btn-radial-out"
-//       title={t(`navigation.${item.text.toLowerCase()}`)}
-//     >
-//       <Link href={item.href} aria-label={item.text}>
-//         {item.icon}
-//       </Link>
-//     </li>
-//   );
-// };

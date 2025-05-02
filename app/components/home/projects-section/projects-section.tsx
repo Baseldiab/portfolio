@@ -46,7 +46,6 @@ export default async function ProjectsSection({
           className=" text-center lg:max-w-[55%] md:max-w-[70%] sm:max-w-[80%] max-w-[90%] mx-auto"
         />
 
-        {/* <div className="mt-6 h-1 w-14 md:w-16 bg-sky-950 dark:bg-sky-100  text-center mx-auto" /> */}
       </RevealAnimation>
 
       <ShownCards params={{ locale }} />

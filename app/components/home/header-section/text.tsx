@@ -4,7 +4,6 @@
 import Link from "next/link";
 
 //  components common
-// import DragConstraints from "@/app/components/common/drag-constranints-animation";
 import MainButton from "@/app/components/common/main-button";
 import SecondaryButton from "@/app/components/common/secondary-button";
 import SectionDescription from "@/app/components/common/section-description";
