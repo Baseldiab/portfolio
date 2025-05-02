@@ -10,11 +10,11 @@ import { Button } from "@/app/components/ui/button";
 interface SecondaryButtonProps {
   children: React.ReactNode;
   className?: string;
-  href: string;
+  href?: string;
   as?: React.ElementType;
 }
 
-export default function SecondaryButton({
+export   default function SecondaryButton({
   children,
   className,
   href,
@@ -25,6 +25,8 @@ export default function SecondaryButton({
     /* From Uiverse.io by AKAspidey01 */
     <Component
       {...(href && { href })}
+      {...(href && { target: "_blank" })}
+      {...(href && { rel: "noopener noreferrer" })}
       className={cn(
         "cursor-pointer overflow-hidden relative z-100 border border-theme-border-main dark:border-theme-border-dark group",
         "rounded-3xl",

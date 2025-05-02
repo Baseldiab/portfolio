@@ -15,6 +15,7 @@ import { resumeLink } from "@/app/components/constants/resume-link";
 // React query
 import React from "react";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 interface TextProps {
   firstText: string;
@@ -35,6 +36,8 @@ export default function Text({
   resume,
   className,
 }: TextProps) {
+  const router = useRouter();
+  
   return (
     <article className={cn("relative z-[2] ", className)}>
       <div className="container flex flex-col gap-2 items-start">
@@ -56,9 +59,11 @@ export default function Text({
         </div>
 
         <div className="flex justify-start items-center sm:gap-4 gap-3 max-sm:flex-wrap md:mt-7 mt-4">
-          <MainButton>{contact}</MainButton>
+          <MainButton onClick={() => router.push("/#contact")}>
+            {contact}
+          </MainButton>
 
-          <SecondaryButton href={resumeLink} as={Link}>
+          <SecondaryButton href={resumeLink}  as={Link}>
             {resume}
           </SecondaryButton>
         </div>

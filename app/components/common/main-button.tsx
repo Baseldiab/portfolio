@@ -3,14 +3,17 @@ import { cn } from "@/lib/utils";
 export default function MainButton({
   children,
   className,
+  onClick,
 }: {
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 }) {
   return (
     <>
       {/* bg-gradient-to-r to-[#00E5DA] from-[#1F7BF6] dark:to-[#00E5DA] dark:from-[#1F7BF6] bg-clip-text text-transparent; */}
       <button
+        onClick={onClick}
         className={cn(
           "overflow-hidden text-white dark:text-white border-none rounded-3xl text-base font-bold cursor-pointer relative z-10 group",
           "bg-sky-700 dark:bg-sky-800",
